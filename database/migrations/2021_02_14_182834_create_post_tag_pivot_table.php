@@ -10,7 +10,7 @@ class CreatePostTagPivotTable extends Migration
     {
         Schema::create('post_tag', function (Blueprint $table) {
             $table->foreignId('tag_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('post_id')->constrained();
         });
     }
 

@@ -11,8 +11,11 @@ class AddExtraFieldsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->after('password', function (Blueprint $table) {
                 $table->string('slug')->unique();
-                $table->string('about');
+                $table->string('about')->nullable();
                 $table->string('avatar')->nullable();
+                $table->string('social_github')->nullable();
+                $table->string('social_twitter')->nullable();
+                $table->string('social_instagram')->nullable();
             });
         });
     }
