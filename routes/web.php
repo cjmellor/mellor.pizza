@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'to-do';
-});
+Route::get('/', fn() => view('index'));
+
+Route::view('/dashboard', 'dashboard')
+    ->middleware('auth');
+Route::view('/two-factor-auth', 'auth.two-factor-auth.index');

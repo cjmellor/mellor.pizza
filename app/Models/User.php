@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
     use HasFactory;
     use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -63,5 +65,10 @@ class User extends Authenticatable
     public function getAvatarAttribute(): string
     {
         return sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));
+    }
+
+    public function getTwoFactorEnabledAttribute(): bool
+    {
+        return $this->two_factor_secret ?? false;
     }
 }

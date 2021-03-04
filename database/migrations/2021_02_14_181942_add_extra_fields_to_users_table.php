@@ -23,7 +23,7 @@ class AddExtraFieldsToUsersTable extends Migration
     public function down()
     {
         Schema::table('user', function (Blueprint $table) {
-            $table->dropColumn(['slug', 'about', 'avatar']);
+            $table->dropColumn('slug', 'about', 'avatar');
         });
     }
 }
