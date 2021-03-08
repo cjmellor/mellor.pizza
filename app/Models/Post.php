@@ -32,13 +32,13 @@ class Post extends Model
     ];
 
     /**
-     * A 'Post' belongs to a 'User'
+     * A 'Post' belongs to a 'User' but refer to them as an 'Author'
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
@@ -86,7 +86,7 @@ class Post extends Model
     /**
      * Check if a post is in Markdown format, otherwise, return HTML
      *
-     * Usage: $this->content()
+     * Usage: $this->content
      *
      * @return string
      */
@@ -99,6 +99,16 @@ class Post extends Model
         }
 
         return $this->body;
+    }
+
+    /**
+     * Is the post published, or still in draft mode?
+     *
+     * @return bool
+     */
+    public function getPublishedAttribute(): bool
+    {
+        return $this->is_published;
     }
 
     /**
