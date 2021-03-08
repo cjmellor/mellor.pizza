@@ -22,9 +22,11 @@ Status: {{ auth()->user()->two_factor_enabled ? 'Yes' : 'No' }}
         <button type="submit">Disable 2FA</button>
     </form>
 @endif
-<h2>Recovery codes</h2>
-@foreach(auth()->user()->recoveryCodes() as $recoveryCode)
-    <ul>
-        <li>{{ $recoveryCode }}</li>
-    </ul>
-@endforeach
+@if (session('status') == 'two-factor-authentication-enabled')
+    <h2>Recovery codes</h2>
+    @foreach(auth()->user()->recoveryCodes() as $recoveryCode)
+        <ul>
+            <li>{{ $recoveryCode }}</li>
+        </ul>
+    @endforeach
+@endif
