@@ -1,8 +1,8 @@
 <x-fos.layout :title="$post->title">
-    <x-fos.header>
+    <header>
         <h1>{{ $post->title }}</h1>
-        <p><small>By <em>{{ $post->author->name }}</em> | Posted: <em>{{ $post->created_at->diffForHumans() }}</em></small></p>
-    </x-fos.header>
+        <p><small>By <em>{{ $post->author->name }}</em> | Posted: <em>{{ $post->created_at->format('l, jS F, Y @ h:i') }}</em></small></p>
+    </header>
 
     <x-fos.content>
         <article>
@@ -16,6 +16,4 @@
             </p>
         </section>
     </x-fos.content>
-
-    <x-fos.footer></x-fos.footer>
 </x-fos.layout>

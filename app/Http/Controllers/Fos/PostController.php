@@ -56,11 +56,11 @@ class PostController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Post $post)
     {
-        //
+        return view('fos.posts.edit')->with('post', $post);
     }
 
     /**
@@ -79,10 +79,15 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()
+            ->route('posts.index')
+            ->with(['alert_status' => 'Blog post has been archived']);
     }
 }

@@ -20,3 +20,11 @@ Route::view('/dashboard', 'dashboard')
     ->name('dashboard');
 
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
+
+/*
+ | For adding and removing attachments to a Trix Editor
+ */
+Route::prefix('trix')->group(function () {
+    Route::post('add-attachment', [App\Http\Controllers\Trix\AttachmentController::class, 'store']);
+    Route::post('remove-attachment', [App\Http\Controllers\Trix\AttachmentController::class, 'destroy']);
+});

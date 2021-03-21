@@ -1,6 +1,6 @@
 @props(['to'])
 
-<form action="{{ $to }}" method="post">
+<form action="{{ $to }}" {{ $attributes }} method="post">
     @csrf
     @method('DELETE')
 

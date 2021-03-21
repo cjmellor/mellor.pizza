@@ -1,3 +1,3 @@
 @props(['to'])
 
-<a href="{{ $to }}">{{ $slot }}</a>
+<a {{ $attributes }} href="{{ $to }}">{{ $slot }}</a>
