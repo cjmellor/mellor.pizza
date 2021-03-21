@@ -52,6 +52,14 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        // Custom disks
+        'trix-attachments' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/trix-attachments'),
+            'url' => env('APP_URL').'/storage/trix-attachments',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
