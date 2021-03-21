@@ -4,7 +4,7 @@
     </header>
 
     <x-fos.content>
-        <x-form action="{{ route('posts.update', $post) }}">
+        <x-form action="{{ route('posts.update', $post) }}" method="patch">
             <section>
                 <div>
                     <label for="is_published">Is Post Published?</label>
@@ -14,7 +14,16 @@
                 <div>
                     <label for="title">Title</label>
                     <input id="title" name="title" type="text" value="{{ old('title', $post->title) }}">
-                    {{--On update, the `slug` property should be updated to match new title--}}
+                </div>
+
+                <div>
+                    <label for="category">Category</label>
+                    <select id="category_id" name="category_id">
+                        @foreach($categories as $category)
+                            <option {{ $post->category->id === $category->id ? 'selected' : ''  }}
+                                    value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div>
@@ -28,9 +37,17 @@
                 {{--<img alt="{{ $post->post_image_caption ?? 'none' }}" src="#">--}}
                 {{--</div>--}}
 
-                <x-trix :content="$post->body" name="body"/>
+                <div>
+                    <label for="tag_id">Tags</label>
+                    <select id="tag_id" multiple name="tag_id[]">
+                        @foreach($tags as $tag)
+                            <option {{ $post->tags()->firstWhere('id', $tag->id) ? 'selected' : '' }}
+                                    value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-                {{--Based on the content used, update `is_markdown` appropriatly--}}
+                <x-trix :content="$post->body" name="body"/>
             </section>
             <input type="submit" value="Update">
         </x-form>

@@ -20,6 +20,8 @@ class Post extends Model
         'slug',
         'excerpt',
         'body',
+        'is_published',
+        'is_markdown',
         'post_image',
         'post_image_caption',
     ];

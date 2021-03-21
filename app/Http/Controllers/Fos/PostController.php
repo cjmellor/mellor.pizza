@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Fos;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -60,7 +63,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('fos.posts.edit')->with('post', $post);
+        $categories = Category::get(['id', 'name']);
+        $tags = Tag::get(['id', 'name']);
+
+        return view('fos.posts.edit')
+            ->with('categories', $categories)
+            ->with('post', $post)
+            ->with('tags', $tags);
     }
 
     /**
@@ -68,11 +77,30 @@ class PostController extends Controller
      *
      * @param  Request  $request
      * @param  Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Throwable
      */
     public function update(Request $request, Post $post)
     {
-        //
+         if ($request->is_published) {
+             $post->fill(['is_published' => true]);
+         }
+
+        $post->title = $request->title;
+        $post->slug = Str::slug($request->title);
+        $post->excerpt = $request->excerpt;
+        $post->body = $request->body;
+        // $post->post_image' = $request->post_image;
+        // $post->post_image_caption' = $request->post_image_caption;
+
+        $post->category()->associate($request->category_id);
+
+        $post->saveOrFail();
+
+        $post->tags()->sync($request->tag_id);
+
+        return redirect()->route('posts.show', $post)
+            ->with('alert_status', 'Blog post has been updated');
     }
 
     /**
