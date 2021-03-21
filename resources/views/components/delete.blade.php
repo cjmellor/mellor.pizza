@@ -1,8 +1,5 @@
 @props(['to'])
 
-<form action="{{ $to }}" {{ $attributes }} method="post">
-    @csrf
-    @method('DELETE')
-
+<x-form action="{{ $to }}" method="delete">
     <input type="submit" value="{{ $slot }}">
-</form>
+</x-form>

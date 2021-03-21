@@ -1,7 +1,6 @@
 Logged in as: {{ auth()->user()->name }}
 <hr>
-<a href="/two-factor-auth">2FA</a>
-<form action="/logout" method="post">
-    @csrf
+<x-link to="/two-factor-auth">2FA</x-link>
+<x-form action="/logout">
     <input type="submit" value="Log out">
-</form>
+</x-form>

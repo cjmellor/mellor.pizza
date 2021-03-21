@@ -4,7 +4,7 @@
     </header>
 
     <x-fos.content>
-        <form action="{{ route('posts.update') }}"> @csrf
+        <x-form action="{{ route('posts.update', $post) }}">
             <section>
                 <div>
                     <label for="is_published">Is Post Published?</label>
@@ -33,6 +33,6 @@
                 {{--Based on the content used, update `is_markdown` appropriatly--}}
             </section>
             <input type="submit" value="Update">
-        </form>
+        </x-form>
     </x-fos.content>
 </x-fos.layout>

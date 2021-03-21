@@ -1,2 +1,2 @@
 This is index page
-<a href="{{ route('login') }}">Log in</a>
+<x-link to="{{ route('login') }}">Log in</x-link>
