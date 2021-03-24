@@ -11,6 +11,13 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    public function __construct(
+        public Category $category,
+        public Tag $tag,
+    ) {
+        //
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,11 +33,13 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('fos.posts.create')
+            ->with('categories', $this->category->get(['id', 'name']))
+            ->with('tags', $this->tag->get(['id', 'name']));
     }
 
     /**
@@ -63,13 +72,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::get(['id', 'name']);
-        $tags = Tag::get(['id', 'name']);
-
         return view('fos.posts.edit')
-            ->with('categories', $categories)
+            ->with('categories', $this->category->get(['id', 'name']))
             ->with('post', $post)
-            ->with('tags', $tags);
+            ->with('tags', $this->tag->get(['id', 'name']));
     }
 
     /**
@@ -82,16 +88,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-         if ($request->is_published) {
-             $post->fill(['is_published' => true]);
-         }
+        if ($request->is_published) {
+            $post->fill(['is_published' => true]);
+        }
 
         $post->title = $request->title;
         $post->slug = Str::slug($request->title);
         $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
+        $post->body = $request->post_content;
         // $post->post_image' = $request->post_image;
-        // $post->post_image_caption' = $request->post_image_caption;
 
         $post->category()->associate($request->category_id);
 

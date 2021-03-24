@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
             $table->boolean('is_published')->default(false)->index();
             $table->boolean('is_markdown')->default(false)->index();
             $table->string('post_image')->nullable();
-            $table->string('post_image_caption')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

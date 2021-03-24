@@ -18,7 +18,7 @@
 
                 <div>
                     <label for="category">Category</label>
-                    <select id="category_id" name="category_id">
+                    <select id="category" name="category_id">
                         @foreach($categories as $category)
                             <option {{ $post->category->id === $category->id ? 'selected' : ''  }}
                                     value="{{ $category->id }}">{{ $category->name }}</option>
@@ -38,8 +38,8 @@
                 {{--</div>--}}
 
                 <div>
-                    <label for="tag_id">Tags</label>
-                    <select id="tag_id" multiple name="tag_id[]">
+                    <label for="tags">Tags</label>
+                    <select id="tags" multiple name="tag_id[]">
                         @foreach($tags as $tag)
                             <option {{ $post->tags()->firstWhere('id', $tag->id) ? 'selected' : '' }}
                                     value="{{ $tag->id }}">{{ $tag->name }}</option>
@@ -47,7 +47,7 @@
                     </select>
                 </div>
 
-                <x-trix :content="$post->body" name="body"/>
+                <x-trix :content="$post->body" name="post_content" />
             </section>
             <input type="submit" value="Update">
         </x-form>
