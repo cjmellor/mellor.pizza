@@ -41,7 +41,7 @@
                     <label for="tags">Tags</label>
                     <select id="tags" multiple name="tag_id[]">
                         @foreach($tags as $tag)
-                            <option {{ $post->tags()->firstWhere('id', $tag->id) ? 'selected' : '' }}
+                            <option {{ $post->tags->firstWhere('id', $tag->id) ? 'selected' : '' }}
                                     value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
                     </select>
