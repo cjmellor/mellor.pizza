@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Fos;
 
-use App\Models\Tag;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class TagsController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class TagsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Tag  $tag
+     * @param  Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show(Category $category)
     {
         //
     }
@@ -52,10 +53,10 @@ class TagsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Tag  $tag
+     * @param  Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(Category $category)
     {
         //
     }
@@ -64,10 +65,10 @@ class TagsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  Tag  $tag
+     * @param  Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -75,10 +76,10 @@ class TagsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Tag  $tag
+     * @param  Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Category $category)
     {
         //
     }
