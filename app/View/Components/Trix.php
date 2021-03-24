@@ -9,13 +9,13 @@ class Trix extends Component
     /**
      * Create a new component instance.
      *
-     * @param  string  $content
      * @param  string  $name
+     * @param  string|null  $content
      * @param  string|null  $id
      */
     public function __construct(
-        public string $content,
         public string $name,
+        public ?string $content = null,
         public ?string $id = null,
     ) {
     }

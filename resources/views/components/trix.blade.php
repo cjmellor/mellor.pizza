@@ -1,6 +1,6 @@
 @props(['content'])
 
-{{--<label for="body">Content</label>--}}
+<label for="{{ $id ?? $name }}">Content</label>
 <div {{ $attributes }}>
     <input id="{{ $id ?? $name }}"
            name="{{ $name }}"
@@ -14,7 +14,7 @@
 </div>
 
 @push('third-party-css')
-    {{--Move to dedicated CSS file later--}}
+    {{--TODO: Move to dedicated CSS file later--}}
     <style>
         .trix-content.x-code pre {
             background-color: hsl(220, 16%, 22%) !important;
