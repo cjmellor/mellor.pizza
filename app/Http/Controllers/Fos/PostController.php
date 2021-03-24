@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Fos;
 
 use App\Http\Controllers\Controller;
+use App\Http\ViewComposers\Fos\PostComposer;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -37,9 +38,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('fos.posts.create')
-            ->with('categories', $this->category->get(['id', 'name']))
-            ->with('tags', $this->tag->get(['id', 'name']));
+        return view('fos.posts.create');
     }
 
     /**
@@ -73,9 +72,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         return view('fos.posts.edit')
-            ->with('categories', $this->category->get(['id', 'name']))
-            ->with('post', $post)
-            ->with('tags', $this->tag->get(['id', 'name']));
+            ->with('post', $post);
     }
 
     /**
