@@ -18,7 +18,9 @@
                 <div>
                     <label for="category">Category</label>
                     <select id="category" name="category_id">
-                        <option value=""></option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -32,7 +34,9 @@
                 <div>
                     <label for="tags">Tags</label>
                     <select id="tags" multiple name="tag_id[]">
-                        <option value=""></option>
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
                     </select>
                 </div>
 
