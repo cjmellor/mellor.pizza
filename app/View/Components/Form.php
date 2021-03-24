@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use JetBrains\PhpStorm\Pure;
 
 class Form extends Component
 {
@@ -15,10 +16,14 @@ class Form extends Component
      */
     public function __construct(
         public string $action,
+        public string $method,
         public bool $csrf = true,
-        public string $method = 'post'
     ) {
-        //
+        $this->method = [
+            'delete' => 'DELETE',
+            'patch' => 'PATCH',
+            'put' => 'PUT',
+        ][$method] ?? 'POST';
     }
 
     /**

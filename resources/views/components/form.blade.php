@@ -4,17 +4,7 @@
         @csrf
     @endif
 
-    @switch($method)
-        @case('delete')
-            @method('DELETE')
-            @break
-        @case('patch')
-            @method('PATCH')
-            @break
-        @case('put')
-            @method('PUT')
-            @break
-    @endswitch
+    @method($method)
 
     {{ $slot }}
 </form>
