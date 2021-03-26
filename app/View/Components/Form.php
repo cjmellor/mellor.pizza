@@ -11,8 +11,8 @@ class Form extends Component
      * Create a new component instance.
      *
      * @param  string  $action
-     * @param  bool  $csrf
      * @param  string  $method
+     * @param  bool  $csrf
      */
     public function __construct(
         public string $action,
