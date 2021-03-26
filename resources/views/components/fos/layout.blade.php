@@ -10,8 +10,6 @@
 <body>
     {{ $slot }}
     <script src="{{ mix('js/app.js') }}"></script>
-    {{-- AlpineJS - maybe move to JS bundle --}}
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @stack('third-party-js')
 </body>
 </html>
