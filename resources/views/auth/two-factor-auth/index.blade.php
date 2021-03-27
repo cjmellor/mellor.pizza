@@ -11,7 +11,7 @@ Status: {{ auth()->user()->two_factor_enabled ? 'Yes' : 'No' }}
     </div>
 @endif
 @if(!auth()->user()->two_factor_enabled)
-    <x-form action="/user/two-factor-authentication">
+    <x-form action="/user/two-factor-authentication" method="post">
         <button type="submit">Enable 2FA</button>
     </x-form>
 @else

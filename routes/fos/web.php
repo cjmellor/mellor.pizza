@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::view('/', 'fos.index')->name('index');
+    Route::view('/', 'fos.index')->name('fos.index');
 
     Route::resource('posts', PostController::class);
 });

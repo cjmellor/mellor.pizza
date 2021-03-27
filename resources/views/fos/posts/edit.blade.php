@@ -47,7 +47,7 @@
                     </select>
                 </div>
 
-                <x-trix :content="$post->body" name="post_content" />
+                <x-trix :content="$post->body" name="post_content"/>
             </section>
             <input type="submit" value="Update">
         </x-form>
