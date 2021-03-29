@@ -41,7 +41,10 @@
                 </div>
 
                 {{--TODO: Add option to use a Markdown editor and correctly apply `is_markdown` tag--}}
-                <x-trix name="post_content"/>
+                {{--<x-trix name="post_content"/>--}}
+
+                <x-markdown-editor name="post_content"></x-markdown-editor>
+
             </section>
             <input type="submit" value="Create Post">
         </x-form>

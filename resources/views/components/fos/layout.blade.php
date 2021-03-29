@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @stack('third-party-css')
     <title>Mellor.🍕 - Fortress of Solitude :: {{ $title ?? 'Home' }}</title>
+    @stack('stylesheets')
 </head>
 <body>
     {{ $slot }}
     <script src="{{ mix('js/app.js') }}"></script>
-    @stack('third-party-js')
+    @stack('scripts')
 </body>
 </html>

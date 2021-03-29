@@ -1,5 +1,3 @@
-@props(['content'])
-
 <label for="{{ $id ?? $name }}">Content</label>
 <div {{ $attributes }}>
     <input id="{{ $id ?? $name }}"
@@ -13,7 +11,7 @@
     />
 </div>
 
-@push('third-party-css')
+@push('stylesheets')
     {{--TODO: Move to dedicated CSS file later--}}
     <style>
         .trix-content.x-code pre {
@@ -25,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/nord.min.css"/>
 @endpush
 
-@push('third-party-js')
+@push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" defer></script>
 
