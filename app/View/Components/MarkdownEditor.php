@@ -55,11 +55,11 @@ class MarkdownEditor extends Component
         $defaults = [
             'forceSync' => true,
             'hideIcons' => ['image'],
-            'previewImagesInEditor' => true,
             'renderingConfig' => [
                 'codeSyntaxHighlighting' => true,
             ],
             'showIcons' => ['code'],
+            'status' => false,
             'uploadImage' => true,
         ];
 
