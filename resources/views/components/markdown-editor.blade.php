@@ -2,9 +2,7 @@
 <div>
     <div x-data x-init="easyMDE()">
         <label for="{{ $id ?? $name }}">Content</label>
-        <textarea {{ $attributes }} id="{{ $id }}" name="{{ $name ?? $id }}">
-            {{ old($name ?? $id, $slot) }}
-        </textarea>
+        <textarea {{ $attributes }} id="{{ $id }}" name="{{ $name ?? $id }}">{{ old($name ?? $id, $slot) }}</textarea>
     </div>
 </div>
 {{--End Template--}}

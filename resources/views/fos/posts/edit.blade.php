@@ -47,7 +47,7 @@
                     </select>
                 </div>
 
-                <x-trix :content="$post->body" name="post_content"/>
+                <x-content-editor edit-mode :type="$post->content_type">{{ $post->content }}</x-content-editor>
             </section>
             <input type="submit" value="Update">
         </x-form>

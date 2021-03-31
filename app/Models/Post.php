@@ -96,6 +96,12 @@ class Post extends Model
      */
     public function getContentAttribute(): string
     {
+        // If in 'edit' mode, display content as-is from the DB
+        if ($this->isInEditMode()) {
+            return $this->body;
+        }
+
+        // If the content is Markdown and *not* in edit mode, convert to HTMl
         if ($this->is_markdown) {
             return Str::of($this->body)->markdown([
                 'html_input' => 'strip',
@@ -103,6 +109,26 @@ class Post extends Model
         }
 
         return $this->body;
+    }
+
+    /**
+     * Check if the post is on the edit route
+     *
+     * @return bool
+     */
+    public function isInEditMode(): bool
+    {
+        return request()->routeIs('posts.edit');
+    }
+
+    /**
+     * Determine the type of content the post is
+     *
+     * @return string
+     */
+    public function getContentTypeAttribute(): string
+    {
+        return $this->is_markdown ? 'markdown' : 'html';
     }
 
     /**

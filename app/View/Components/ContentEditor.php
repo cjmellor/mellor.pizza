@@ -10,9 +10,11 @@ class ContentEditor extends Component
      * Create a new component instance.
      *
      * @param  string  $type
+     * @param  bool  $editMode
      */
     public function __construct(
         public string $type,
+        public bool $editMode = false,
     ) {
     }
 

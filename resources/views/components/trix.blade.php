@@ -4,7 +4,7 @@
         <input id="{{ $id ?? $name }}"
                name="{{ $name }}"
                type="hidden"
-               value="{{ old($name, $content) }}"
+               value="{{ old($name, $slot) }}"
         >
         <trix-editor
             class="trix-content"
