@@ -1,14 +1,16 @@
-<label for="{{ $id ?? $name }}">Content</label>
-<div {{ $attributes }}>
-    <input id="{{ $id ?? $name }}"
-           name="{{ $name }}"
-           type="hidden"
-           value="{{ old($name, $content) }}"
-    >
-    <trix-editor
-        class="trix-content"
-        input="{{ $name ?? $id }}"
-    />
+<div>
+    <label for="{{ $id ?? $name }}">Content</label>
+    <div {{ $attributes }}>
+        <input id="{{ $id ?? $name }}"
+               name="{{ $name }}"
+               type="hidden"
+               value="{{ old($name, $content) }}"
+        >
+        <trix-editor
+            class="trix-content"
+            input="{{ $name ?? $id }}"
+        />
+    </div>
 </div>
 
 @push('stylesheets')

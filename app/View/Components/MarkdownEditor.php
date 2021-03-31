@@ -58,7 +58,7 @@ class MarkdownEditor extends Component
             'renderingConfig' => [
                 'codeSyntaxHighlighting' => true,
             ],
-            'showIcons' => ['code'],
+            'showIcons' => ['code', 'table'],
             'status' => false,
             'uploadImage' => true,
         ];

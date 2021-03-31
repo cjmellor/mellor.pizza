@@ -1,10 +1,11 @@
 {{--Template--}}
-<div x-data x-init="easyMDE()">
-    <div><i class="fa fa-bold" x-on:click="easyMDE().toggleBold()"></i></div>
-    <label for="{{ $id }}"></label>
-    <textarea {{ $attributes }} id="{{ $id }}" name="{{ $name ?? $id }}">
-        {{ old($name ?? $id, $slot) }}
-    </textarea>
+<div>
+    <div x-data x-init="easyMDE()">
+        <label for="{{ $id ?? $name }}">Content</label>
+        <textarea {{ $attributes }} id="{{ $id }}" name="{{ $name ?? $id }}">
+            {{ old($name ?? $id, $slot) }}
+        </textarea>
+    </div>
 </div>
 {{--End Template--}}
 
@@ -35,6 +36,5 @@
         }
     </script>
 
-    <x-use-alpine/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" defer></script>
 @endpush
