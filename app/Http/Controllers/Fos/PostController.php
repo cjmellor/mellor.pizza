@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->sortBy('is_published');
+        $posts = Post::with('author')->latest()->get();
 
         return view('fos.posts.index', ['posts' => $posts]);
     }
