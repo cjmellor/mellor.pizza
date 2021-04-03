@@ -1,4 +1,4 @@
-const mix = require('laravel-mix')
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +11,11 @@ const mix = require('laravel-mix')
  |
  */
 
-mix.js(['resources/js/app.js', 'resources/js/trix/add-attachment.js', 'resources/js/trix/remove-attachment.js'], 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ])
+mix.js(
+    [
+        'resources/js/app.js',
+        'resources/js/trix/add-attachment.js',
+        'resources/js/trix/remove-attachment.js',
+    ],
+    'public/js'
+).postCss('resources/css/app.css', 'public/css', [require('autoprefixer')]);
