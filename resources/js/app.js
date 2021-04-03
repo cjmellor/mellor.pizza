@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-const endpointBase = process.env.APP_URL;
+const endpointBase = process.env.MIX_APP_URL;
 const endpoints = {
     delete: `${endpointBase}/trix/remove-attachment`,
     post: `${endpointBase}/trix/add-attachment`,

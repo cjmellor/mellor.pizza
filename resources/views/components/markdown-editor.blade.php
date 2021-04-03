@@ -8,7 +8,6 @@
 {{--End Template--}}
 
 @push('stylesheets')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/nord.min.css" rel="stylesheet"/>
     <link href="https://unpkg.com/easymde/dist/easymde.min.css" rel="stylesheet">
     {{--I know it's not a stylesheet, but placing this before </body> doesn't work--}}
     <script src="https://unpkg.com/easymde/dist/easymde.min.js" defer></script>
@@ -33,6 +32,4 @@
             })
         }
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" defer></script>
 @endpush
