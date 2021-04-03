@@ -39,12 +39,12 @@
 
                 <div>
                     <label for="tags">Tags</label>
-                    <select id="tags" multiple name="tag_id[]">
+                    <x-multiple-select id="tags" placeholder="Add some tags...">
                         @foreach($tags as $tag)
                             <option {{ $post->tags->firstWhere('id', $tag->id) ? 'selected' : '' }}
                                     value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
-                    </select>
+                    </x-multiple-select>
                 </div>
 
                 <x-content-editor edit-mode :type="$post->content_type">{{ $post->content }}</x-content-editor>
