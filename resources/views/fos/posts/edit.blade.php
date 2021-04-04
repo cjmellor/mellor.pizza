@@ -4,7 +4,7 @@
     </header>
 
     <x-fos.content>
-        <x-form action="{{ route('posts.update', $post) }}" method="patch">
+        <x-form.form action="{{ route('posts.update', $post) }}" method="patch">
             <section>
                 <div>
                     <label for="is_published">Is Post Published?</label>
@@ -39,17 +39,17 @@
 
                 <div>
                     <label for="tags">Tags</label>
-                    <x-multiple-select id="tags" placeholder="Add some tags...">
+                    <x-form.multiple-select id="tags" placeholder="Add some tags...">
                         @foreach($tags as $tag)
                             <option {{ $post->tags->firstWhere('id', $tag->id) ? 'selected' : '' }}
                                     value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
-                    </x-multiple-select>
+                    </x-form.multiple-select>
                 </div>
 
                 <x-content-editor edit-mode :type="$post->content_type">{{ $post->content }}</x-content-editor>
             </section>
             <input type="submit" value="Update">
-        </x-form>
+        </x-form.form>
     </x-fos.content>
 </x-fos.layout>

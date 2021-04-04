@@ -3,7 +3,7 @@
         <h1>Create a New Post</h1>
     </header>
     <x-fos.content>
-        <x-form action="{{ route('posts.store') }}" method="post">
+        <x-form.form action="{{ route('posts.store') }}" method="post">
             <section>
                 <div>
                     <label for="is_published">Publish</label>
@@ -18,6 +18,7 @@
                 <div>
                     <label for="category">Category</label>
                     <select id="category" name="category_id">
+                        <option disabled selected value="0">--- Choose Category ---</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -33,11 +34,11 @@
 
                 <div>
                     <label for="tags">Tags</label>
-                    <x-multiple-select id="tags" placeholder="Add some tags...">
+                    <x-form.multiple-select id="tags" placeholder="Add some tags...">
                         @foreach($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
-                    </x-multiple-select>
+                    </x-form.multiple-select>
                 </div>
 
                 {{--TODO: Add option to use a Markdown editor and correctly apply `is_markdown` tag--}}
@@ -45,6 +46,6 @@
 
             </section>
             <input type="submit" value="Create Post">
-        </x-form>
+        </x-form.form>
     </x-fos.content>
 </x-fos.layout>

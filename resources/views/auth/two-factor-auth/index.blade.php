@@ -11,13 +11,13 @@ Status: {{ auth()->user()->two_factor_enabled ? 'Yes' : 'No' }}
     </div>
 @endif
 @if(!auth()->user()->two_factor_enabled)
-    <x-form action="/user/two-factor-authentication" method="post">
+    <x-form.form action="/user/two-factor-authentication" method="post">
         <button type="submit">Enable 2FA</button>
-    </x-form>
+    </x-form.form>
 @else
-    <x-form action="/user/two-factor-authentication" method="delete">
+    <x-form.form action="/user/two-factor-authentication" method="delete">
         <button type="submit">Disable 2FA</button>
-    </x-form>
+    </x-form.form>
 @endif
 @if (session('status') == 'two-factor-authentication-enabled')
     <h2>Recovery codes</h2>

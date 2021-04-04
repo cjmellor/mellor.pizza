@@ -12,11 +12,12 @@
 
 {{--Scripts--}}
 @push('scripts')
-    <script defer src="https://cdn.jsdelivr.net/npm/tom-select@1.1/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@1.1/dist/js/tom-select.complete.min.js"></script>
 
     <script>
         const multiSelect = ref => {
             const options = {
+                create: true,
                 plugins: [
                     'no_backspace_delete',
                     'remove_button',

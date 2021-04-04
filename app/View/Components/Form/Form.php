@@ -1,9 +1,8 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Form;
 
 use Illuminate\View\Component;
-use JetBrains\PhpStorm\Pure;
 
 class Form extends Component
 {
@@ -20,10 +19,10 @@ class Form extends Component
         public bool $csrf = true,
     ) {
         $this->method = [
-            'delete' => 'DELETE',
-            'patch' => 'PATCH',
-            'put' => 'PUT',
-        ][$method] ?? 'POST';
+                'delete' => 'DELETE',
+                'patch' => 'PATCH',
+                'put' => 'PUT',
+            ][$method] ?? 'POST';
     }
 
     /**
@@ -33,6 +32,6 @@ class Form extends Component
      */
     public function render()
     {
-        return view('components.form');
+        return view('components.form.form');
     }
 }

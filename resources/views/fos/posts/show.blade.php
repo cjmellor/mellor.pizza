@@ -19,7 +19,7 @@
         <section>
             <p>
                 <x-link to="{{ route('posts.edit', $post) }}">Edit</x-link>
-                <x-delete to="{{ route('posts.destroy', $post) }}">Archive</x-delete>
+                <x-form.delete to="{{ route('posts.destroy', $post) }}">Archive</x-form.delete>
             </p>
         </section>
     </x-fos.content>

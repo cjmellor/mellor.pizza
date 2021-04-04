@@ -3,7 +3,9 @@
         @csrf
     @endif
 
-    @method($method)
+    @unless(in_array($method, ['POST']))
+        @method($method)
+    @endunless
 
     {{ $slot }}
 </form>

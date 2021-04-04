@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Form;
 
 use Illuminate\View\Component;
 
@@ -25,6 +25,6 @@ class MultipleSelect extends Component
      */
     public function render()
     {
-        return view('components.multiple-select');
+        return view('components.form.multiple-select');
     }
 }
