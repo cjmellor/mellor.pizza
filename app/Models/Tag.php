@@ -10,6 +10,8 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     /**
      * A 'Tag' belongs to many 'Posts'
      *
