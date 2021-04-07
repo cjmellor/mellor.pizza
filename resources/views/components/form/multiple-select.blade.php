@@ -21,7 +21,7 @@
                 plugins: [
                     'no_backspace_delete',
                     'remove_button',
-                ]
+                ],
             }
 
             new TomSelect(ref, options)

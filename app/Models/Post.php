@@ -98,17 +98,17 @@ class Post extends Model
     {
         // If in 'edit' mode, display content as-is from the DB
         if ($this->isInEditMode()) {
-            return $this->body;
+            return $this->post_content;
         }
 
         // If the content is Markdown and *not* in edit mode, convert to HTMl
         if ($this->is_markdown) {
-            return Str::of($this->body)->markdown([
+            return Str::of($this->post_content)->markdown([
                 'html_input' => 'strip',
             ]);
         }
 
-        return $this->body;
+        return $this->post_content;
     }
 
     /**

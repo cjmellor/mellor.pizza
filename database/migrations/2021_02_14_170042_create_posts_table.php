@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->index();
             $table->string('slug')->unique();
             $table->string('excerpt');
-            $table->text('body')->index();
+            $table->text('post_content')->index();
             $table->boolean('is_published')->default(false)->index();
             $table->boolean('is_markdown')->default(false)->index();
             $table->string('post_image')->nullable();

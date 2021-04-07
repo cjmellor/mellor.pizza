@@ -7,12 +7,12 @@
             <section>
                 <div>
                     <label for="is_published">Publish</label>
-                    <input id="is_published" name="is_published" type="checkbox">
+                    <input id="is_published" name="is_published" type="checkbox" value="{{ old('is_published') }}">
                 </div>
 
                 <div>
                     <label for="title">Title</label>
-                    <input id="title" name="title" type="text">
+                    <input id="title" name="title" type="text" value="{{ old('title') }}">
                 </div>
 
                 <div>
@@ -20,14 +20,14 @@
                     <select id="category" name="category_id">
                         <option disabled selected value="0">--- Choose Category ---</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ old('category_id', $category->id) }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div>
                     <label for="excerpt">Excerpt</label>
-                    <input id="excerpt" name="excerpt" type="text">
+                    <input id="excerpt" name="excerpt" type="text" value="{{ old('excerpt') }}">
                 </div>
 
                 {{--TODO: Add fields for post image (post_image)--}}
