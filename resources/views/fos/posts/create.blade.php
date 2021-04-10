@@ -41,7 +41,6 @@
                     </x-form.multiple-select>
                 </div>
 
-                {{--TODO: Add option to use a Markdown editor and correctly apply `is_markdown` tag--}}
                 <x-content-editor type="html"></x-content-editor>
 
             </section>

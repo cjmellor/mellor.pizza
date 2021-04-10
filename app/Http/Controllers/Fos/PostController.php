@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Fos;
 
+use App\Actions\Post\PublishPost;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Fos\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -50,23 +51,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = new Post();
-
-        $post->author()->associate(auth()->id());
-        $post->category()->associate($request->category_id);
-
-        $post->fill($request->validated());
-        $post->slug = Str::slug($request->title);
-
-        // If the post is Markdown, update model
-        if ($post->content_type === 'markdown') {
-            $post->is_markdown = true;
-        }
-
-        $post->saveOrFail();
-
-        // Add tags if they don't exist, otherwise, update the model
-        $post->tags()->sync($this->tagsOrCreate($request));
+        (new PublishPost($request))->create();
 
         return redirect()->route('posts.index')
             ->with('alert_status', 'New post created');
@@ -106,49 +91,10 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        if ($request->is_published) {
-            $post->is_published = true;
-        }
-
-        $post->fill($request->validated());
-        $post->slug = Str::slug($request->title);
-
-        $post->category()->associate($request->category_id);
-
-        $post->saveOrFail();
-
-        $post->tags()->sync($this->tagsOrCreate($request));
+        (new PublishPost($request, $post))->edit();
 
         return redirect()->route('posts.show', $post)
             ->with('alert_status', 'Blog post has been updated');
-    }
-
-    /**
-     * Get a list of tag IDs from the request.
-     * If a tag doesn't exist, it is created
-     * -----
-     * Code inspired by @themsaid
-     * https://github.com/themsaid/wink/blob/1.x/src/Http/Controllers/PostsController.php#L115-L129
-     *
-     * @param $request
-     * @return array
-     */
-    public function tagsOrCreate($request): array
-    {
-        $tags = Tag::all();
-
-        return collect($request->tag_id)
-            ->map(function ($postTags) use ($tags): string {
-                $tag = $tags->firstWhere('id', $postTags);
-
-                if (is_null($tag)) {
-                    $tag = Tag::create([
-                        'name' => Str::slug($postTags),
-                    ]);
-                }
-
-                return (string) $tag->id;
-            })->toArray();
     }
 
     /**

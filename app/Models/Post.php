@@ -19,7 +19,7 @@ class Post extends Model
         'title',
         'slug',
         'excerpt',
-        'body',
+        'post_content',
         'is_published',
         'is_markdown',
         'post_image',
@@ -149,6 +149,11 @@ class Post extends Model
     public function getPublishedAtAttribute(): mixed
     {
         return $this->created_at;
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
     }
 
     /**

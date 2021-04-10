@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
             'excerpt' => 'required|string|max:255',
             'category_id' => 'required|not_in:0',
             'tag_id' => 'required|array',
-            'post_content' => 'required|string',
+            'post_content' => 'required',
             'post_image' => 'nullable|file|image',
         ];
     }

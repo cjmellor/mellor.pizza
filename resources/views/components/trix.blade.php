@@ -32,8 +32,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             document.querySelectorAll('div.trix-content pre').forEach((block) => {
-                hljs.highlightBlock(block)
-            })
-        })
+                hljs.highlightBlock(block);
+            });
+        });
     </script>
 @endpush
