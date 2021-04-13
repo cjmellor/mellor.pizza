@@ -12,6 +12,19 @@
     </header>
 
     <x-fos.content>
+        <section>
+            <p>Category: {{ $post->category->name }}</p>
+        </section>
+
+        <section>
+            <p>Tags</p>
+            <ul>
+                @foreach($post->tags as $tag)
+                    <li>{{ $tag->name }}</li>
+                @endforeach
+            </ul>
+        </section>
+
         <article>
             {!! $post->content !!}
         </article>
