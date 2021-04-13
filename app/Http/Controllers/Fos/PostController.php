@@ -8,7 +8,7 @@ use App\Http\Requests\Fos\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('author')->latest()->get();
+        $posts = Cache::remember('posts.index', now()->addDay(), fn() => Post::with('author')->latest()->get());
 
         return view('fos.posts.index')
             ->with('posts', $posts);
@@ -60,11 +60,15 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Post  $post
+     * Removed implicit model binding in favour of caching
+     *
+     * @param $id
      * @return \Illuminate\Contracts\View\View
      */
-    public function show(Post $post)
+    public function show($id)
     {
+        $post = Cache::rememberForever('post.show.'.$id, fn() => Post::find($id));
+
         return view('fos.posts.show')
             ->with('post', $post);
     }
