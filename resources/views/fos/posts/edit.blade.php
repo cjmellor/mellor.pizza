@@ -19,6 +19,7 @@
                 <div>
                     <label for="category">Category</label>
                     <select id="category" name="category_id">
+                        <option disabled selected value="0">--- Choose Category ---</option>
                         @foreach($categories as $category)
                             <option {{ $post->category->id === $category->id ? 'selected' : ''  }}
                                     value="{{ $category->id }}">{{ $category->name }}</option>

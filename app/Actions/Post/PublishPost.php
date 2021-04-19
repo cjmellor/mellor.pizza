@@ -27,11 +27,18 @@ class PublishPost
     }
 
     /**
-     * @throws \Throwable
+     * @throws \Throwable|\Psr\SimpleCache\InvalidArgumentException
      */
     public function edit()
     {
         $this->post->is_published = (bool) $this->request->is_published;
+
+        /**
+         * When updating the post, it will still be cached, so reset the cache first...
+         */
+        if (cache()->has('post.'.$this->post->id)) {
+            cache()->forget('post.'.$this->post->id);
+        }
 
         $this->execute();
     }
