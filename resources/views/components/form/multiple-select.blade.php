@@ -1,8 +1,9 @@
 {{--Template--}}
+<label for="{{ $id }}"></label>
 <select {{ $attributes }}
         id="{{ $id }}"
         multiple
-        name="{{ $name ?? \Str::singular($id) }}_id[]"
+        name="{{ $name ?? Str::singular($id) }}_id[]"
         x-data
         x-init="multiSelect($refs.select)"
         x-ref="select">

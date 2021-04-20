@@ -4,6 +4,7 @@
         <label for="{{ $id ?? $name }}">Content</label>
         {{--This hidden field is used to identify that the post is written in Markdown--}}
         <input type="hidden" name="is_markdown" value="true">
+        <label for="{{ $id }}"></label>
         <textarea {{ $attributes }} id="{{ $id }}" name="{{ $name ?? $id }}">{{ old($name ?? $id, $slot) }}</textarea>
     </div>
 </div>

@@ -62,12 +62,12 @@ class PostController extends Controller
      *
      * Removed implicit model binding in favour of caching
      *
-     * @param $id
+     * @param $post
      * @return \Illuminate\Contracts\View\View
      */
-    public function show($id)
+    public function show($post)
     {
-        $post = Cache::rememberForever('post.'.$id, fn() => Post::find($id));
+        $post = Cache::rememberForever('post.'.$post, fn() => Post::find($post));
 
         return view('fos.posts.show')
             ->with('post', $post);

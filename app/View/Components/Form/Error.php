@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Form;
 
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
 class Error extends Component
@@ -24,7 +25,7 @@ class Error extends Component
      */
     public function errorCountTitle($errors): string
     {
-        return $errors->count().' '.\Str::plural('error', $errors->count()).' requires your attention';
+        return $errors->count().' '.Str::plural('error', $errors->count()).' requires your attention';
     }
 
     /**

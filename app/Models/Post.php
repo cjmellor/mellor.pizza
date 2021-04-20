@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Str;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -104,13 +104,9 @@ class Post extends Model
         }
 
         // If the content is Markdown and *not* in edit mode, convert to HTMl
-        if ($this->is_markdown) {
-            return Str::of($this->post_content)->markdown([
-                'html_input' => 'strip',
-            ]);
-        }
-
-        return $this->post_content;
+        return $this->is_markdown ? Str::of($this->post_content)->markdown([
+            'html_input' => 'strip',
+        ]) : $this->post_content;
     }
 
     /**
