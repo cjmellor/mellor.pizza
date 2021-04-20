@@ -72,9 +72,9 @@ class User extends Authenticatable
      *
      * @return string
      */
-    public function getAvatarAttribute(): string
+    public function getAvatarPathAttribute(): string
     {
-        return sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));
+        return $this->avatar ?: sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));
     }
 
     public function getTwoFactorEnabledAttribute(): bool
