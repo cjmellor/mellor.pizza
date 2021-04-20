@@ -58,6 +58,16 @@ class User extends Authenticatable
     }
 
     /**
+     * "God mode" meaning the user can do _anything_
+     *
+     * @return bool
+     */
+    public function getIsGodAttribute(): bool
+    {
+        return $this->id == config('auth.god_mode_id');
+    }
+
+    /**
      * Get users' Gravatar
      *
      * @return string

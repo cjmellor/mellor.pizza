@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'can:is-god'])->group(function () {
     Route::view('/', 'fos.index')->name('fos.index');
 
     Route::resource('posts', PostController::class);

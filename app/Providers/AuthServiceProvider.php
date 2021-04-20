@@ -25,6 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        /*
+        |--------------------------------------------------------------------------
+        | God Mode
+        |--------------------------------------------------------------------------
+        |
+        | God mode = do _anything_
+        */
+        Gate::define('is-god', fn($user) => $user->is_god);
     }
 }
