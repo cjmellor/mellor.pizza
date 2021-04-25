@@ -36,7 +36,7 @@ class Post extends Model
     ];
 
     /**
-     * A 'Post' belongs to a 'User' but refer to them as an 'Author'
+     * A 'Post' belongs to a 'User' but refer to them as an 'Author'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -46,7 +46,7 @@ class Post extends Model
     }
 
     /**
-     * A 'Post' belongs to a 'Category'
+     * A 'Post' belongs to a 'Category'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -56,7 +56,7 @@ class Post extends Model
     }
 
     /**
-     * A 'Post' belongs to many 'Tags'
+     * A 'Post' belongs to many 'Tags'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -67,7 +67,7 @@ class Post extends Model
     }
 
     /**
-     * Check if a post is published
+     * Check if a post is published.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -78,7 +78,7 @@ class Post extends Model
     }
 
     /**
-     * Check if a post is in draft mode
+     * Check if a post is in draft mode.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -89,7 +89,7 @@ class Post extends Model
     }
 
     /**
-     * Check if a post is in Markdown format, otherwise, return HTML
+     * Check if a post is in Markdown format, otherwise, return HTML.
      *
      * Usage: $this->content
      *
@@ -110,7 +110,7 @@ class Post extends Model
     }
 
     /**
-     * Check if the post is on the edit route
+     * Check if the post is on the edit route.
      *
      * @return bool
      */
@@ -120,7 +120,7 @@ class Post extends Model
     }
 
     /**
-     * Determine the type of content the post is
+     * Determine the type of content the post is.
      *
      * @return string
      */
@@ -140,7 +140,7 @@ class Post extends Model
     }
 
     /**
-     * Supply a 'published_at' attribute for better API readability
+     * Supply a 'published_at' attribute for better API readability.
      *
      * @return mixed
      */

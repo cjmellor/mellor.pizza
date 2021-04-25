@@ -18,7 +18,7 @@ class Error extends Component
     }
 
     /**
-     * A default title that shows how many error messages there are
+     * A default title that shows how many error messages there are.
      *
      * @param $errors
      * @return string
