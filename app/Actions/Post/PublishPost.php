@@ -12,7 +12,7 @@ class PublishPost
 {
     public function __construct(
         public PostRequest $request,
-        public ?Post $post = null
+        public Post $post
     ) {
     }
 
@@ -34,7 +34,7 @@ class PublishPost
      */
     public function execute()
     {
-        $this->post->author()->associate(auth()->id());
+        $this->post->author()->associate(auth()->user()->id);
         $this->post->category()->associate($this->request->category_id);
 
         $this->post->fill($this->request->validated());
@@ -44,6 +44,8 @@ class PublishPost
 
         // Add tags if they don't exist, otherwise, update the model
         $this->post->tags()->sync($this->addOrUpdateTags());
+
+        $this->clearCache();
     }
 
     /**
@@ -74,18 +76,25 @@ class PublishPost
     }
 
     /**
+     * When updating the post, it will still be cached, so reset the cache first...
+     */
+    protected function clearCache(): void
+    {
+        if (Cache::has('post.'.$this->post->id)) {
+            Cache::forget('post.'.$this->post->id);
+        }
+
+        if (Cache::has('posts.index')) {
+            Cache::forget('posts.index');
+        }
+    }
+
+    /**
      * @throws \Throwable
      */
     public function edit()
     {
         $this->post->is_published = (bool) $this->request->is_published;
-
-        /**
-         * When updating the post, it will still be cached, so reset the cache first...
-         */
-        if (Cache::has('post.'.$this->post->id)) {
-            Cache::forget('post.'.$this->post->id);
-        }
 
         $this->execute();
     }

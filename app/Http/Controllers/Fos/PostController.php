@@ -46,12 +46,13 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\Fos\PostRequest  $request
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Throwable
      */
-    public function store(PostRequest $request)
+    public function store(PostRequest $request, Post $post)
     {
-        (new PublishPost($request))->create();
+        (new PublishPost($request, $post))->create();
 
         return redirect()->route('posts.index')
             ->with('alert_status', 'New post created');
@@ -110,6 +111,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        Cache::forget('posts.index');
+
         $post->delete();
 
         return redirect()
