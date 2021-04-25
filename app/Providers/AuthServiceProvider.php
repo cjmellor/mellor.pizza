@@ -32,6 +32,6 @@ class AuthServiceProvider extends ServiceProvider
         |
         | God mode = do _anything_
         */
-        Gate::define('is-god', fn($user) => $user->is_god);
+        Gate::define('is-god', fn ($user) => $user->is_god);
     }
 }

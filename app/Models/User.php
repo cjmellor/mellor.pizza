@@ -48,7 +48,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * A 'User' has many 'Posts'
+     * A 'User' has many 'Posts'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -58,7 +58,7 @@ class User extends Authenticatable
     }
 
     /**
-     * "God mode" meaning the user can do _anything_
+     * "God mode" meaning the user can do _anything_.
      *
      * @return bool
      */
@@ -68,7 +68,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get users' Gravatar
+     * Get users' Gravatar.
      *
      * @return string
      */
