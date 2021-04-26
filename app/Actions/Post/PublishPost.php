@@ -40,12 +40,56 @@ class PublishPost
         $this->post->fill($this->request->validated());
         $this->post->slug = $this->request->title;
 
+        if ($this->request->has('post_image')) {
+            $this->post->post_image = $this->uploadPostHeader();
+        }
+
         $this->post->saveOrFail();
 
         // Add tags if they don't exist, otherwise, update the model
         $this->post->tags()->sync($this->addOrUpdateTags());
 
         $this->clearCache();
+    }
+
+    /**
+     * Store the requested file in the desired location and return the path.
+     *
+     * @return string|\App\Http\Requests\Fos\PostRequest|bool|null
+     */
+    protected function uploadPostHeader(): string|PostRequest|bool|null
+    {
+        // First, if the image is being replaced, then remove the old one.
+        $this->deleteUnusedImage();
+
+        // TODO: Look into creating images for all browser sizes on store
+
+        if ($this->request->has('post_image')) {
+            return $this->request->file('post_image')
+                ->storeAs(Str::slug($this->request->title), $this->getFilename(), 'post-headers');
+        }
+
+        return null;
+    }
+
+    /**
+     * When editing a post, you change the header, delete the original.
+     */
+    private function deleteUnusedImage(): void
+    {
+        if ($this->request->has('post_header_delete')) {
+            \Storage::disk('post-headers')->delete($this->request->post_header_delete);
+        }
+    }
+
+    /**
+     * Generates a random filename with it's extension from the uploaded file.
+     *
+     * @return string
+     */
+    private function getFilename(): string
+    {
+        return Str::random().'.'.$this->request->file('post_image')->extension();
     }
 
     /**

@@ -3,7 +3,7 @@
         <h1>Create a New Post</h1>
     </header>
     <x-fos.content>
-        <x-form.form action="{{ route('posts.store') }}" method="post">
+        <x-form.form action="{{ route('posts.store') }}" enctype="multipart/form-data" method="post">
             <section>
                 <div>
                     <label for="is_published">Publish</label>
@@ -30,7 +30,10 @@
                     <input id="excerpt" name="excerpt" type="text" value="{{ old('excerpt') }}">
                 </div>
 
-                {{--TODO: Add fields for post image (post_image)--}}
+                <div>
+                    <label for="post_image">Add Post Header</label>
+                    <input id="post_image" name="post_image" type="file">
+                </div>
 
                 <div>
                     <label for="tags">Tags</label>

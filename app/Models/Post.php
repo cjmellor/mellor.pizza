@@ -149,6 +149,11 @@ class Post extends Model
         return $this->created_at;
     }
 
+    /**
+     * A slug should always be parsed in a slug format.
+     *
+     * @param $value
+     */
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = Str::slug($value);

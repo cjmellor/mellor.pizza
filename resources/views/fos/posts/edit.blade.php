@@ -4,7 +4,7 @@
     </header>
 
     <x-fos.content>
-        <x-form.form action="{{ route('posts.update', $post) }}" method="patch">
+        <x-form.form action="{{ route('posts.update', $post) }}" enctype="multipart/form-data" method="patch">
             <section>
                 <div>
                     <label for="is_published">Is Post Published?</label>
@@ -32,11 +32,16 @@
                     <input id="excerpt" name="excerpt" type="text" value="{{ old('excerpt', $post->excerpt) }}">
                 </div>
 
-                {{--<div>--}}
-                {{--<label for="post_image">Change Post Image</label>--}}
-                {{--<input id="post_image" name="post_image" type="file">--}}
-                {{--<img alt="{{ $post->post_image_caption ?? 'none' }}" src="#">--}}
-                {{--</div>--}}
+                <div>
+                    <picture>
+                        {{--TODO: If decided, add further size specific picture sources here--}}
+                        {{--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture--}}
+                        <img alt="{{ $post->title }}" src="{{ asset('post_headers/'.$post->post_image) }}" style="width: 16rem; height: 8rem">
+                        <input type="hidden" name="post_header_delete" value="{{ $post->post_image }}">
+                    </picture>
+                    <label for="post_image">Change Post Header</label>
+                    <input id="post_image" name="post_image" type="file">
+                </div>
 
                 <div>
                     <label for="tags">Tags</label>

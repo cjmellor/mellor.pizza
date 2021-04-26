@@ -14,7 +14,7 @@ class PostRequest extends FormRequest
             'category_id' => 'required|not_in:0',
             'tag_id' => 'required|array',
             'post_content' => 'required',
-            'post_image' => 'nullable|file|image',
+            'post_image' => 'image',
         ];
     }
 
@@ -28,7 +28,7 @@ class PostRequest extends FormRequest
             'category_id.required' => 'You have\'t chosen a category',
             'tag_id.required' => 'You need to add some tags',
             'post_content.required' => 'A Post needs content',
-            // TODO: add validation for missing options
+            'post_image.image' => 'This must be an image file (jpg, png, gif, svg, webp)',
         ];
     }
 

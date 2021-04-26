@@ -60,6 +60,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'post-headers' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/post_headers'),
+            'url' => config('app.url').'/storage/post_headers',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*

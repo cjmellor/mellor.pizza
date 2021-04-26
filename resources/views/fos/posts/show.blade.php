@@ -13,6 +13,12 @@
 
     <x-fos.content>
         <section>
+            <picture>
+                <img alt="{{ $post->title }}" src="{{ asset('post_headers/'.$post->post_image) }}" style="width: 16rem; height: 8rem">
+            </picture>
+        </section>
+
+        <section>
             <p>Category: {{ $post->category->name }}</p>
         </section>
 
