@@ -10,8 +10,10 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     /**
-     * A 'Tag' belongs to many 'Posts'
+     * A 'Tag' belongs to many 'Posts'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

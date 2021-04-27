@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => view('index'));
+Route::get('/', fn () => view('index'));
 
 Route::view('/dashboard', 'dashboard')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->name('dashboard');
+
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
+
+/*
+ | For adding and removing attachments to a Trix Editor
+ */
+Route::prefix('trix')->group(function () {
+    Route::post('add-attachment', [App\Http\Controllers\Trix\AttachmentController::class, 'store']);
+    Route::post('remove-attachment', [App\Http\Controllers\Trix\AttachmentController::class, 'destroy']);
+});

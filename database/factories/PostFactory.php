@@ -32,7 +32,7 @@ class PostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->sentence,
-            'body' => $this->faker->text,
+            'post_content' => $this->faker->text,
             'is_published' => $this->faker->boolean,
             'is_markdown' => false,
         ];

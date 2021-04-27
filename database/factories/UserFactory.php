@@ -37,7 +37,7 @@ class UserFactory extends Factory
 
     public function avatar(): UserFactory
     {
-        return $this->state(function (array $attributes) {
+        return $this->state(function () {
             return [
                 'avatar' => sprintf('https://www.gravatar.com/avatar/%s', md5(strtolower($this->faker->email))),
             ];

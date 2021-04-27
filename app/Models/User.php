@@ -48,7 +48,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * A 'User' has many 'Posts'
+     * A 'User' has many 'Posts'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -58,13 +58,23 @@ class User extends Authenticatable
     }
 
     /**
-     * Get users' Gravatar
+     * "God mode" meaning the user can do _anything_.
+     *
+     * @return bool
+     */
+    public function getIsGodAttribute(): bool
+    {
+        return $this->id == config('auth.god_mode_id');
+    }
+
+    /**
+     * Get users' Gravatar.
      *
      * @return string
      */
-    public function getAvatarAttribute(): string
+    public function getAvatarPathAttribute(): string
     {
-        return sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));
+        return $this->avatar ?: sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));
     }
 
     public function getTwoFactorEnabledAttribute(): bool

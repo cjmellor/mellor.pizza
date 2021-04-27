@@ -7,17 +7,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'title',
         'slug',
         'excerpt',
-        'body',
+        'post_content',
+        'is_published',
+        'is_markdown',
         'post_image',
         'post_image_caption',
     ];
@@ -32,17 +36,17 @@ class Post extends Model
     ];
 
     /**
-     * A 'Post' belongs to a 'User'
+     * A 'Post' belongs to a 'User' but refer to them as an 'Author'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
-     * A 'Post' belongs to a 'Category'
+     * A 'Post' belongs to a 'Category'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -52,17 +56,18 @@ class Post extends Model
     }
 
     /**
-     * A 'Post' belongs to many 'Tags'
+     * A 'Post' belongs to many 'Tags'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)
+            ->orderBy('name');
     }
 
     /**
-     * Check if a post is published
+     * Check if a post is published.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -73,7 +78,7 @@ class Post extends Model
     }
 
     /**
-     * Check if a post is in draft mode
+     * Check if a post is in draft mode.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -84,31 +89,74 @@ class Post extends Model
     }
 
     /**
-     * Check if a post is in Markdown format, otherwise, return HTML
+     * Check if a post is in Markdown format, otherwise, return HTML.
      *
-     * Usage: $this->content()
+     * Usage: $this->content
      *
      * @return string
+     * @throws \Exception
      */
     public function getContentAttribute(): string
     {
-        if ($this->is_markdown) {
-            return Str::of($this->body)->markdown([
-                'html_input' => 'strip',
-            ]);
+        // If in 'edit' mode, display content as-is from the DB
+        if ($this->isInEditMode()) {
+            return $this->post_content;
         }
 
-        return $this->body;
+        // If the content is Markdown and *not* in edit mode, convert to HTMl
+        return $this->is_markdown ? Str::of($this->post_content)->markdown([
+            'html_input' => 'strip',
+        ]) : $this->post_content;
     }
 
     /**
-     * Supply a 'published_at' attribute for better API readability
+     * Check if the post is on the edit route.
+     *
+     * @return bool
+     */
+    public function isInEditMode(): bool
+    {
+        return request()->routeIs('posts.edit');
+    }
+
+    /**
+     * Determine the type of content the post is.
+     *
+     * @return string
+     */
+    public function getContentTypeAttribute(): string
+    {
+        return $this->is_markdown ? 'markdown' : 'html';
+    }
+
+    /**
+     * Is the post published, or still in draft mode?
+     *
+     * @return bool
+     */
+    public function getPublishedAttribute(): bool
+    {
+        return $this->is_published;
+    }
+
+    /**
+     * Supply a 'published_at' attribute for better API readability.
      *
      * @return mixed
      */
     public function getPublishedAtAttribute(): mixed
     {
         return $this->created_at;
+    }
+
+    /**
+     * A slug should always be parsed in a slug format.
+     *
+     * @param $value
+     */
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
     }
 
     /**

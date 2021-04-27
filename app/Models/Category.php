@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
 
     /**
-     * A 'Category' has many 'Posts'
+     * A 'Category' has many 'Posts'.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
