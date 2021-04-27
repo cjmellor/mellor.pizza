@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Cache::remember('posts.index', now()->addDay(), fn() => Post::with('author')->latest()->get());
+        $posts = Cache::remember('posts.index', now()->addDay(), fn () => Post::with('author')->latest()->get());
 
         return view('fos.posts.index')
             ->with('posts', $posts);
@@ -68,7 +68,7 @@ class PostController extends Controller
      */
     public function show($post)
     {
-        $post = Cache::rememberForever('post.'.$post, fn() => Post::find($post));
+        $post = Cache::rememberForever('post.'.$post, fn () => Post::find($post));
 
         return view('fos.posts.show')
             ->with('post', $post);

@@ -13,24 +13,25 @@ class Alert extends Component
      */
     public function __construct(
         public $type
-    ) {}
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|string
+     * @return \Closure
      */
     public function render()
     {
         return function (array $data) {
-            $type = $this->setType($this->type);
+            $this->type = $this->setType($this->type);
 
             return 'components.alert';
         };
     }
 
     /**
-     * Determines the type of alert to use
+     * Determines the type of alert to use.
      *
      * @param $type
      * @return string

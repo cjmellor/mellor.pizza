@@ -57,7 +57,7 @@ class PublishPost
      *
      * @return string|\App\Http\Requests\Fos\PostRequest|bool|null
      */
-    protected function uploadPostHeader(): string|PostRequest|bool|null
+    protected function uploadPostHeader(): string | PostRequest | bool | null
     {
         // First, if the image is being replaced, then remove the old one.
         $this->deleteUnusedImage();
@@ -97,7 +97,7 @@ class PublishPost
      * If a tag doesn't exist, it is created
      * -----
      * Code inspired by @themsaid
-     * https://github.com/themsaid/wink/blob/1.x/src/Http/Controllers/PostsController.php#L115-L129
+     * https://github.com/themsaid/wink/blob/1.x/src/Http/Controllers/PostsController.php#L115-L129.
      *
      * @return array
      */

@@ -15,8 +15,8 @@ class MultipleSelect extends Component
     public function __construct(
         public string $id,
         public ?string $name = null,
-    )
-    {}
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.

@@ -19,10 +19,10 @@ class Form extends Component
         public bool $csrf = true,
     ) {
         $this->method = [
-                'delete' => 'DELETE',
-                'patch' => 'PATCH',
-                'put' => 'PUT',
-            ][$method] ?? 'POST';
+            'delete' => 'DELETE',
+            'patch' => 'PATCH',
+            'put' => 'PUT',
+        ][$method] ?? 'POST';
     }
 
     /**

@@ -21,7 +21,7 @@ class MarkdownEditor extends Component
     }
 
     /**
-     * Gets the APP_URL from config to pass to view to run JS
+     * Gets the APP_URL from config to pass to view to run JS.
      *
      * @return mixed
      */
@@ -31,7 +31,7 @@ class MarkdownEditor extends Component
     }
 
     /**
-     * Parse the array of options to JSON
+     * Parse the array of options to JSON.
      *
      * @see https://github.com/Ionaru/easy-markdown-editor#options-list
      * @return string
@@ -46,7 +46,7 @@ class MarkdownEditor extends Component
     }
 
     /**
-     * Supply an array of default you want to always be active
+     * Supply an array of default you want to always be active.
      *
      * @return array
      */

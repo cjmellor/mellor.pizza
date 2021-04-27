@@ -12,14 +12,14 @@ class UseAlpine extends Component
      * @param  float|string  $version
      */
     public function __construct(
-        public float|string $version = 'latest',
+        public float | string $version = 'latest',
     ) {
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return string
      */
     public function render()
     {
