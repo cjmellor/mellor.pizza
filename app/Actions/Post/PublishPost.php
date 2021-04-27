@@ -48,8 +48,6 @@ class PublishPost
 
         // Add tags if they don't exist, otherwise, update the model
         $this->post->tags()->sync($this->addOrUpdateTags());
-
-        $this->clearCache();
     }
 
     /**
@@ -117,20 +115,6 @@ class PublishPost
 
                 return (string) $tag->id;
             })->toArray();
-    }
-
-    /**
-     * When updating the post, it will still be cached, so reset the cache first...
-     */
-    protected function clearCache(): void
-    {
-        if (Cache::has('post.'.$this->post->id)) {
-            Cache::forget('post.'.$this->post->id);
-        }
-
-        if (Cache::has('posts.index')) {
-            Cache::forget('posts.index');
-        }
     }
 
     /**
