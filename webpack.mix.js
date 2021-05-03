@@ -18,4 +18,4 @@ mix.js(
         'resources/js/trix/remove-attachment.js',
     ],
     'public/js'
-).postCss('resources/css/app.css', 'public/css', [require('autoprefixer')]);
+).postCss('resources/css/app.css', 'public/css', [require('tailwindcss')]);

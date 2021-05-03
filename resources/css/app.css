@@ -1,1 +1,44 @@
 @import "tom-select.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .underline-animate-container,
+    .underline-animate-link {
+        position: relative;
+    }
+
+    .underline-animate-container .underline-animate-link::before,
+    .underline-animate-container .underline-animate-link::after {
+        content: "";
+        /*background: linear-gradient(to right, ...);*/
+        background-color: rgb(255, 0, 113);
+        position: absolute;
+        bottom: -10px;
+        width: 0;
+        height: 3px;
+        margin: 5px 0;
+        transition: all 0.75s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .underline-animate-link::before,
+    .underline-animate-link::after {
+        left: 0;
+    }
+
+    /*.underline-animate-link::before {
+        left: 50%;
+    }
+
+    .underline-animate-link::after {
+        right: 50%;
+    }*/
+    .underline-animate-container:hover .underline-animate-link::before,
+    .underline-animate-container:hover .underline-animate-link::after {
+        /*width: 50%;*/
+        width: 100%;
+        opacity: 1;
+    }
+}
