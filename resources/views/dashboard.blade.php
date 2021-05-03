@@ -12,7 +12,6 @@
         <div>
             <h2>About me</h2>
             <p>{{ auth()->user()->about }}</p>
-            Hello, <x-link class="text-3xl">I AM A LINK WITH A HOVER</x-link>. Isn't that nice!?
         </div>
         <div>
             <h2>Socials</h2>
