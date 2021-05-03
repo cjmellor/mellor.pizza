@@ -1,3 +1,5 @@
-@props(['to'])
+@props(['to' => null])
 
-<a {{ $attributes }} href="{{ $to }}">{{ $slot }}</a>
+<div class="inline-block underline-animate-container">
+    <a {{ $attributes->merge(['class' => 'underline-animate-link']) }} href="{{ $to }}">{{ $slot }}</a>
+</div>

@@ -1,28 +1,31 @@
-Logged in as: {{ auth()->user()->name }}
-<hr>
-<p>
-    <x-link to="{{ route('fos.index') }}">Admin</x-link>
-</p>
+<x-layout title="Dashboard">
+    Logged in as: {{ auth()->user()->name }}
+    <hr>
+    <p>
+        <x-link to="{{ route('fos.index') }}">Admin</x-link>
+    </p>
 
-<section>
-    <div>
-        <img alt="{{ auth()->user()->name }}" src="{{ auth()->user()->avatar_path }}">
-    </div>
-    <div>
-        <h2>About me</h2>
-        <p>{{ auth()->user()->about }}</p>
-    </div>
-    <div>
-        <h2>Socials</h2>
+    <section>
         <div>
-            <div>{{ auth()->user()->social_github }}</div>
-            <div>{{ auth()->user()->social_instagram }}</div>
-            <div>{{ auth()->user()->social_github }}</div>
+            <img alt="{{ auth()->user()->name }}" src="{{ auth()->user()->avatar_path }}">
         </div>
-    </div>
-</section>
+        <div>
+            <h2>About me</h2>
+            <p>{{ auth()->user()->about }}</p>
+            Hello, <x-link class="text-3xl">I AM A LINK WITH A HOVER</x-link>. Isn't that nice!?
+        </div>
+        <div>
+            <h2>Socials</h2>
+            <div>
+                <div>{{ auth()->user()->social_github }}</div>
+                <div>{{ auth()->user()->social_instagram }}</div>
+                <div>{{ auth()->user()->social_github }}</div>
+            </div>
+        </div>
+    </section>
 
-<x-link to="/two-factor-auth">2FA</x-link>
-<x-form.form action="/logout" method="post">
-    <input type="submit" value="Log out">
-</x-form.form>
+    <x-link to="/two-factor-auth">2FA</x-link>
+    <x-form.form action="/logout" method="post">
+        <input type="submit" value="Log out">
+    </x-form.form>
+</x-layout>
