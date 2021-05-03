@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Fos;
+namespace App\Http\Controllers\Fos\Post;
 
 use App\Actions\Post\PublishPost;
 use App\Http\Controllers\Controller;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Fos;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
@@ -9,7 +9,7 @@ class Layout extends Component
     /**
      * Create a new component instance.
      *
-     * @param  string|null  $title
+     * @return void
      */
     public function __construct(public ?string $title = null)
     {
@@ -19,10 +19,10 @@ class Layout extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|string
+     * @return \Illuminate\View\View|string
      */
     public function render()
     {
-        return view('components.fos.layout');
+        return view('components.layout');
     }
 }

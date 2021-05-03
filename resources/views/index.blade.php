@@ -1,3 +1,4 @@
+<x-layout>
 Chris Mellor's Blog
 
 @auth()
@@ -5,3 +6,4 @@ Chris Mellor's Blog
 @else
     <x-link to="{{ route('login') }}">Log in</x-link>
 @endauth
+</x-layout>

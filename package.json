@@ -1,15 +1,16 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
+        "dev": "yarn run development",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
-        "prod": "npm run production",
+        "prod": "yarn run production",
         "production": "mix --production"
     },
     "devDependencies": {
+        "autoprefixer": "^10.2.5",
         "axios": "^0.21",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.8.1",
@@ -24,12 +25,15 @@
         "eslint-plugin-react-hooks": "^4.2.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
-        "prettier": "^2.1.1"
+        "postcss": "^8.2.13",
+        "prettier": "^2.1.1",
+        "tailwindcss": "^2.1.2"
     },
     "dependencies": {
-        "autoprefixer": "^10.2.5",
-        "easymde": "^2.14.0",
-        "js-ray": "^0.0.7"
+        "@tailwindcss/aspect-ratio": "^0.2.0",
+        "@tailwindcss/forms": "^0.3.2",
+        "@tailwindcss/line-clamp": "^0.2.0",
+        "@tailwindcss/typography": "^0.4.0",
+        "easymde": "^2.14.0"
     }
 }
