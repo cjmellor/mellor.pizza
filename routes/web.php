@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::view('/dashboard', 'dashboard')
     ->name('dashboard');
 
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
+
+Route::get('{slug}', BlogPostController::class);
 
 /*
  | For adding and removing attachments to a Trix Editor
