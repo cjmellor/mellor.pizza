@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Trix\AttachmentController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\Trix\AttachmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
