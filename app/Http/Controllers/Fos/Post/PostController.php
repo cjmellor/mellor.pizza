@@ -68,7 +68,7 @@ class PostController extends Controller
      */
     public function show($post)
     {
-        $post = Cache::rememberForever('post.'.$post, fn () => Post::find($post));
+        $post = Cache::rememberForever("post.{$post}", fn () => Post::find($post));
 
         return view('fos.posts.show')
             ->with('post', $post);
