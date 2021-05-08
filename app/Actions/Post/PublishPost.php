@@ -6,6 +6,7 @@ use App\Http\Requests\Fos\PostRequest;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PublishPost
@@ -76,7 +77,7 @@ class PublishPost
     private function deleteUnusedImage(): void
     {
         if ($this->request->has('post_header_delete')) {
-            \Storage::disk('post-headers')->delete($this->request->post_header_delete);
+            Storage::disk('post-headers')->delete($this->request->post_header_delete);
         }
     }
 
