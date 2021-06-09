@@ -8,8 +8,10 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @stack('stylesheets')
 </head>
-<body>
-{{ $slot }}
+<body class="dark:bg-dark">
+<div class="container pt-8 mx-auto dark:text-dark-gray dark:text-opacity-70" x-data="{ showContactMePopUp: false }">
+    {{ $slot }}
+</div>
 <script src="{{ mix('js/app.js') }}"></script>
 <x-use-alpine/>
 @stack('scripts')
