@@ -1,44 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "tom-select.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .text-pop {
+        @apply dark:bg-clip-text dark:text-transparent bg-gradient-to-r from-pizza to-yellow-400 dark:from-pizza-dark dark:to-indigo-500 text-gray-700 px-1 dark:p-0
+    }
+}
+
 @layer utilities {
-    .underline-animate-container,
-    .underline-animate-link {
-        position: relative;
+    .form-pizza {
+        @apply bg-gray-50 dark:bg-[#1f232b] dark:bg-opacity-50 focus:bg-white dark:focus:bg-[#22272e] p-2 border border-gray-200 dark:border-[#373e47] text-gray-500 text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-pizza focus:ring-[#ff810a] dark:focus:border-pizza-dark dark:focus:ring-[#f81281] dark:focus:ring-opacity-50
     }
 
-    .underline-animate-container .underline-animate-link::before,
-    .underline-animate-container .underline-animate-link::after {
-        content: "";
-        /*background: linear-gradient(to right, ...);*/
-        background-color: rgb(255, 0, 113);
-        position: absolute;
-        bottom: -10px;
-        width: 0;
-        height: 3px;
-        margin: 5px 0;
-        transition: all 0.75s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-
-    .underline-animate-link::before,
-    .underline-animate-link::after {
-        left: 0;
-    }
-
-    /*.underline-animate-link::before {
-        left: 50%;
-    }
-
-    .underline-animate-link::after {
-        right: 50%;
-    }*/
-    .underline-animate-container:hover .underline-animate-link::before,
-    .underline-animate-container:hover .underline-animate-link::after {
-        /*width: 50%;*/
-        width: 100%;
-        opacity: 1;
+    .button-pizza {
+        @apply bg-pizza dark:bg-pizza-dark px-4 py-3 rounded-md text-white shadow-md hover:ring-4 hover:ring-opacity-80 hover:ring-offset-2 hover:ring-pizza dark:hover:ring-pizza-dark dark:hover:ring-offset-dark
     }
 }
