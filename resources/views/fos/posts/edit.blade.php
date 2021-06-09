@@ -36,7 +36,7 @@
                     <picture>
                         {{--TODO: If decided, add further size specific picture sources here--}}
                         {{--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture--}}
-                        <img alt="{{ $post->title }}" src="{{ asset('post_headers/'.$post->post_image) }}" style="width: 16rem; height: 8rem">
+                        <img alt="{{ $post->title }}" src="{{ asset('post_headers/'.$post->post_image) }}" loading="lazy" style="width: 16rem; height: 8rem">
                         <input type="hidden" name="post_header_delete" value="{{ $post->post_image }}">
                     </picture>
                     <label for="post_image">Change Post Header</label>

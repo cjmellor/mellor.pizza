@@ -1,0 +1,20 @@
+<main>
+    <div class="flex flex-col lg:flex-row lg:mx-12 xl:mx-32 2xl:mx-48 mt-16 space-y-12 lg:space-y-0">
+        <div class="lg:w-1/3 lg:ml-16 flex justify-center lg:justify-start items-center">
+            <x-floating-head/>
+        </div>
+        <div class="lg:w-2/3 lg:ml-24">
+            <div class="flex flex-col h-full justify-center space-y-8 tracking-wider mx-8 lg:mx-0 text-center lg:text-left">
+                <h2 class="text-2xl lg:text-3xl font-merriweather">Hi 👋 I'm <span class="font-extrabold">Chris</span>. I'm a Full Stack Developer.</h2>
+                <div class="space-y-8">
+                    <p class="text-xl font-roboto-mono">I build <span class="text-2xl font-merriweather text-pop">Laravel</span> apps</p>
+                    <p class="text-xl font-roboto-mono">Using <span class="text-2xl font-merriweather text-pop">Tailwind CSS</span></p>
+                    <p class="text-xl font-roboto-mono"><span class="text-2xl font-merriweather text-pop">Vue.js</span> is best <sup title="In my opinion">*</sup></p>
+                    <p class="text-xl font-roboto-mono">Admirer of <span class="text-2xl font-merriweather text-pop">Docker</span></p>
+                    <p class="text-xl font-roboto-mono"><span class="text-2xl font-merriweather text-pop">Linux</span> certified</p>
+                    <p class="text-xl font-roboto-mono inline-block">Check out my <x-link class="text-2xl font-merriweather text-pop ml-3" to="{{ asset('cv.pdf') }}" underline="false">CV</x-link></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
