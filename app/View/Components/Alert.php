@@ -9,10 +9,10 @@ class Alert extends Component
     /**
      * Create a new component instance.
      *
-     * @param $type
+     * @param  string  $type
      */
     public function __construct(
-        public $type
+        public string $type
     ) {
     }
 
@@ -33,16 +33,17 @@ class Alert extends Component
     /**
      * Determines the type of alert to use.
      *
-     * @param $type
+     * @param  string  $type
      * @return string
      */
-    public function setType($type): string
+    public function setType(string $type): string
     {
         return $data['attributes'] = match ($type) {
             // TODO: change these to Tailwind classes
             'info' => 'info',
             'success' => 'success',
             'warning' => 'warning',
+            default => null,
         };
     }
 }

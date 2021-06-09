@@ -22,7 +22,8 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['fos.posts.create', 'fos.posts.edit'],
+        View::composer(
+            ['fos.posts.create', 'fos.posts.edit'],
             PostComposer::class
         );
     }

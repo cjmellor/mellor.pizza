@@ -5,7 +5,6 @@ namespace App\Actions\Post;
 use App\Http\Requests\Fos\PostRequest;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -56,7 +55,7 @@ class PublishPost
      *
      * @return string|\App\Http\Requests\Fos\PostRequest|bool|null
      */
-    protected function uploadPostHeader(): string | PostRequest | bool | null
+    protected function uploadPostHeader(): string|PostRequest|bool|null
     {
         // First, if the image is being replaced, then remove the old one.
         $this->deleteUnusedImage();

@@ -8,20 +8,16 @@ class UseAlpine extends Component
 {
     /**
      * Create a new component instance.
-     *
-     * @param  float|string  $version
      */
     public function __construct(
-        public float | string $version = 'latest',
+        public float|string $version = 'latest',
     ) {
     }
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return string
      */
-    public function render()
+    public function render(): string
     {
         return <<< blade
             <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@$this->version/dist/alpine.min.js" defer></script>

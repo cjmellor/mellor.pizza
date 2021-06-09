@@ -152,9 +152,9 @@ class Post extends Model
     /**
      * A slug should always be parsed in a slug format.
      *
-     * @param $value
+     * @param  string  $value
      */
-    public function setSlugAttribute($value)
+    public function setSlugAttribute(string $value)
     {
         $this->attributes['slug'] = Str::slug($value);
     }
