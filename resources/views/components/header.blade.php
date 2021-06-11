@@ -10,8 +10,9 @@
             <div class="uppercase tracking-wider">
                 <x-link to="#">Blog</x-link>
             </div>
-            <div class="uppercase tracking-wider">
-                <x-link x-on:click.prevent="showContactMePopUp = true">Contact.Me</x-link>
+            <div class="uppercase tracking-wider" x-data="{}">
+                {{--<x-link x-on:click.prevent="showContactMePopUp = true">Contact.Me</x-link>--}}
+                <x-link x-on:click.prevent="$dispatch('show-contact')">Contact.Me</x-link>
             </div>
         </div>
     </div>

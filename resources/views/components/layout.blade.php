@@ -9,7 +9,7 @@
     @stack('stylesheets')
 </head>
 <body class="dark:bg-dark">
-<div class="container pt-8 mx-auto dark:text-dark-gray dark:text-opacity-70" x-data="{ showContactMePopUp: false }">
+<div class="container pt-8 mx-auto dark:text-dark-gray dark:text-opacity-70">
     {{ $slot }}
 </div>
 <script src="{{ mix('js/app.js') }}"></script>

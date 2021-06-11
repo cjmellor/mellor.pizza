@@ -1,9 +1,15 @@
-<div
-    class="max-w-screen-2xl p-8 shadow-2xl sticky bottom-0 rounded-t-3xl h-[42rem] text-gray-500 bg-white dark:bg-[#22272e] border border-gray-300 dark:border-[#424c55] border-b-0"
-    x-on:click.away="showContactMePopUp = false"
+<div x-data="{ showContactMePopUp: false }"
+    x-cloak
     x-show="showContactMePopUp"
-    @slideUp(700, 300)
+    x-on:click.away="showContactMePopUp = false"
+    x-on:show-contact.window="showContactMePopUp = true"
+    class="relative max-w-screen-2xl p-8 shadow-2xl sticky bottom-0 rounded-t-3xl h-[42rem] text-gray-500 bg-white dark:bg-[#22272e] border border-gray-300 dark:border-[#424c55] border-b-0"
+    @slideUp()
 >
+    <div class="flex justify-center items-center contact-close" x-on:click="showContactMePopUp = false">
+        <span class="text-gray-500 dark:text-white font-semibold text-2xl transform rotate-45">+</span>
+    </div>
+
     <form action="#" method="post">
         <div class="space-y-6">
             <div>
