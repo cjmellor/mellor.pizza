@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     mode: 'jit',
     purge: [
@@ -6,6 +8,33 @@ module.exports = {
     ],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            white: colors.white,
+            'blue-gray': colors.blueGray,
+            'cool-gray': colors.coolGray,
+            gray: colors.gray,
+            'true-gray': colors.trueGray,
+            'warm-gray': colors.warmGray,
+            red: colors.red,
+            orange: colors.orange,
+            amber: colors.amber,
+            yellow: colors.yellow,
+            lime: colors.lime,
+            green: colors.green,
+            emerald: colors.emerald,
+            teal: colors.teal,
+            cyan: colors.cyan,
+            'light-blue': colors.lightBlue,
+            blue: colors.blue,
+            indigo: colors.indigo,
+            violet: colors.violet,
+            purple: colors.purple,
+            fuchsia: colors.fuchsia,
+            pink: colors.pink,
+            rose: colors.rose,
+        },
         extend: {
             colors: {
                 dark: 'hsl(215,15%,16%)',
@@ -19,7 +48,7 @@ module.exports = {
                 'roboto-mono': ['Roboto Mono', 'sans-serif'],
             },
             transitionTimingFunction: {
-                'out-bounce': 'cubic-bezier(0.68, -0.55, 0.27, 1.55)',
+                'in-out-back': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',
             },
             zIndex: {
                 '-10': '-10',
