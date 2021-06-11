@@ -52,13 +52,13 @@ class PublishPost
 
     /**
      * Store the requested file in the desired location and return the path.
-     *
-     * @return string|\App\Http\Requests\Fos\PostRequest|bool|null
      */
-    protected function uploadPostHeader(): string|PostRequest|bool|null
+    protected function uploadPostHeader(): bool | PostRequest | string | null
     {
         // First, if the image is being replaced, then remove the old one.
-        $this->deleteUnusedImage();
+        if ($this->request->has('post_header_delete')) {
+            $this->deleteUnusedImage();
+        }
 
         // TODO: Look into creating images for all browser sizes on store
 
@@ -75,15 +75,11 @@ class PublishPost
      */
     private function deleteUnusedImage(): void
     {
-        if ($this->request->has('post_header_delete')) {
-            Storage::disk('post-headers')->delete($this->request->post_header_delete);
-        }
+        Storage::disk('post-headers')->delete($this->request->post_header_delete);
     }
 
     /**
      * Generates a random filename with it's extension from the uploaded file.
-     *
-     * @return string
      */
     private function getFilename(): string
     {
@@ -96,8 +92,6 @@ class PublishPost
      * -----
      * Code inspired by @themsaid
      * https://github.com/themsaid/wink/blob/1.x/src/Http/Controllers/PostsController.php#L115-L129.
-     *
-     * @return array
      */
     public function addOrUpdateTags(): array
     {

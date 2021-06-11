@@ -10,7 +10,7 @@ class UseAlpine extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public float|string $version = 'latest',
+        public float | string $version = 'latest',
     ) {
     }
 
