@@ -1,4 +1,9 @@
+import Alpine from 'alpinejs';
+
 require('./bootstrap');
+
+window.Alpine = Alpine;
+Alpine.start();
 
 const endpointBase = process.env.MIX_APP_URL;
 const endpoints = {

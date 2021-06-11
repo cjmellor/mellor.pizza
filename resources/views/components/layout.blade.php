@@ -13,7 +13,6 @@
     {{ $slot }}
 </div>
 <script src="{{ mix('js/app.js') }}"></script>
-<x-use-alpine/>
 @stack('scripts')
 </body>
 </html>
