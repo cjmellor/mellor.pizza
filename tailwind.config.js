@@ -47,9 +47,6 @@ module.exports = {
                 merriweather: ['Merriweather', 'serif'],
                 'roboto-mono': ['Roboto Mono', 'sans-serif'],
             },
-            transitionTimingFunction: {
-                'in-out-back': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',
-            },
             zIndex: {
                 '-10': '-10',
             },
