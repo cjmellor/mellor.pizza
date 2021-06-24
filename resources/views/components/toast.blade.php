@@ -4,9 +4,10 @@
          x-cloak
          x-on:send-toast.window="sendEventData"
          x-show="show"
-         x-transition:leave="transition" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 -translate-y-24"
+         x-transition:leave="transition ease-out duration-1000" x-transition:leave-start="translate-y-full" x-transition:leave-end="-translate-y-24"
     >
-        <span class="rotate-45 absolute top-0 right-0 text-3xl mr-6 mt-2 text-green-700/40 hover:text-green-800 cursor-pointer" x-on:click="close">+</span>
+        <x-progress-circle class="absolute right-0 mr-6 cursor-pointer" width="w-6" height="h-6" strokeWidth="3" trackColor="text-green-800/50"
+                           animationSpeed="6s" lineColor="text-green-800" x-on:click="close"/>
         <span x-text="message"></span>
     </div>
 </div>
@@ -24,6 +25,10 @@
             sendEventData(event) {
                 this.show = true;
                 this.message = event.detail.messageContent;
+
+                setTimeout(() => {
+                    this.close();
+                }, 5000);
             },
         }));
     });
