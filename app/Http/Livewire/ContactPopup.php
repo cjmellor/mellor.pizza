@@ -2,16 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\ContactMessageMail;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class ContactPopup extends Component
 {
-    public $contact_name;
-    public $contact_email;
-    public $contact_message;
-    public $sending = false;
-    public $sent = false;
-    public $showContactMePopUp = false;
+    public string $contact_name = '';
+    public string $contact_email = '';
+    public string $contact_message = '';
+    public bool $sent = false;
+    public bool $showContactMePopUp = false;
+
+    protected $listeners = ['messageSent'];
 
     protected array $rules = [
         'contact_name' => 'required|min:3|max:50',
@@ -35,14 +38,19 @@ class ContactPopup extends Component
 
     public function send()
     {
-        $this->validate();
+        $validated = $this->validate();
 
-        $this->sent = true;
-        /*TODO: Send email logic here*/
+        Mail::to(users: config(key: 'mail.current_contact_email'))
+            ->send(new ContactMessageMail($validated));
 
-        sleep(seconds: 3);
+        sleep(seconds: 1);
+
+        $this->dispatchBrowserEvent('send-toast', [
+            'messageContent' => 'Message sent!',
+        ]);
 
         $this->showContactMePopUp = false;
+        sleep(3);
     }
 
     public function render()

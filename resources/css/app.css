@@ -17,11 +17,15 @@
 
 @layer utilities {
     .button-pizza {
-        @apply bg-pizza dark:bg-pizza-dark px-4 py-3 rounded-md text-white shadow-md hover:ring-4 hover:ring-opacity-80 hover:ring-offset-2 hover:ring-pizza dark:hover:ring-pizza-dark dark:hover:ring-offset-dark
+        @apply bg-pizza dark:bg-pizza-dark px-4 py-3 rounded-md text-white shadow-md hover:ring-4 hover:ring-offset-2 hover:ring-pizza/80 dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark
     }
 
     .form-pizza {
         @apply bg-gray-50 dark:bg-[#1f232b] dark:bg-opacity-50 focus:bg-white dark:focus:bg-[#22272e] p-2 border border-gray-200 dark:border-[#373e47] text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-pizza focus:ring-[#ff810a] dark:focus:border-pizza-dark dark:focus:ring-[#f81281] dark:focus:ring-opacity-50
+    }
+
+    .form-pizza-error {
+        @apply bg-white dark:bg-[#1f232b] dark:bg-opacity-50 dark:focus:bg-[#22272e] p-2 border border-red-400 dark:border-red-700 text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-red-500 focus:ring-red-400 dark:focus:border-red-500 dark:focus:ring-red-400 dark:focus:ring-opacity-20
     }
 }
 
