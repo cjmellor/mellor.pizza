@@ -107,4 +107,6 @@ return [
         ],
     ],
 
+    'current_contact_email' => env('CURRENT_CONTACT_EMAIL'),
+
 ];

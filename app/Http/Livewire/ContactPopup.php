@@ -50,7 +50,6 @@ class ContactPopup extends Component
         ]);
 
         $this->showContactMePopUp = false;
-        sleep(3);
     }
 
     public function render()
