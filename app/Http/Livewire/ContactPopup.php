@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Mail\ContactMessageMail;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Lukeraymonddowning\Honey\Traits\WithHoney;
 
 class ContactPopup extends Component
 {
+    use WithHoney;
+
     public string $contact_name = '';
     public string $contact_email = '';
     public string $contact_message = '';
@@ -40,8 +43,10 @@ class ContactPopup extends Component
     {
         $validated = $this->validate();
 
-        Mail::to(users: config(key: 'mail.current_contact_email'))
-            ->send(new ContactMessageMail($validated));
+        if ($this->honeyPasses()) {
+            Mail::to(users: config(key: 'mail.current_contact_email'))
+                ->send(new ContactMessageMail($validated));
+        }
 
         sleep(seconds: 1);
 
@@ -50,6 +55,8 @@ class ContactPopup extends Component
         ]);
 
         $this->showContactMePopUp = false;
+
+        $this->reset();
     }
 
     public function render()
