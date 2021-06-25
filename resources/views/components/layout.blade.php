@@ -6,12 +6,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mellor.🍕 - {{ $title ?? 'Home' }}</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <livewire:styles/>
     @stack('stylesheets')
 </head>
 <body class="dark:bg-dark">
+<x-toast/>
 <div class="container pt-8 mx-auto dark:text-dark-gray dark:text-opacity-70">
     {{ $slot }}
 </div>
+<livewire:scripts/>
 <script src="{{ mix('js/app.js') }}"></script>
 @stack('scripts')
 </body>

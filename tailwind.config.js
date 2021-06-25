@@ -26,7 +26,7 @@ module.exports = {
             emerald: colors.emerald,
             teal: colors.teal,
             cyan: colors.cyan,
-            'light-blue': colors.lightBlue,
+            sky: colors.sky,
             blue: colors.blue,
             indigo: colors.indigo,
             violet: colors.violet,
@@ -36,6 +36,9 @@ module.exports = {
             rose: colors.rose,
         },
         extend: {
+            animation: {
+                'slide-in-down': 'slideInDown 0.5s',
+            },
             colors: {
                 dark: 'hsl(215,15%,16%)',
                 'dark-gray': 'hsl(210,32%,85%)',
@@ -46,6 +49,16 @@ module.exports = {
                 anton: ['Anton', 'sans-serif'],
                 merriweather: ['Merriweather', 'serif'],
                 'roboto-mono': ['Roboto Mono', 'sans-serif'],
+            },
+            keyframes: {
+                slideInDown: {
+                    from: {
+                        transform: 'translate3d(0, -100%, 0)',
+                    },
+                    to: {
+                        transform: 'translate3d(0, 0, 0)',
+                    },
+                },
             },
             zIndex: {
                 '-10': '-10',
