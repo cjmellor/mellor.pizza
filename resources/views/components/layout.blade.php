@@ -7,6 +7,10 @@
     <title>Mellor.🍕 - {{ $title ?? 'Home' }}</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <livewire:styles/>
+    @googlefonts('anton')
+    @googlefonts('fira-mono')
+    @googlefonts('merriweather')
+    {{--@googlefonts('roboto-mono')--}}
     @stack('stylesheets')
 </head>
 <body class="dark:bg-dark">

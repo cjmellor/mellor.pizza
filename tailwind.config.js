@@ -48,7 +48,8 @@ module.exports = {
             fontFamily: {
                 anton: ['Anton', 'sans-serif'],
                 merriweather: ['Merriweather', 'serif'],
-                'roboto-mono': ['Roboto Mono', 'sans-serif'],
+                // 'roboto-mono': ['Roboto Mono', 'sans-serif'],
+                'fira-mono': ['Fira Mono', 'sans-serif'],
             },
             keyframes: {
                 slideInDown: {
