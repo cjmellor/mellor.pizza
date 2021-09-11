@@ -39,6 +39,7 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
      * @throws \Throwable
      */
     public function store(PostRequest $request, Post $post): \Illuminate\Http\RedirectResponse
@@ -73,6 +74,7 @@ class PostController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
      * @throws \Throwable
      */
     public function update(PostRequest $request, Post $post): \Illuminate\Http\RedirectResponse
@@ -85,6 +87,7 @@ class PostController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
      * @throws \Exception
      */
     public function destroy(Post $post): \Illuminate\Http\RedirectResponse

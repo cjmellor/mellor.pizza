@@ -34,6 +34,7 @@ class MarkdownEditor extends Component
      * Parse the array of options to JSON.
      *
      * @see https://github.com/Ionaru/easy-markdown-editor#options-list
+     *
      * @return string
      */
     public function optionsToJson(): string

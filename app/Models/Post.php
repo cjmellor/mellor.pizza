@@ -94,6 +94,7 @@ class Post extends Model
      * Usage: $this->content
      *
      * @return string
+     *
      * @throws \Exception
      */
     public function getContentAttribute(): string

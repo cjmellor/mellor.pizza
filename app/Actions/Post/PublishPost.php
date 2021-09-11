@@ -53,7 +53,7 @@ class PublishPost
     /**
      * Store the requested file in the desired location and return the path.
      */
-    protected function uploadPostHeader(): bool | PostRequest | string | null
+    protected function uploadPostHeader(): bool|PostRequest|string|null
     {
         // First, if the image is being replaced, then remove the old one.
         if ($this->request->has('post_header_delete')) {

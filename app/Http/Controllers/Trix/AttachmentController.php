@@ -15,7 +15,7 @@ class AttachmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return bool|string|\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    public function store(Request $request): bool | string | FileNotFoundException
+    public function store(Request $request): bool|string|FileNotFoundException
     {
         $file = $request->file('file')->getClientOriginalName();
 
