@@ -37,8 +37,6 @@ class Post extends Model
 
     /**
      * A 'Post' belongs to a 'User' but refer to them as an 'Author'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function author(): BelongsTo
     {
@@ -47,8 +45,6 @@ class Post extends Model
 
     /**
      * A 'Post' belongs to a 'Category'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category(): BelongsTo
     {
@@ -57,8 +53,6 @@ class Post extends Model
 
     /**
      * A 'Post' belongs to many 'Tags'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function tags(): BelongsToMany
     {
@@ -68,9 +62,6 @@ class Post extends Model
 
     /**
      * Check if a post is published.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePublished(Builder $query): Builder
     {
@@ -79,9 +70,6 @@ class Post extends Model
 
     /**
      * Check if a post is in draft mode.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeDraft(Builder $query): Builder
     {
@@ -92,9 +80,6 @@ class Post extends Model
      * Check if a post is in Markdown format, otherwise, return HTML.
      *
      * Usage: $this->content
-     *
-     * @return string
-     *
      * @throws \Exception
      */
     public function getContentAttribute(): string
@@ -112,8 +97,6 @@ class Post extends Model
 
     /**
      * Check if the post is on the edit route.
-     *
-     * @return bool
      */
     public function isInEditMode(): bool
     {
@@ -122,8 +105,6 @@ class Post extends Model
 
     /**
      * Determine the type of content the post is.
-     *
-     * @return string
      */
     public function getContentTypeAttribute(): string
     {
@@ -132,8 +113,6 @@ class Post extends Model
 
     /**
      * Is the post published, or still in draft mode?
-     *
-     * @return bool
      */
     public function getPublishedAttribute(): bool
     {
@@ -142,8 +121,6 @@ class Post extends Model
 
     /**
      * Supply a 'published_at' attribute for better API readability.
-     *
-     * @return mixed
      */
     public function getPublishedAtAttribute(): mixed
     {
@@ -152,8 +129,6 @@ class Post extends Model
 
     /**
      * A slug should always be parsed in a slug format.
-     *
-     * @param  string  $value
      */
     public function setSlugAttribute(string $value)
     {

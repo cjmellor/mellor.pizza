@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Http\ViewComposers\Fos;
+namespace App\Http\ViewComposers\Posts;
 
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\View\View;
 
-class PostComposer
+class CategoriesTagsViewComposer
 {
-    /**
-     * Create a new post composer.
-     *
-     * @param  \App\Models\Category  $category
-     * @param  \App\Models\Tag  $tag
-     */
     public function __construct(
         public Category $category,
         public Tag $tag

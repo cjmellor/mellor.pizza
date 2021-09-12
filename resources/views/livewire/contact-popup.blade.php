@@ -1,6 +1,6 @@
 <div @slideUp()
      x-data="{
-         showContactMePopUp: @entangle('showContactMePopUp').defer,
+         showContactMePopUp: @entangle('showContactMePopUp').defer
      }"
      x-show="showContactMePopUp"
      x-on:click.away="showContactMePopUp = false"
@@ -8,13 +8,15 @@
      class="relative max-w-full md:max-w-screen-md lg:max-w-screen-xl p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-[#22272e] border border-gray-300 dark:border-[#424c55] border-b-0"
      x-cloak
 >
-    <div class="sm:hidden flex absolute top-1 sm:top-4 right-1 sm:right-4" x-on:click="showContactMePopUp = false">
+    {{--Same button for different screen sizes--}}
+    <div class="sm:hidden flex absolute top-1 sm:top-4 right-1 sm:right-4" wire:click="closePopUp">
         <span class="text-gray-500 dark:text-white font-semibold text-3xl sm:text-5xl rotate-45">+</span>
     </div>
 
-    <div class="hidden sm:flex justify-center items-center contact-close" x-on:click="showContactMePopUp = false">
+    <div class="hidden sm:flex justify-center items-center contact-close" wire:click="closePopUp">
         <span class="text-gray-500 dark:text-white font-semibold text-2xl rotate-45">+</span>
     </div>
+    {{--End--}}
 
     {{--TODO: Add some form of honeypot for spam protection--}}
     <x-form.form action="#" method="post" wire:submit.prevent="send">
