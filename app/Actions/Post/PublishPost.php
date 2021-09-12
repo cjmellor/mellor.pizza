@@ -10,44 +10,42 @@ use Illuminate\Support\Str;
 
 class PublishPost
 {
-    public function __construct(
-        public PostRequest $request,
-        public Post $post
-    ) {
+    public function __construct(public PostRequest $postRequest)
+    {
     }
 
     /**
      * @throws \Throwable
      */
-    public function create()
+    public function store(Post $post)
     {
         // If the post is Markdown, update model
-        if ($this->request->is_markdown) {
-            $this->post->is_markdown = true;
+        if ($this->postRequest->is_markdown) {
+            $post->is_markdown = true;
         }
 
-        $this->execute();
+        $this->handle($post);
     }
 
     /**
      * @throws \Throwable
      */
-    public function execute()
+    public function handle(Post $post)
     {
-        $this->post->author()->associate(auth()->user()->id);
-        $this->post->category()->associate($this->request->category_id);
+        $post->author()->associate(auth()->user()->id);
+        $post->category()->associate($this->postRequest->category_id);
 
-        $this->post->fill($this->request->validated());
-        $this->post->slug = $this->request->title;
+        $post->fill($this->postRequest->validated());
+        $post->slug = $this->postRequest->title;
 
-        if ($this->request->has('post_image')) {
-            $this->post->post_image = $this->uploadPostHeader();
+        if ($this->postRequest->has('post_image')) {
+            $post->post_image = $this->uploadPostHeader();
         }
 
-        $this->post->saveOrFail();
+        $post->saveOrFail();
 
         // Add tags if they don't exist, otherwise, update the model
-        $this->post->tags()->sync($this->addOrUpdateTags());
+        $post->tags()->sync($this->addOrUpdateTags());
     }
 
     /**
@@ -56,15 +54,15 @@ class PublishPost
     protected function uploadPostHeader(): bool|PostRequest|string|null
     {
         // First, if the image is being replaced, then remove the old one.
-        if ($this->request->has('post_header_delete')) {
+        if ($this->postRequest->has('post_header_delete')) {
             $this->deleteUnusedImage();
         }
 
         // TODO: Look into creating images for all browser sizes on store
 
-        if ($this->request->has('post_image')) {
-            return $this->request->file('post_image')
-                ->storeAs(Str::slug($this->request->title), $this->getFilename(), 'post-headers');
+        if ($this->postRequest->has('post_image')) {
+            return $this->postRequest->file('post_image')
+                ->storeAs(Str::slug($this->postRequest->title), $this->getFilename(), 'post-headers');
         }
 
         return null;
@@ -75,15 +73,16 @@ class PublishPost
      */
     private function deleteUnusedImage(): void
     {
-        Storage::disk('post-headers')->delete($this->request->post_header_delete);
+        Storage::disk('post-headers')
+            ->delete($this->postRequest->post_header_delete);
     }
 
     /**
-     * Generates a random filename with it's extension from the uploaded file.
+     * Generates a random filename with its extension from the uploaded file.
      */
     private function getFilename(): string
     {
-        return Str::random().'.'.$this->request->file('post_image')->extension();
+        return Str::random().'.'.$this->postRequest->file('post_image')->extension();
     }
 
     /**
@@ -97,7 +96,7 @@ class PublishPost
     {
         $tags = Tag::all();
 
-        return collect($this->request->tag_id)
+        return collect($this->postRequest->tag_id)
             ->map(function ($postTags) use ($tags): string {
                 $tag = $tags->firstWhere('id', $postTags);
 
@@ -114,10 +113,10 @@ class PublishPost
     /**
      * @throws \Throwable
      */
-    public function edit()
+    public function update(Post $post)
     {
-        $this->post->is_published = (bool) $this->request->is_published;
+        $post->is_published = (bool) $this->postRequest->is_published;
 
-        $this->execute();
+        $this->handle($post);
     }
 }

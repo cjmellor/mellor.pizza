@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Fos\Post;
 
 use App\Actions\Post\PublishPost;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Fos\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
@@ -21,7 +22,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Contracts\View\View
+    public function index(): View
     {
         $posts = Cache::remember('posts.index', now()->addDay(), fn () => Post::with('author')->latest()->get());
 
@@ -32,7 +33,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\Contracts\View\View
+    public function create(): View
     {
         return view('fos.posts.create');
     }
@@ -42,9 +43,9 @@ class PostController extends Controller
      *
      * @throws \Throwable
      */
-    public function store(PostRequest $request, Post $post): \Illuminate\Http\RedirectResponse
+    public function store(Post $post): RedirectResponse
     {
-        (new PublishPost($request, $post))->create();
+        app(PublishPost::class)->store($post);
 
         return redirect()->route('posts.index')
             ->with('alert_status', 'New post created');
@@ -55,9 +56,9 @@ class PostController extends Controller
      *
      * Removed implicit model binding in favour of caching
      */
-    public function show(int $post): \Illuminate\Contracts\View\View
+    public function show(int $post): View
     {
-        $post = Cache::rememberForever("post.{$post}", fn () => Post::find($post));
+        $post = Cache::rememberForever("post.{$post}", fn (): ?Post => Post::find($post));
 
         return view('fos.posts.show')
             ->with('post', $post);
@@ -66,7 +67,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post): \Illuminate\Contracts\View\View
+    public function edit(Post $post): View
     {
         return view('fos.posts.edit')
             ->with('post', $post);
@@ -77,9 +78,9 @@ class PostController extends Controller
      *
      * @throws \Throwable
      */
-    public function update(PostRequest $request, Post $post): \Illuminate\Http\RedirectResponse
+    public function update(Post $post): RedirectResponse
     {
-        (new PublishPost($request, $post))->edit();
+        app(PublishPost::class)->update($post);
 
         return redirect()->route('posts.show', $post)
             ->with('alert_status', 'Blog post has been updated');
@@ -90,7 +91,7 @@ class PostController extends Controller
      *
      * @throws \Exception
      */
-    public function destroy(Post $post): \Illuminate\Http\RedirectResponse
+    public function destroy(Post $post): RedirectResponse
     {
         Cache::forget('posts.index');
 
