@@ -33,7 +33,7 @@
         </div>
         <hr class="border-gray-300 dark:border-cool-gray-700 w-1/2 mx-auto">
         <div id="blog-posts">
-            <p>Some stuff here</p>
+            <x-posts-list format="short" limit="2"></x-posts-list>
         </div>
     </div>
 </main>

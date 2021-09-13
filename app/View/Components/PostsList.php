@@ -9,8 +9,11 @@ use Illuminate\View\Component;
 
 class PostsList extends Component
 {
-    public function __construct(public int $limit = 5)
-    {
+    public function __construct(
+        public Post $post,
+        public string $format = 'full',
+        public int $limit = 5
+    ) {
     }
 
     /**
@@ -18,7 +21,7 @@ class PostsList extends Component
      */
     public function render(): View|string|Closure
     {
-        $posts = Post::query()
+        $posts = $this->post
             ->select(['title', 'slug', 'excerpt'])
             ->latest()
             ->published()
