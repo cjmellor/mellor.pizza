@@ -80,6 +80,7 @@ class Post extends Model
      * Check if a post is in Markdown format, otherwise, return HTML.
      *
      * Usage: $this->content
+     *
      * @throws \Exception
      */
     public function getContentAttribute(): string

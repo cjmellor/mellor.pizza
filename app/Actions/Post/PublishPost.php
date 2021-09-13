@@ -5,6 +5,7 @@ namespace App\Actions\Post;
 use App\Http\Requests\Fos\PostRequest;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -101,6 +102,10 @@ class PublishPost
                 $tag = $tags->firstWhere('id', $postTags);
 
                 if (is_null($tag)) {
+                    if (Cache::has('tags')) {
+                        Cache::forget('tags');
+                    }
+
                     $tag = Tag::create([
                         'name' => Str::slug($postTags),
                     ]);
