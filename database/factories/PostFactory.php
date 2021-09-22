@@ -29,8 +29,29 @@ class PostFactory extends Factory
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->sentence,
             'post_content' => $this->faker->text,
-            'is_published' => $this->faker->boolean,
+            'is_published' => false,
             'is_markdown' => false,
         ];
+    }
+
+    public function published()
+    {
+        $this->state(fn () => [
+            'is_published' => true,
+        ]);
+    }
+
+    public function unpublished()
+    {
+        $this->state(fn () => [
+            'is_published' => false,
+        ]);
+    }
+
+    public function usesMarkdown()
+    {
+        $this->state(fn () => [
+            'is_markdown' => true,
+        ]);
     }
 }
