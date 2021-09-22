@@ -49,8 +49,6 @@ class User extends Authenticatable
 
     /**
      * A 'User' has many 'Posts'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function posts(): HasMany
     {

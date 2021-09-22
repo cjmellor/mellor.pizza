@@ -11,17 +11,13 @@ class UserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-     *
-     * @var string
      */
     protected $model = User::class;
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         $name = $this->faker->name;
 
@@ -38,10 +34,8 @@ class UserFactory extends Factory
 
     public function avatar(): UserFactory
     {
-        return $this->state(function () {
-            return [
-                'avatar' => sprintf('https://www.gravatar.com/avatar/%s', md5(strtolower($this->faker->email))),
-            ];
-        });
+        return $this->state(fn () => [
+            'avatar' => sprintf('https://www.gravatar.com/avatar/%s', md5(strtolower($this->faker->email))),
+        ]);
     }
 }

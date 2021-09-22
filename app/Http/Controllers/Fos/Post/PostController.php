@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Fos\Post;
 
-use App\Actions\Post\PublishPost;
+use App\Actions\Post\PublishPostAction;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
@@ -24,9 +24,13 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        $posts = Cache::remember('posts.index', now()->addDay(), fn () => Post::with('author')->latest()->get());
+        $posts = Cache::remember(
+            key: 'posts.index',
+            ttl: now()->addDay(),
+            callback: fn () => Post::with('author')->latest()->get()
+        );
 
-        return view('fos.posts.index')
+        return view(view: 'fos.posts.index')
             ->with('posts', $posts);
     }
 
@@ -45,7 +49,7 @@ class PostController extends Controller
      */
     public function store(Post $post): RedirectResponse
     {
-        app(PublishPost::class)->store($post);
+        app(PublishPostAction::class)->store($post);
 
         return redirect()->route('posts.index')
             ->with('alert_status', 'New post created');
@@ -58,7 +62,10 @@ class PostController extends Controller
      */
     public function show(int $post): View
     {
-        $post = Cache::rememberForever("post.{$post}", fn (): ?Post => Post::find($post));
+        $post = Cache::rememberForever(
+            key: "post.{$post}",
+            callback: fn (): ?Post => Post::find($post)
+        );
 
         return view('fos.posts.show')
             ->with('post', $post);
@@ -80,7 +87,7 @@ class PostController extends Controller
      */
     public function update(Post $post): RedirectResponse
     {
-        app(PublishPost::class)->update($post);
+        app(PublishPostAction::class)->update($post);
 
         return redirect()->route('posts.show', $post)
             ->with('alert_status', 'Blog post has been updated');

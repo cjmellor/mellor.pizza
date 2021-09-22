@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class PublishPost
+class PublishPostAction
 {
     public function __construct(public PostRequest $postRequest)
     {
