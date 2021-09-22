@@ -36,7 +36,7 @@ class UserFactory extends Factory
         ];
     }
 
-    public function avatar(): UserFactory
+    public function avatar(): self
     {
         return $this->state(function () {
             return [

@@ -10,7 +10,7 @@ class ContactMessageMail extends Mailable
     {
     }
 
-    public function build(): ContactMessageMail
+    public function build(): self
     {
         return $this->markdown('emails.contact-message')
             ->with([
