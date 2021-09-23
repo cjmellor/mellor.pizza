@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder
@@ -16,7 +17,8 @@ class PostSeeder extends Seeder
             ->count(count: 20)
             ->for(User::factory(), relationship: 'author')
             ->for(Category::factory())
-            ->has(Tag::factory(3))
-            ->create();
+            ->has(Tag::factory(parameters: 3))
+            ->state(new Sequence(fn () => ['is_published' => rand(0, 1)]))
+            ->create(['user_id' => 1]);
     }
 }
