@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Model::preventLazyLoading(! $this->app->isProduction());
+        Model::preventLazyLoading(!$this->app->isProduction());
 
         // "Reading Time"
         Str::macro('readingTime', function (...$text) {
@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
 
             $minutes = max(1, ceil(num: $totalWords / 200));
 
-            return ($minutes > 1) ? $minutes . ' minutes' : $minutes . ' minute';
+            return ($minutes > 1) ? $minutes.' minutes' : $minutes.' minute';
         });
     }
 }

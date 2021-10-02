@@ -11,9 +11,8 @@ class ShowPostController extends Controller
 {
     public function __invoke($slug): View
     {
-        $post = Cache::remember(
+        $post = Cache::rememberForever(
             key: "post.{$slug}",
-            ttl: now()->addMonth(),
             callback: fn () => Post::whereSlug($slug)->first()
         );
 

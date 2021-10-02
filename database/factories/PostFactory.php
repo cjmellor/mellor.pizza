@@ -34,23 +34,23 @@ class PostFactory extends Factory
         ];
     }
 
-    public function published()
+    public function published(): PostFactory
     {
-        $this->state(fn () => [
+        return $this->state(fn () => [
             'is_published' => true,
         ]);
     }
 
-    public function unpublished()
+    public function unpublished(): PostFactory
     {
-        $this->state(fn () => [
+        return $this->state(fn () => [
             'is_published' => false,
         ]);
     }
 
-    public function usesMarkdown()
+    public function usesMarkdown(): PostFactory
     {
-        $this->state(fn () => [
+        return $this->state(fn () => [
             'is_markdown' => true,
         ]);
     }

@@ -22,7 +22,7 @@ class PostsList extends Component
     public function render(): View
     {
         $posts = Cache::remember(
-            key: "short_posts",
+            key: 'short_posts',
             ttl: now()->addDay(),
             callback: fn () => $this->post
                 ->with('tags:name', 'author:id,name')

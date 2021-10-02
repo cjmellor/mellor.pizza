@@ -12,7 +12,8 @@ Route::view('/dashboard', 'dashboard')
 
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
 
-Route::get('{slug}', ShowPostController::class);
+Route::get('{slug}', ShowPostController::class)
+    ->name('post.show');
 
 /*
  | For adding and removing attachments to a Trix Editor
