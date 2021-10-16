@@ -14,25 +14,22 @@
                                 {{--</a>--}}
                             @endforeach
                         </div>
-                        <a href="{{ route('post.show', $post->slug) }}" class="block mt-4">
-                            <p class="text-xl font-semibold text-gray-900">
+                        <x-link to="{{ route('post.show', $post->slug) }}" class="block mt-4">
+                            <p class="text-xl font-semibold text-gray-900 dark:text-cool-gray-400">
                                 {{ $post->title }}
                             </p>
-                            <p class="mt-3 text-base text-gray-500">
+                        </x-link>
+                        <div class="mt-3">
+                            <p class="text-base text-gray-500 dark:text-cool-gray-500">
                                 {{ $post->excerpt }}
                             </p>
-                        </a>
+                        </div>
                         <div class="mt-6 flex items-center">
-                            <div class="flex-shrink-0">
-                                <a href="#">
-                                    <span class="sr-only">{{ $post->author->name }}</span>
-                                </a>
-                            </div>
                             <div>
                                 <p class="text-sm font-medium text-gray-900">
-                                    <a href="#">{{ $post->author->name }}</a>
+                                    <span class="dark:text-cool-gray-400">{{ $post->author->name }}</span>
                                 </p>
-                                <div class="flex space-x-1 text-sm text-gray-500">
+                                <div class="flex space-x-1 text-sm text-gray-500 dark:text-cool-gray-500">
                                     <time datetime="2020-03-16">
                                         {{ \Carbon\Carbon::parse($post->created_at)->format('jS M, Y') }}
                                     </time>

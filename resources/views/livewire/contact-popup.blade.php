@@ -10,11 +10,11 @@
 >
     {{--Same button for different screen sizes--}}
     <div class="sm:hidden flex absolute top-1 sm:top-4 right-1 sm:right-4" wire:click="closePopUp">
-        <span class="text-gray-500 dark:text-white font-semibold text-3xl sm:text-5xl rotate-45">+</span>
+        <span class="text-pizza dark:text-white font-semibold text-3xl sm:text-5xl rotate-45">&plus;</span>
     </div>
 
-    <div class="hidden sm:flex justify-center items-center contact-close" wire:click="closePopUp">
-        <span class="text-gray-500 dark:text-white font-semibold text-2xl rotate-45">+</span>
+    <div class="hidden sm:flex justify-center items-center contact-close hover:bg-pizza/90" wire:click="closePopUp">
+        <span class="text-pizza dark:text-white font-semibold text-2xl rotate-45 hover:text-white dark:hover:text-pizza-dark">&plus;</span>
     </div>
     {{--End--}}
 
@@ -25,13 +25,13 @@
                 <label class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70" for="contact_name">
                     What's your name?
                 </label>
-                <x-form.input for="contact_name" type="text" wire:model.lazy="contact_name"/>
+                <x-form.input class="sm:w-1/2" for="contact_name" type="text" wire:model.lazy="contact_name"/>
             </div>
             <div>
                 <label class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70" for="contact_email">
                     What's your email address?
                 </label>
-                <x-form.input for="contact_email" type="email" wire:model.lazy="contact_email"/>
+                <x-form.input class="sm:w-1/2" for="contact_email" type="email" wire:model.lazy="contact_email"/>
             </div>
             <div>
                 <label class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70" for="contact_message">

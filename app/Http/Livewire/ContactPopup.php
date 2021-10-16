@@ -3,8 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Mail\ContactMessageMail;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
@@ -34,28 +32,38 @@ class ContactPopup extends Component
         'contact_message' => 'message',
     ];
 
-    /**
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function updated($propertyName)
     {
-        $this->validateOnly($propertyName);
+        $this->validateOnly(field: $propertyName);
     }
 
-    public function send()
+    public function send(): void
     {
         $validated = $this->validate();
 
-        if ($this->honeyPasses()) {
-            Mail::to(users: config(key: 'mail.current_contact_email'))
-                ->send(new ContactMessageMail($validated));
+        if ($this->honeyPasses() === false) {
+            $this->dispatchBrowserEvent(
+                event: 'send-toast',
+                data: [
+                    'messageContent' => 'Something went wrong!',
+                    'type' => 'error',
+                ]
+            );
+
+            return;
         }
+
+        Mail::to(users: config(key: 'mail.current_contact_email'))
+            ->send(new ContactMessageMail($validated));
 
         sleep(seconds: 1);
 
-        $this->dispatchBrowserEvent('send-toast', [
-            'messageContent' => 'Message sent!',
-        ]);
+        $this->dispatchBrowserEvent(
+            event: 'send-toast',
+            data: [
+                'messageContent' => 'Message sent!',
+            ]
+        );
 
         $this->showContactMePopUp = false;
 
@@ -69,7 +77,7 @@ class ContactPopup extends Component
         $this->showContactMePopUp = false;
     }
 
-    public function render(): Factory|View|Application
+    public function render(): View
     {
         return view('livewire.contact-popup');
     }

@@ -1,4 +1,4 @@
-<x-layout title="Chris Mellor's Website and Blog">
+<x-layout title="Chris Mellors Website and Blog">
     <x-header></x-header>
     <x-main></x-main>
     <livewire:contact-popup />

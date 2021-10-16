@@ -35,7 +35,7 @@
         <div id="blog-posts">
             <x-posts-list format="short" limit="3"></x-posts-list>
             <div class="flex justify-center lg:pb-16">
-                <a class="font-merriweather underline text-xl" href="#">See more posts</a>
+                <x-link to="#" class="font-merriweather text-xl" href="#">See more posts</x-link>
             </div>
         </div>
     </div>

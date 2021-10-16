@@ -11,7 +11,7 @@
 </head>
 <body class="dark:bg-dark">
 <x-toast/>
-<div class="container pt-8 mx-auto dark:text-dark-gray dark:text-opacity-70">
+<div {{ $attributes->class(['container pt-8 pb-4 mx-auto dark:text-dark-gray dark:text-opacity-70']) }}>
     {{ $slot }}
 </div>
 <livewire:scripts/>

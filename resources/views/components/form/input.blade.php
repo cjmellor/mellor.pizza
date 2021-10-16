@@ -1,7 +1,10 @@
 @props(['for'])
 
-<input {{ $attributes->merge(['id' => $for, 'name' => $for]) }}
-       class="@if ($errors->has($for)) form-pizza-error @else form-pizza @endif w-full sm:w-1/2 mt-2.5"
+<input {{ $attributes->merge(['id' => $for, 'name' => $for])->class([
+        'w-full', 'mt-2.5',
+        'form-pizza' => ! $errors->has($for),
+        'form-pizza-error' => $errors->has($for),
+    ]) }}
 />
 
 @error($for)

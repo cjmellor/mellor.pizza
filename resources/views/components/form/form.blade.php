@@ -3,7 +3,7 @@
         @csrf
     @endif
 
-    @unless(in_array($method, ['POST']))
+    @unless($method == 'POST')
         @method($method)
     @endunless
 

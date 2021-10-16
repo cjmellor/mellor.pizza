@@ -5,7 +5,7 @@
     'lineLength' => '0',
     'reverse' => false,
     'strokeWidth' => '1',
-    'trackColor' => 'text-gray-100',
+    'trackColor' => 'text-gray-100/50',
     'width' => 'w-16'
 ])
 

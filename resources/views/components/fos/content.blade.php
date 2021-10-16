@@ -1,6 +1,6 @@
 {{--Error reporting--}}
 <x-form.error></x-form.error>
 
-<main>
+<main class="container mx-auto">
     {{ $slot }}
 </main>
