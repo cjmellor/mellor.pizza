@@ -4,5 +4,6 @@
         <p>
             <x-link to="{{ route('posts.create') }}">Add Post</x-link>
         </p>
+                    <livewire:fos.blog-posts-list/>
     </x-fos.content>
 </x-fos.layout>
