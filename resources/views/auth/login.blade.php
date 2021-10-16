@@ -2,7 +2,7 @@
     <x-auth.container>
         <x-slot name="breadcrumbs">
             <x-breadcrumbs class="mb-6" :lists="[
-                'Dashboard' => route('dashboard'),
+                'Home' => route('homepage'),
             ]"/>
         </x-slot>
         <x-form.form action="{{ route('login') }}" class="space-y-6" method="post">

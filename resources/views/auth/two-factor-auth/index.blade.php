@@ -6,7 +6,7 @@
     <x-auth.container>
         <x-slot name="breadcrumbs">
             <x-breadcrumbs class="mb-6" :lists="[
-                'Dashboard' => route('dashboard'),
+                'Home' => route('homepage'),
             ]"/>
         </x-slot>
         @if (session('status') == 'two-factor-authentication-disabled')

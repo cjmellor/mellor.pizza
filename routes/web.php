@@ -4,7 +4,8 @@ use App\Http\Controllers\Posts\ShowPostController;
 use App\Http\Controllers\Trix\AttachmentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => view('index'));
+Route::view('/', 'index')
+    ->name('homepage');
 
 
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
