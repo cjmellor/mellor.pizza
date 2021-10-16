@@ -101,7 +101,7 @@ class Post extends Model
      */
     public function isInEditMode(): bool
     {
-        return request()->routeIs('posts.edit');
+        return request()->routeIs('fos.posts.edit');
     }
 
     /**

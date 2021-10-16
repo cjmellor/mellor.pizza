@@ -51,7 +51,7 @@ class PostController extends Controller
     {
         app(PublishPostAction::class)->store($post);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('fos.posts.index')
             ->with('alert_status', 'New post created');
     }
 
@@ -89,7 +89,7 @@ class PostController extends Controller
     {
         app(PublishPostAction::class)->update($post);
 
-        return redirect()->route('posts.show', $post)
+        return redirect()->route('fos.posts.show', $post)
             ->with('alert_status', 'Blog post has been updated');
     }
 
@@ -105,7 +105,7 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()
-            ->route('posts.index')
+            ->route('fos.posts.index')
             ->with(['alert_status' => 'Blog post has been archived']);
     }
 }

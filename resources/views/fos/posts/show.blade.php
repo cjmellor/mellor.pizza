@@ -37,9 +37,9 @@
 
         <section>
             <p>
-                <x-link to="{{ route('posts.edit', $post) }}">Edit</x-link>
-                <x-form.delete to="{{ route('posts.destroy', $post) }}">Archive</x-form.delete>
-                <x-link to="{{ route('posts.index') }}">Go back</x-link>
+                <x-link to="{{ route('fos.posts.edit', $post) }}">Edit</x-link>
+                <x-form.delete to="{{ route('fos.posts.destroy', $post) }}">Archive</x-form.delete>
+                <x-link to="{{ route('fos.posts.index') }}">Go back</x-link>
             </p>
         </section>
     </x-fos.content>

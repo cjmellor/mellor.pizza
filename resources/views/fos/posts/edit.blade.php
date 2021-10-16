@@ -4,7 +4,7 @@
     </header>
 
     <x-fos.content>
-        <x-form.form action="{{ route('posts.update', $post) }}" enctype="multipart/form-data" method="patch">
+        <x-form.form action="{{ route('fos.posts.update', $post) }}" enctype="multipart/form-data" method="patch">
             <section>
                 <div>
                     <label for="is_published">Is Post Published?</label>
