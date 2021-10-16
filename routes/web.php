@@ -1,14 +1,11 @@
 <?php
 
 use App\Http\Controllers\Posts\ShowPostController;
-use App\Http\Controllers\Posts\Trix\AttachmentController;
+use App\Http\Controllers\Trix\AttachmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('index'));
 
-Route::view('/dashboard', 'dashboard')
-    ->middleware('auth')
-    ->name('dashboard');
 
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
 

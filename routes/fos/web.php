@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Fos\IndexController;
 use App\Http\Controllers\Fos\Post\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['auth', 'can:is-god'])->group(function () {
-    Route::view('/', 'fos.index')->name('fos.index');
+    Route::get(uri: '/', action: IndexController::class)
+        ->name(name: 'fos.index');
 
     Route::name('fos.')->group(
         function () {
