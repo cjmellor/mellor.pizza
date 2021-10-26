@@ -7,7 +7,7 @@
                 <div class="-mt-px w-0 flex-1 flex">
                     <x-link
                         :livewire="true"
-                        class="border-t-2 border-transparent cursor-pointer pt-4 pr-1 inline-flex items-center text-lg sm:text-sm font-medium text-gray-500 hover:text-gray-700"
+                        class="border-t-2 border-transparent cursor-pointer pt-4 pr-1 inline-flex items-center text-lg sm:text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                         wire:click="previousPage">
                         <svg aria-hidden="true" class="mr-3 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
             @if($paginator->hasMorePages())
                 <div class="-mt-px w-0 flex-1 flex justify-end">
                     <x-link :livewire="true"
-                            class="border-t-2 border-transparent cursor-pointer pt-4 pl-1 inline-flex items-center text-lg sm:text-sm font-medium text-gray-500 hover:text-gray-700"
+                            class="border-t-2 border-transparent cursor-pointer pt-4 pl-1 inline-flex items-center text-lg sm:text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                             wire:click="nextPage">
                         Next
                         <svg aria-hidden="true" class="ml-3 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

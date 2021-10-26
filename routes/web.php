@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'index')
     ->name('homepage');
 
-
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
 
 Route::get('{slug}', ShowPostController::class)

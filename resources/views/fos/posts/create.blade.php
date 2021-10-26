@@ -3,7 +3,7 @@
         <h1>Create a New Post</h1>
     </header>
     <x-fos.content>
-        <x-form.form action="{{ route('posts.store') }}" enctype="multipart/form-data" method="post">
+        <x-form.form action="{{ route('fos.posts.store') }}" enctype="multipart/form-data" method="post">
             <section>
                 <div>
                     <label for="is_published">Publish</label>

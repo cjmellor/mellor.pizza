@@ -1,6 +1,6 @@
 {{--Template--}}
-<div x-data="{ editMode: {{ json_encode($editMode) }}, type: '{{ $type }}' }">
-    <template x-if="!editMode">
+<div x-data="{ editMode: @js($editMode), type: '{{ $type }}' }">
+    <template x-if="editMode === false">
         <ul>
             {{--TODO: Define a class based on selected option--}}
             <li x-on:click="type = 'html'">HTML</li>
@@ -19,13 +19,3 @@
     </div>
 </div>
 {{--End Template--}}
-
-{{--Scripts--}}
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" defer></script>
-@endpush
-{{--End Scripts--}}
-
-{{--Styles--}}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/nord.min.css" rel="stylesheet"/>
-{{--End Styles--}}

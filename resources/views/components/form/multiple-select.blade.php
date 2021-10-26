@@ -1,6 +1,6 @@
 {{--Template--}}
-<label for="{{ $id }}"></label>
 <select {{ $attributes }}
+        autocomplete="off"
         id="{{ $id }}"
         multiple
         name="{{ $name ?? Str::singular($id) }}_id[]"
@@ -12,8 +12,8 @@
 {{--End Template--}}
 
 {{--Scripts--}}
-@push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@1.1/dist/js/tom-select.complete.min.js"></script>
+@once
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@1.7/dist/js/tom-select.complete.min.js"></script>
 
     <script>
         const multiSelect = (ref) => {
@@ -25,7 +25,7 @@
             new TomSelect(ref, options);
         };
     </script>
-@endpush
+@endonce
 {{--End Scripts--}}
 
 {{--Styles--}}

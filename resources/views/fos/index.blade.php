@@ -1,10 +1,7 @@
 <x-fos.layout class="!pt-0">
     <x-auth.navigation/>
     <x-fos.content>
-        <div class="mb-12">
-            <x-link to="{{ route('fos.posts.index') }}">View Blog Posts</x-link>
-            <x-link to="{{ route('fos.posts.create') }}">Add Post</x-link>
-
+        <div class="mt-12">
             <div class="hidden sm:flex">
                 <div class="w-1/2"></div>
                 <div class="w-1/2">

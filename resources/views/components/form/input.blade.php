@@ -5,6 +5,7 @@
         'form-pizza' => ! $errors->has($for),
         'form-pizza-error' => $errors->has($for),
     ]) }}
+       value="{{ old($for, $slot ?? '') }}"
 />
 
 @error($for)
