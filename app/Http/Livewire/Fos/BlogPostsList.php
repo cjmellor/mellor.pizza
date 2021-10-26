@@ -12,10 +12,20 @@ class BlogPostsList extends Component
     use WithPagination;
 
     public int $perPage = 3;
+    public bool $viewingAll = false;
 
-    public function getAllBlogPosts(): int
+    public function getAllBlogPosts()
     {
-        return $this->perPage = 0;
+        $this->perPage = 0;
+
+        $this->viewingAll = true;
+    }
+
+    public function viewLessPosts(int $perPage = 3)
+    {
+        $this->perPage = $perPage;
+
+        $this->viewingAll = false;
     }
 
     public function paginationView(): string
