@@ -34,7 +34,7 @@
         <hr class="border-gray-300 dark:border-cool-gray-700 w-1/2 mx-auto">
         <div id="blog-posts">
             <x-posts-list format="short" limit="3"></x-posts-list>
-            <div class="flex justify-center lg:pb-16">
+            <div class="flex justify-center pb-8 lg:pb-16">
                 <x-link to="#" class="font-merriweather text-xl" href="#">See more posts</x-link>
             </div>
         </div>

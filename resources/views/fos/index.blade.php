@@ -1,6 +1,6 @@
 <x-fos.layout class="!pt-0">
-    <x-auth.navigation/>
     <x-fos.content>
+        <x-auth.navigation/>
         <div class="mt-12">
             <div class="hidden sm:flex">
                 <div class="w-1/2"></div>

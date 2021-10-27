@@ -1,7 +1,7 @@
 <div>
-    <div class="pb-20 px-4 sm:px-6 lg:pb-12 lg:px-8">
+    <div class="pb-10 sm:pb-20 px-4 sm:px-6 lg:pb-12 lg:px-8">
         <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
-            <div class="mt-12 grid gap-16 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+            <div class="sm:mt-8 grid gap-16 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
                 @foreach($posts as $post)
                     <div>
                         <div>
