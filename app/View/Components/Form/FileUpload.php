@@ -1,23 +1,20 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Form;
 
+use App\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Trix extends Component
+class FileUpload extends Component
 {
     /**
      * Create a new component instance.
      *
-     * @param  string  $name
-     * @param  string|null  $content
-     * @param  string|null  $id
+     * @return void
      */
     public function __construct(
-        public string $name,
-        public ?string $content = null,
-        public ?string $id = null,
+        public Post $post,
     ) {
     }
 
@@ -26,6 +23,6 @@ class Trix extends Component
      */
     public function render(): View
     {
-        return view('components.trix');
+        return view('components.form.file-upload');
     }
 }
