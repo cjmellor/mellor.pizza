@@ -4,11 +4,16 @@
     'livewire' => false,
     'to' => null,
     'underline' => 'true',
+    'active' => false,
 ])
 
 {{--Template--}}
-<div class="inline-flex {{ $underline == 'true' ? 'underline-animate-container' : '' }}">
-    <a {{ $attributes->merge(['class' => 'underline-animate-link']) }}
+<div class="inline-flex {{ $attributes->class(['underline-animate-container' => $underline]) }}">
+    <a {{ $attributes->class([
+    'underline-animate-link' => $underline,
+    'border-pizza dark:border-pizza-dark text-gray-900 dark:text-gray-200' => $active,
+    'border-transparent text-gray-500 hover:text-gray-700 dark:text-blue-gray-400 hover:dark:text-blue-gray-200' => !$active,
+    ]) }}
        @unless($livewire) href="{{ $to }} @endunless">
         {{ $slot }}
     </a>

@@ -1,5 +1,5 @@
 <div>
-    <div {{ $attributes }}>
+    <div>
         <input id="{{ $id ?? $name }}"
                name="{{ $name }}"
                type="hidden"
@@ -10,6 +10,10 @@
             input="{{ $name ?? $id }}"
         />
     </div>
+
+    @error($name)
+    <p class="text-red-500 dark:text-red-400 text-sm mt-2.5">{{ $message }}</p>
+    @enderror
 </div>
 
 @push('scripts')

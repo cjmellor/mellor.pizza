@@ -2,10 +2,10 @@
     'rounded-md',
     'p-4',
     'border-l-4',
-    'bg-red-50 text-red-700 border-red-400' => $type == 'error',
-    'bg-blue-50 text-blue-700 border-blue-400' => $type == 'info',
-    'bg-yellow-50 text-yellow-700 border-yellow-400' => $type == 'warning',
-    'bg-green-50 text-green-700 border-green-400' => $type == 'success',
+    'bg-red-50 dark:bg-[#504854] text-red-700 dark:text-[#ff7070] border-red-400 dark:border-none' => $type == 'error',
+    'bg-blue-50 dark:bg-[#405161] text-blue-700 dark:text-[#66c7ff] border-blue-400 dark:border-none' => $type == 'info',
+    'bg-yellow-50 dark:bg-[#4d5354] text-yellow-700 dark:text-[#e2d562] border-yellow-400 dark:border-none' => $type == 'warning',
+    'bg-green-50 dark:bg-[#435250] text-green-700 dark:text-[#86d039] border-green-400 dark:border-none' => $type == 'success',
 ]) }}>
     <div class="flex">
         <div class="flex-shrink-0">
@@ -20,7 +20,8 @@
             @endif
             {{--success--}}
             @if($type == 'success')
-                <svg aria-hidden="true" class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="h-5 w-5 text-green-400 dark:text-[#86d039]" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
                     <path clip-rule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                           fill-rule="evenodd"/>
