@@ -1,6 +1,11 @@
 <x-fos.layout class="!pt-0">
     <x-fos.content>
         <x-auth.navigation/>
+
+        @if(session('alert_status'))
+            <x-alert type="success">{{ session()->get('alert_status') }}</x-alert>
+        @endif
+
         <div class="mt-12">
             <div class="hidden sm:flex">
                 <div class="w-1/2"></div>
