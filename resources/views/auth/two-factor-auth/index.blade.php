@@ -56,7 +56,7 @@
                                 You will need these recovery codes to be able to get back in. Make sure to store them somewhere securely.
                             </p>
                         </div>
-                        <div class="bg-white border border-gray-300 dark:border-[#373e47] rounded-md">
+                        <div class="bg-white border border-gray-300 dark:border-dark-line rounded-md">
                             <ul class="text-sm text-gray-900 dark:text-gray-300 divide-y divide-gray-200">
                                 @foreach(auth()->user()->recoveryCodes() as $recoveryCode)
                                     <li class="p-2">{{ $recoveryCode }}</li>

@@ -173,7 +173,7 @@ trix-toolbar .trix-dialogs {
 }
 
 trix-toolbar .trix-dialog {
-    @apply absolute top-0 inset-x-0 text-xs px-4 py-2.5 bg-white dark:bg-dark ring-4 ring-opacity-25 border border-pizza ring-[#ff810a] dark:border-[#424c55] dark:ring-[#373e47] dark:ring-opacity-50 rounded-md z-[5]
+    @apply absolute top-0 inset-x-0 text-xs px-4 py-2.5 bg-white dark:bg-dark ring-4 ring-opacity-25 border border-pizza ring-[#ff810a] dark:border-dark-line-lighter dark:ring-[#373e47] dark:ring-opacity-50 rounded-md z-[5]
 }
 
 

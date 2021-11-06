@@ -5,7 +5,7 @@
      x-show="showContactMePopUp"
      x-on:click.away="showContactMePopUp = false"
      x-on:show-contact.window="showContactMePopUp = ! showContactMePopUp"
-     class="relative max-w-full md:max-w-screen-md lg:max-w-screen-xl p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-[#22272e] border border-gray-300 dark:border-[#424c55] border-b-0"
+     class="relative max-w-full md:max-w-screen-md lg:max-w-screen-xl p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-[#22272e] border border-gray-300 dark:border-dark-line-lighter border-b-0"
      x-cloak
 >
     {{--Same button for different screen sizes--}}

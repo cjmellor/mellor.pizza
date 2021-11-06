@@ -9,5 +9,5 @@
 />
 
 @error($for)
-<p class="text-red-500 text-sm mt-2.5">{{ $message }}</p>
+<p class="text-red-500 dark:text-red-400 text-sm mt-2.5">{{ $message }}</p>
 @enderror

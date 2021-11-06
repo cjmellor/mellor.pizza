@@ -321,7 +321,7 @@
 .ts-dropdown {
     margin: 0.25rem 0 0 0;
     box-sizing: border-box;
-    @apply absolute top-full left-0 border dark:text-dark-gray border-gray-200 dark:border-[#373e47] rounded-md shadow-xl bg-white dark:bg-dark z-10 w-full;
+    @apply absolute top-full left-0 border dark:text-dark-gray border-gray-200 dark:border-dark-line rounded-md shadow-xl bg-white dark:bg-dark z-10 w-full;
 }
 
 .ts-dropdown [data-selectable] {
