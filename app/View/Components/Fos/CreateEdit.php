@@ -8,9 +8,6 @@ use Illuminate\View\Component;
 
 class CreateEdit extends Component
 {
-    public const METHOD_CREATE = 'post';
-    public const METHOD_EDIT = 'patch';
-
     /**
      * Create a new component instance.
      *
@@ -29,15 +26,6 @@ class CreateEdit extends Component
     public function render(): View
     {
         return view('components.fos.create-edit');
-    }
-
-    public function getMethod(): string
-    {
-        return match ($this->mode) {
-            'create' => self::METHOD_CREATE,
-            'edit' => self::METHOD_EDIT,
-            default => '',
-        };
     }
 
     public function setTitle(): string

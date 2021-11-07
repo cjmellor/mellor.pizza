@@ -2,7 +2,10 @@
     <x-fos.content>
         <x-auth.navigation></x-auth.navigation>
         <div class="space-y-6">
-            <x-form.form action="{{ $action }}" enctype="multipart/form-data" method="{{ $getMethod }}">
+            <x-form.form action="{{ $action }}" enctype="multipart/form-data" method="post">
+                @if($mode === 'edit')
+                    @method('PATCH')
+                @endif
                 <div class="space-y-10">
                     <x-auth.container>
                         <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -57,7 +60,7 @@
                                     </x-form.label>
 
                                     {{--File Upload--}}
-                                    <x-form.file-upload/>
+                                    <x-form.file-upload :post="$post"/>
                                 </div>
 
                             </div>

@@ -1,5 +1,5 @@
-<div class="flex justify-center items-center border-2 border-gray-300 dark:border-dark-line border-dashed rounded-md h-48 overflow-y-hidden"
-     :class="imageUrl && 'border-pizza dark:border-pizza-dark'"
+<div :class="imageUrl && 'border-pizza dark:border-pizza-dark'"
+     class="flex justify-center items-center border-2 border-gray-300 dark:border-dark-line border-dashed rounded-md h-48 overflow-y-hidden"
      x-data="fileUpload">
     <template x-if="!imageUrl">
         <div class="space-y-1 text-center px-6 pt-5 pb-6 w-full">
@@ -12,47 +12,54 @@
             <div class="text-sm text-gray-600 dark:text-gray-400">
                 <label
                     class="relative cursor-pointer bg-transparent rounded-md font-medium text-pizza dark:text-pizza-dark"
-                    for="file-upload">
+                    for="post_image">
                     <p class="text-gray-500 dark:text-white space-y-1">
                         <span class="text-pizza dark:text-pizza-dark">Upload a file</span> or drag and drop
                         <span class="block text-xs text-gray-500">PNG, JPG up to *MB</span>
                     </p>
-                    <input class="sr-only" id="file-upload" name="file-upload" type="file"
-                           x-on:change="selectFile">
+                    {{--File input moved outside of template so to not be overwritten by the x-if--}}
                 </label>
-                <x-form.input type="hidden" for="post_header_delete" :value="$post->post_image"/>
             </div>
         </div>
+
+        @if($post->post_image)
+            <img alt="" src="{{ asset('post_headers/'.$post->post_image)  }}" x-bind:class="{ 'hidden': !imageUrl }">
+        @endif
+
     </template>
 
     <template x-if="imageUrl">
         <div class="object-contain group relative">
-            <div x-on:click="imageUrl = ''"
-                 class="hidden group-hover:flex absolute justify-center items-center m-auto text-white tracking-wider uppercase bg-transparent h-full w-full hover:bg-black/75 hover:cursor-pointer">
+            <div
+                class="hidden group-hover:flex absolute justify-center items-center m-auto text-white tracking-wider uppercase bg-transparent h-full w-full hover:bg-black/75 hover:cursor-pointer"
+                x-on:click="imageUrl = ''">
                 Remove
             </div>
-            <img :src="imageUrl" alt="">
+            <img :src="imageUrl" alt="" x-bind:class="{ 'hidden': !imageUrl }">
         </div>
     </template>
+
+    <input class="sr-only" id="post_image" name="post_image" type="file" x-on:change="selectFile">
+    <x-form.input :value="$post->post_image" for="post_header_delete" type="hidden"/>
 </div>
 
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('fileUpload', () => ({
-            imageUrl: '',
+            imageUrl: '{{ $post->post_image ? asset('post_headers/'.$post->post_image) : '' }}',
 
-            selectFile(event) {
-                const file = event.target.files[0];
-                const reader = new FileReader();
+            selectFile (event) {
+                const file = event.target.files[0]
+                const reader = new FileReader()
 
                 if (!event.target.files.length) {
-                    return;
+                    return
                 }
 
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(file)
 
-                reader.onload = () => (this.imageUrl = reader.result);
+                reader.onload = () => (this.imageUrl = reader.result)
             },
-        }));
-    });
+        }))
+    })
 </script>
