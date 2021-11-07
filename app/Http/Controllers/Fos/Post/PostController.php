@@ -34,7 +34,7 @@ class PostController extends Controller
      */
     public function store(Post $post): RedirectResponse
     {
-        app(PublishPostAction::class)->store($post);
+        app(PublishPostAction::class)->handle($post);
 
         return redirect()->route('fos.posts.index')
             ->with('alert_status', 'New post created');
@@ -56,7 +56,7 @@ class PostController extends Controller
      */
     public function update(Post $post): RedirectResponse
     {
-        app(PublishPostAction::class)->update($post);
+        app(PublishPostAction::class)->handle($post);
 
         return redirect()->route('fos.index', $post)
             ->with('alert_status', 'Blog post has been updated');

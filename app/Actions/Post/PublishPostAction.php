@@ -15,29 +15,21 @@ class PublishPostAction
     {
     }
 
-    /**
-     * @throws \Throwable
-     */
-    public function store(Post $post)
+    public function handle(Post $post)
     {
+        ray(request()->has('post_image'));
         // If the post is Markdown, update model
         if ($this->postRequest->is_markdown) {
             $post->is_markdown = true;
         }
 
-        $this->handle($post);
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function handle(Post $post)
-    {
         $post->author()->associate(auth()->user()->id);
         $post->category()->associate($this->postRequest->category_id);
 
         $post->fill($this->postRequest->validated());
+
         $post->slug = $this->postRequest->title;
+        $post->is_published = (bool) $this->postRequest->is_published;
 
         if ($this->postRequest->has('post_image')) {
             $post->post_image = $this->uploadPostHeader();
@@ -52,7 +44,7 @@ class PublishPostAction
     /**
      * Store the requested file in the desired location and return the path.
      */
-    protected function uploadPostHeader(): bool|PostRequest|string|null
+    protected function uploadPostHeader(): bool|string|null
     {
         // First, if the image is being replaced, then remove the old one.
         if ($this->postRequest->has('post_header_delete')) {
@@ -113,15 +105,5 @@ class PublishPostAction
 
                 return (string) $tag->id;
             })->toArray();
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function update(Post $post)
-    {
-        $post->is_published = (bool) $this->postRequest->is_published;
-
-        $this->handle($post);
     }
 }
