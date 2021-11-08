@@ -25,7 +25,6 @@
         @if($post->post_image)
             <img alt="" src="{{ asset('post_headers/'.$post->post_image)  }}" x-bind:class="{ 'hidden': !imageUrl }">
         @endif
-
     </template>
 
     <template x-if="imageUrl">
@@ -52,7 +51,7 @@
                 const file = event.target.files[0]
                 const reader = new FileReader()
 
-                if (!event.target.files.length) {
+                if (event.target.files.length < 1) {
                     return
                 }
 
