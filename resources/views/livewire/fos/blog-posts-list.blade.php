@@ -22,10 +22,8 @@
     {{ $posts->links() }}
 
     <div class="mt-12">
-        @if($viewingAll)
-            <a class="flex justify-center button-pizza" wire:click="viewLessPosts">
-                {{ $viewingAll ? 'View less' : 'View more' }}
-            </a>
-        @endif
+        <a class="flex justify-center button-pizza" wire:click="viewMoreOrLessPosts">
+            {{ $viewingAll ? 'View less' : 'View more' }}
+        </a>
     </div>
 </div>

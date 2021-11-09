@@ -14,6 +14,15 @@ class BlogPostsList extends Component
     public int $perPage = 3;
     public bool $viewingAll = false;
 
+    public function viewMoreOrLessPosts()
+    {
+        if ($this->viewingAll === false) {
+            return $this->getAllBlogPosts();
+        }
+
+        return $this->viewLessPosts();
+    }
+
     public function getAllBlogPosts()
     {
         $this->perPage = 0;
@@ -21,9 +30,9 @@ class BlogPostsList extends Component
         $this->viewingAll = true;
     }
 
-    public function viewLessPosts(int $perPage = 3)
+    public function viewLessPosts()
     {
-        $this->perPage = $perPage;
+        $this->reset('perPage');
 
         $this->viewingAll = false;
     }
