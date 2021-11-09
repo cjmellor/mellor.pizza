@@ -8,7 +8,7 @@
 ])
 
 {{--Template--}}
-<div class="inline-flex {{ $attributes->class(['underline-animate-container' => $underline]) }}">
+<div class="inline-flex underline-animate-container">
     <a {{ $attributes->class([
     'underline-animate-link' => $underline,
     'border-pizza dark:border-pizza-dark text-gray-900 dark:text-gray-200' => $active,
