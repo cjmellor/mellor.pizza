@@ -1,4 +1,4 @@
-<x-layout title="Login">
+<x-layout.main title="Login">
     <x-auth.container class="mx-auto sm:max-w-2xl">
         <x-slot name="breadcrumbs">
             <x-breadcrumbs class="mb-6" :lists="[
@@ -49,4 +49,4 @@
             </div>
         </x-form.form>
     </x-auth.container>
-</x-layout>
+</x-layout.main>

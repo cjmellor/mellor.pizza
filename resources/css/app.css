@@ -35,5 +35,9 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    @apply scroll-smooth;
+}
+
+body {
+    @apply dark:bg-dark;
 }

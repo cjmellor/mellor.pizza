@@ -1,4 +1,4 @@
-<x-layout title="Two-Factor Authentication">
+<x-layout.main title="Two-Factor Authentication">
     <x-auth.container class="mx-auto sm:max-w-2xl">
         <div class="font-medium text-lg tracking-wider mb-4 text-center">Enter 2FA Code</div>
         <x-form.form :action="route('two-factor.login')" method="post">
@@ -10,4 +10,4 @@
             </div>
         </x-form.form>
     </x-auth.container>
-</x-layout>
+</x-layout.main>

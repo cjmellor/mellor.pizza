@@ -2,7 +2,7 @@
     $isTwoFaEnabled = auth()->user()->two_factor_enabled;
 @endphp
 
-<x-layout title="Two Factor Authentication">
+<x-layout.main title="Two Factor Authentication">
     <x-auth.container class="mx-auto sm:max-w-2xl">
         <x-slot name="breadcrumbs">
             <x-breadcrumbs class="mb-6" :lists="[
@@ -68,4 +68,4 @@
             @endif
         </ul>
     </x-auth.container>
-</x-layout>
+</x-layout.main>

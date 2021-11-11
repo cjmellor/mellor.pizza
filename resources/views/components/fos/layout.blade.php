@@ -9,7 +9,7 @@
     <livewire:styles />
     @stack('stylesheets')
 </head>
-<body class="dark:bg-dark">
+<body>
     {{ $slot }}
     <livewire:scripts />
     <script src="{{ mix('js/app.js') }}"></script>
