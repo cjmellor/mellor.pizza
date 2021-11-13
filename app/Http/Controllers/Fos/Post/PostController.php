@@ -58,7 +58,7 @@ class PostController extends Controller
     {
         app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('fos.index', $post)
+        return redirect()->route('fos.fos.index', $post)
             ->with('alert_status', 'Blog post has been updated');
     }
 

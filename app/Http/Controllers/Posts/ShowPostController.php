@@ -16,6 +16,7 @@ class ShowPostController extends Controller
             callback: fn () => Post::whereSlug($slug)->first()
         );
 
-        return view('post')->with('post', $post);
+        return view('post')
+            ->with('post', $post);
     }
 }

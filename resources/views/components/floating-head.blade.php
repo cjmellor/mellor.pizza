@@ -7,7 +7,7 @@
         <picture>
             <source srcset="{{ asset('faces/avatar-face.avif') }}" type="image/avif">
             <source srcset="{{ asset('faces/avatar-face.webp') }}" type="image/webp">
-            <img alt="It's me!" class="w-48 h-48 lg:w-56 lg:h-56 rounded-full hover:filter-none grayscale dark:sepia"
+            <img alt="It's me!" class="w-48 h-48 lg:w-56 lg:h-56 rounded-full grayscale dark:sepia"
                  src="{{ asset('faces/avatar-face.png') }}">
         </picture>
     </div>
