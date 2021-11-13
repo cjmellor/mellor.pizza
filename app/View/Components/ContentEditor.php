@@ -11,7 +11,7 @@ class ContentEditor extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $type,
+        public string $type = 'html',
         public bool $editMode = false,
     ) {
         //

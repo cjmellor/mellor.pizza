@@ -5,8 +5,8 @@
                 {{--Links on left--}}
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                     <x-link :active="request()->routeIs('fos.index')"
-                        class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                        to="{{ route('fos.index') }}">
+                            class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                            to="{{ route('fos.fos.index') }}">
                         Dashboard
                     </x-link>
                     <x-link :active="request()->routeIs('fos.posts.create')"
@@ -44,7 +44,7 @@
                         </button>
                     </div>
                     <div aria-labelledby="user-menu-button" aria-orientation="vertical"
-                         class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-50 dark:bg-gray-800 dark:border dark:border-dark-line focus:outline-none"
+                         class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-50 dark:bg-dark dark:border dark:border-dark-line focus:outline-none"
                          role="menu" tabindex="-1" x-show="showDropdown" @showHide()>
                         @if(!isAdminSection())
                             <a class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
@@ -91,10 +91,12 @@
                    href="{{ route('fos.index') }}">Admin</a>
             @endif
             <a class="block cursor-pointer px-4 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-               href="/logout">
-                <x-form.form action="/logout" method="post">
-                    <input class="w-full text-left bg-transparent cursor-pointer" type="submit" value="Log out">
-                </x-form.form>
+               href="{{ route('fos.fos.index') }}">
+                Dashboard
+            </a>
+            <a class="block cursor-pointer px-4 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+               href="{{ route('fos.posts.create') }}">
+                Add New Post
             </a>
         </div>
         <div class="pt-4 pb-3 border-t dark:border-cool-gray-700">
@@ -124,10 +126,11 @@
                         Admin
                     </a>
                 @endunless
-                <a href="{{ route('logout') }}"
-                   class="block cursor-pointer px-4 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
-                    Sign out
-                </a>
+                <x-form.form action="{{ route('logout') }}" method="post">
+                    <input
+                        class="block cursor-pointer px-4 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+                        type="submit" value="Log out">
+                </x-form.form>
             </div>
         </div>
     </div>
