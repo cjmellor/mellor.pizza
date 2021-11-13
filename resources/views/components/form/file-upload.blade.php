@@ -1,5 +1,5 @@
 <div :class="imageUrl && 'border-pizza dark:border-pizza-dark'"
-     class="flex justify-center items-center border-2 border-gray-300 dark:border-dark-line border-dashed rounded-md h-48 overflow-y-hidden"
+     class="flex justify-center items-center border-2 @if($errors->has('post_image')) border-red-400 dark:border-[#fd6f6e] @else border-gray-300 dark:border-dark-line @endif border-dashed rounded-md h-48 overflow-y-hidden"
      x-data="fileUpload">
     <template x-if="!imageUrl">
         <div class="space-y-1 text-center px-6 pt-5 pb-6 w-full">
@@ -41,6 +41,10 @@
     <input class="sr-only" id="post_image" name="post_image" type="file" x-on:change="selectFile">
     <x-form.input :value="$post->post_image" for="post_header_delete" type="hidden"/>
 </div>
+
+@error('post_image')
+<p class="text-red-500 dark:text-red-400 text-sm mt-2.5">{{ $message }}</p>
+@enderror
 
 <script>
     document.addEventListener('alpine:init', () => {
