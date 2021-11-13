@@ -6,12 +6,7 @@
                     <div>
                         <div>
                             @foreach($post->tags as $tag)
-                                {{--TODO: Tags have there own page--}}
-                                {{--<a href="#" class="inline-block">--}}
-                                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                                  {{ $tag->name }}
-                                </span>
-                                {{--</a>--}}
+                                <x-pill>{{ $tag->name }}</x-pill>
                             @endforeach
                         </div>
                         <x-link to="{{ route('post.show', $post->slug) }}" class="block mt-4">

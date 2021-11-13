@@ -2,9 +2,10 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     mode: 'jit',
-    purge: [
+    content: [
         './resources/**/*.{js,vue,blade.php}',
         './app/Providers/AnimationsServiceProvider.php',
+        './app/View/Components/Pill.php',
     ],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
