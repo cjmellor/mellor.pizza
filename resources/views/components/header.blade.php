@@ -10,7 +10,7 @@
                 <x-link to="#">About.Me</x-link>
             </div>
             <div class="uppercase tracking-wider">
-                <x-link to="#">Blog</x-link>
+                <x-link to="{{ route('blog') }}">Blog</x-link>
             </div>
             <div class="uppercase tracking-wider">
                 <x-link x-data="" x-on:click.prevent="$dispatch('show-contact')">Contact.Me</x-link>

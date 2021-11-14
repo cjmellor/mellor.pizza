@@ -17,7 +17,12 @@
                 <div class="absolute inset-0 h-screen bg-gradient-to-tr from-pizza to-pizza-dark opacity-60">&nbsp;</div>
                 <div class="absolute inset-0">
                     <div class="container mx-auto h-screen flex flex-col justify-center text-center sm:text-left space-y-8 sm:space-y-12">
-                        <div>
+                        <div class="flex space-x-2">
+                            <a class="mr-4" href="{{ route('homepage') }}">
+                                <svg class="h-6 w-6 text-blue-gray-100 hover:dark:text-blue-gray-200" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                </svg>
+                            </a>
                             @foreach($post->tags as $tag)
                                 <x-pill>{{ $tag->name }}</x-pill>
                             @endforeach
