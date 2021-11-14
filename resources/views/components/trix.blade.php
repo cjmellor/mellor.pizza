@@ -6,7 +6,7 @@
                value="{{ old($name, $slot) }}"
         >
         <trix-editor
-            class="prose dark:prose-dark prose-md max-w-none"
+            class="prose dark:prose-invert prose-md max-w-none"
             input="{{ $name ?? $id }}"
         />
     </div>

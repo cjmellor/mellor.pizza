@@ -38,7 +38,7 @@
 
         {{--Post Content--}}
         <article class="h-screen snap-center overflow-y-scroll">
-            <div class="prose dark:prose-dark prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mt-6 sm:mt-12 mt-12 w-11/12 sm:mb-24 mx-auto">
+            <div class="prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mt-6 sm:mt-12 mt-12 w-11/12 sm:mb-24 mx-auto">
                 {!! $post->content !!}
             </div>
         </article>
