@@ -1,7 +1,9 @@
 <x-layout.post :title="$post->title" class="bg-white dark:bg-dark">
     @if(request()->routeIs('fos.preview'))
         <div class="flex justify-center fixed w-full mx-auto mt-2 z-10">
-            <div class="w-1/2 sm:w-1/6 bg-blue-500 text-gray-50 rounded-full px-3 py-1 text-center">Preview Mode &bullet; <a class="hover:underline" href="{{ route('fos.posts.edit', $post) }}">Edit</a></div>
+            <div class="w-1/2 sm:w-1/6 bg-blue-500 text-gray-50 rounded-full px-3 py-1 text-center">
+                Preview Mode &bullet; <a class="hover:underline" href="{{ route('fos.posts.edit', $post) }}">Edit</a>
+            </div>
         </div>
     @endif
 
@@ -27,7 +29,7 @@
                             Posted by <img alt="{{ $post->author->name }}" class="w-8 h-8 mx-1 rounded-full inline-flex"
                                            src="{{ $post->author->avatar_path }}">
                             <strong>{{ $post->author->name }}</strong>
-                            on {{ $post->published_at->format('F jS, Y') }} <span class="text-sm hidden sm:inline-flex">&bullet; Around {{ Str::readingTime() }} to read this.</span>
+                            on {{ $post->published_at->format('F jS, Y') }} <span class="text-sm hidden sm:inline-flex">&bullet; {{ Str::readingTime() }} read time</span>
                         </div>
                     </div>
                 </div>

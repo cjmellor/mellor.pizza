@@ -17,7 +17,6 @@ class PublishPostAction
 
     public function handle(Post $post)
     {
-        ray(request()->has('post_image'));
         // If the post is Markdown, update model
         if ($this->postRequest->is_markdown) {
             $post->is_markdown = true;
