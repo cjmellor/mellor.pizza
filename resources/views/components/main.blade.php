@@ -35,7 +35,7 @@
         <div id="blog-posts">
             <x-posts-list format="short" limit="3"></x-posts-list>
             <div class="flex justify-center pb-8 lg:pb-16">
-                <x-link to="#" class="font-merriweather text-xl" href="#">See more posts</x-link>
+                <x-link to="#" class="font-merriweather text-xl" href="{{ route('blog') }}">See more posts</x-link>
             </div>
         </div>
     </div>
