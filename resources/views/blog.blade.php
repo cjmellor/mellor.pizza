@@ -34,4 +34,5 @@
             {{ $posts->links() }}
         </div>
     </div>
+    <livewire:contact-popup/>
 </x-layout.main>

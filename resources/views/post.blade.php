@@ -1,4 +1,4 @@
-<x-layout.post :title="$post->title" class="bg-white dark:bg-dark">
+<x-layout.main :container="false" :title="$post->title" class="bg-white dark:bg-dark">
     @if(request()->routeIs('fos.preview'))
         <div class="flex justify-center fixed w-full mx-auto mt-2 z-10">
             <div class="w-1/2 sm:w-1/6 bg-blue-500 text-gray-50 rounded-full px-3 py-1 text-center">
@@ -49,6 +49,4 @@
             </div>
         </article>
     </div>
-
-    <livewire:contact-popup/>
-</x-layout.post>
+</x-layout.main>
