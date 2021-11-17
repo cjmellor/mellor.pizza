@@ -8,11 +8,6 @@ use Illuminate\View\Component;
 
 class CreateEdit extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
     public function __construct(
         public string $action,
         public string $mode,
@@ -20,9 +15,6 @@ class CreateEdit extends Component
     ) {
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View
     {
         return view('components.fos.create-edit');

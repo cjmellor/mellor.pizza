@@ -12,11 +12,6 @@ class Tag extends Model
 
     protected $fillable = ['name'];
 
-    /**
-     * A 'Tag' belongs to many 'Posts'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class);

@@ -14,11 +14,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name',
         'email',
@@ -28,44 +23,25 @@ class User extends Authenticatable
         'avatar',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * A 'User' has many 'Posts'.
-     */
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
     }
 
-    /**
-     * "God mode" meaning the user can do _anything_.
-     */
     public function getIsGodAttribute(): bool
     {
         return $this->id == config('auth.god_mode_id');
     }
 
-    /**
-     * Get users' Gravatar.
-     */
     public function getAvatarPathAttribute(): string
     {
         return $this->avatar ?: sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));

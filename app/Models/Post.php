@@ -35,54 +35,32 @@ class Post extends Model
         'is_published' => 'boolean',
     ];
 
-    /**
-     * A 'Post' belongs to a 'User' but refer to them as an 'Author'.
-     */
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    /**
-     * A 'Post' belongs to a 'Category'.
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * A 'Post' belongs to many 'Tags'.
-     */
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class)
             ->orderBy('name');
     }
 
-    /**
-     * Check if a post is published.
-     */
     public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true);
     }
 
-    /**
-     * Check if a post is in draft mode.
-     */
     public function scopeDraft(Builder $query): Builder
     {
         return $query->where('is_published', false);
     }
 
-    /**
-     * Check if a post is in Markdown format, otherwise, return HTML.
-     *
-     * Usage: $this->content
-     *
-     * @throws \Exception
-     */
     public function getContentAttribute(): bool|string
     {
         if ($this->post_content == null) {
@@ -100,41 +78,26 @@ class Post extends Model
             : $this->post_content;
     }
 
-    /**
-     * Check if the post is on the edit route.
-     */
     public function isInEditMode(): bool
     {
         return request()->routeIs('fos.posts.edit');
     }
 
-    /**
-     * Determine the type of content the post is.
-     */
     public function getContentTypeAttribute(): string
     {
         return $this->is_markdown ? 'markdown' : 'html';
     }
 
-    /**
-     * Is the post published, or still in draft mode?
-     */
     public function getPublishedAttribute(): bool
     {
         return $this->is_published;
     }
 
-    /**
-     * Supply a 'published_at' attribute for better API readability.
-     */
     public function getPublishedAtAttribute(): mixed
     {
         return $this->created_at;
     }
 
-    /**
-     * A slug should always be parsed in a slug format.
-     */
     public function setSlugAttribute(string $value)
     {
         $this->attributes['slug'] = Str::slug($value);

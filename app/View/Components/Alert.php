@@ -12,9 +12,6 @@ class Alert extends Component
     ) {
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): \Closure
     {
         return function (array $data) {
@@ -24,9 +21,6 @@ class Alert extends Component
         };
     }
 
-    /**
-     * Determines the type of alert to use.
-     */
     public function setType(string $type): string
     {
         return $data['attributes'] = match ($type) {

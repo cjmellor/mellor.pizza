@@ -40,9 +40,6 @@ class PublishPostAction
         $post->tags()->sync($this->addOrUpdateTags());
     }
 
-    /**
-     * Store the requested file in the desired location and return the path.
-     */
     protected function uploadPostHeader(): bool|string|null
     {
         // First, if the image is being replaced, then remove the old one.
@@ -60,30 +57,17 @@ class PublishPostAction
         return null;
     }
 
-    /**
-     * When editing a post, you change the header, delete the original.
-     */
     private function deleteUnusedImage(): void
     {
         Storage::disk('post-headers')
             ->delete($this->postRequest->post_header_delete);
     }
 
-    /**
-     * Generates a random filename with its extension from the uploaded file.
-     */
     private function getFilename(): string
     {
         return Str::random().'.'.$this->postRequest->file('post_image')->extension();
     }
 
-    /**
-     * Get a list of tag IDs from the request.
-     * If a tag doesn't exist, it is created
-     * -----
-     * Code inspired by @themsaid
-     * https://github.com/themsaid/wink/blob/1.x/src/Http/Controllers/PostsController.php#L115-L129.
-     */
     public function addOrUpdateTags(): array
     {
         $tags = Tag::all();

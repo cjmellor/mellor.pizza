@@ -7,13 +7,6 @@ use Illuminate\View\Component;
 
 class Trix extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @param  string  $name
-     * @param  string|null  $content
-     * @param  string|null  $id
-     */
     public function __construct(
         public string $name,
         public ?string $content = null,
@@ -21,9 +14,6 @@ class Trix extends Component
     ) {
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View
     {
         return view('components.trix');

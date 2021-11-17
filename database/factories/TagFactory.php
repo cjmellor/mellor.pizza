@@ -9,9 +9,6 @@ class TagFactory extends Factory
 {
     protected $model = Tag::class;
 
-    /**
-     * Define the model's default state.
-     */
     public function definition(): array
     {
         return [

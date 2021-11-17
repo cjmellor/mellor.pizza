@@ -7,17 +7,11 @@ use Illuminate\Support\ServiceProvider;
 
 class AnimationsServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     */
     public function register()
     {
         //
     }
 
-    /**
-     * Bootstrap services.
-     */
     public function boot()
     {
         Blade::directive('slideUp', function () {

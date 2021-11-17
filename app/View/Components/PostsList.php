@@ -16,9 +16,6 @@ class PostsList extends Component
     ) {
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View
     {
         $posts = Cache::remember(
