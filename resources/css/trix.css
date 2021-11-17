@@ -92,7 +92,8 @@ trix-toolbar .trix-button--icon {
 
 trix-toolbar .trix-button--icon::before {
     content: "";
-    @apply inline-block absolute inset-0 opacity-60 bg-center bg-no-repeat dark:filter dark:invert-[.60];
+    @apply inline-block absolute inset-0 opacity-60 bg-center bg-no-repeat;
+    filter: invert(.6);
 }
 
 @media (max-device-width: 768px) {

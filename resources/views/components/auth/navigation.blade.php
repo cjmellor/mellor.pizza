@@ -24,7 +24,7 @@
             <div class="hidden sm:flex sm:items-center sm:justify-between sm:w-48">
                 <div class="font-medium tracking-wide text-sm text-gray-900 dark:text-gray-200">{{ auth()->user()->name }}</div>
                 <button
-                    class="rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pizza dark:focus:ring-pizza-dark"
+                    class="rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pizza dark:focus:ring-pizza-dark"
                     type="button">
                     <span class="sr-only">View notifications</span>
                     <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
