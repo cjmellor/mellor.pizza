@@ -12,9 +12,10 @@ class Layout extends Component
      *
      * @return void
      */
-    public function __construct(public ?string $title = null)
-    {
-        //
+    public function __construct(
+        public bool $container = true,
+        public ?string $title = null
+    ) {
     }
 
     /**
@@ -22,6 +23,6 @@ class Layout extends Component
      */
     public function render(): View
     {
-        return view('components.layout');
+        return view('components.layout.main');
     }
 }

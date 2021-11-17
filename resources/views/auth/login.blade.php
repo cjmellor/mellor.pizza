@@ -1,4 +1,4 @@
-<x-layout.main title="Login">
+<x-layout.main container title="Login">
     <x-auth.container class="mx-auto sm:max-w-2xl">
         <x-slot name="breadcrumbs">
             <x-breadcrumbs class="mb-6" :lists="[

@@ -1,4 +1,4 @@
-<x-layout.main title="Blog Posts">
+<x-layout.main container title="Blog Posts">
     <x-header></x-header>
 
     <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-gray-700">
