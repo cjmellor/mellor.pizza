@@ -9,12 +9,32 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'excerpt' => 'required|string|max:255',
-            'category_id' => 'required|not_in:0',
-            'tag_id' => 'required|array',
-            'post_content' => 'required',
-            'post_image' => 'file|max:3000|mimes:jpg,jpeg,webp,png,avif', // 3 MB
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'excerpt' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'category_id' => [
+                'required',
+                'not_in:0',
+            ],
+            'tag_id' => [
+                'required',
+                'array',
+            ],
+            'post_content' => [
+                'required',
+            ],
+            'post_image' => [
+                'file',
+                'max:3000',
+                'mimes:jpg,jpeg,webp,png,avif',
+            ], // 3 MB
         ];
     }
 
