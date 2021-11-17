@@ -49,8 +49,6 @@ class User extends Authenticatable
 
     /**
      * A 'User' has many 'Posts'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function posts(): HasMany
     {
@@ -59,8 +57,6 @@ class User extends Authenticatable
 
     /**
      * "God mode" meaning the user can do _anything_.
-     *
-     * @return bool
      */
     public function getIsGodAttribute(): bool
     {
@@ -69,8 +65,6 @@ class User extends Authenticatable
 
     /**
      * Get users' Gravatar.
-     *
-     * @return string
      */
     public function getAvatarPathAttribute(): string
     {

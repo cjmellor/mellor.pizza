@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class MarkdownEditor extends Component
@@ -34,6 +35,7 @@ class MarkdownEditor extends Component
      * Parse the array of options to JSON.
      *
      * @see https://github.com/Ionaru/easy-markdown-editor#options-list
+     *
      * @return string
      */
     public function optionsToJson(): string
@@ -54,7 +56,6 @@ class MarkdownEditor extends Component
     {
         $defaults = [
             'forceSync' => true,
-            'hideIcons' => ['image'],
             'renderingConfig' => [
                 'codeSyntaxHighlighting' => true,
             ],
@@ -68,10 +69,8 @@ class MarkdownEditor extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render()
+    public function render(): View
     {
         return view('components.markdown-editor');
     }

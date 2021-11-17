@@ -1,7 +1,6 @@
 {{--Template--}}
 <div>
-    <div x-data x-init="easyMDE()">
-        <label for="{{ $id ?? $name }}">Content</label>
+    <div x-data x-init="easyMDE">
         {{--This hidden field is used to identify that the post is written in Markdown--}}
         <input type="hidden" name="is_markdown" value="true">
         <label for="{{ $id }}"></label>

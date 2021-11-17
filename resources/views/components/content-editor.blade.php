@@ -1,10 +1,13 @@
 {{--Template--}}
-<div x-data="{ editMode: {{ json_encode($editMode) }}, type: '{{ $type }}' }">
-    <template x-if="!editMode">
-        <ul>
-            {{--TODO: Define a class based on selected option--}}
-            <li x-on:click="type = 'html'">HTML</li>
-            <li x-on:click="type = 'markdown'">Markdown</li>
+<div x-data="{ editMode: @js($editMode), type: '{{ $type }}' }">
+    <template x-if="editMode === false">
+        <ul class="flex space-x-4 mb-3">
+            <li class="text-sm dark:text-dark-gray dark:hover:text-white cursor-pointer" x-bind:class="{ 'underline decoration-pizza dark:decoration-pizza-dark': type === 'html' }"
+                x-on:click="type = 'html'">HTML
+            </li>
+            <li class="text-sm dark:text-dark-gray hover:text-white cursor-pointer" x-bind:class="{ 'underline decoration-pizza dark:decoration-pizza-dark': type === 'markdown' }"
+                x-on:click="type = 'markdown'">Markdown
+            </li>
         </ul>
     </template>
     <div>
@@ -19,13 +22,3 @@
     </div>
 </div>
 {{--End Template--}}
-
-{{--Scripts--}}
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" defer></script>
-@endpush
-{{--End Scripts--}}
-
-{{--Styles--}}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/nord.min.css" rel="stylesheet"/>
-{{--End Styles--}}

@@ -6,22 +6,16 @@ use Illuminate\View\Component;
 
 class Alert extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @param $type
-     */
     public function __construct(
-        public $type
+        public string $type,
+        public ?string $title = null,
     ) {
     }
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return \Closure
      */
-    public function render()
+    public function render(): \Closure
     {
         return function (array $data) {
             $this->type = $this->setType($this->type);
@@ -32,17 +26,15 @@ class Alert extends Component
 
     /**
      * Determines the type of alert to use.
-     *
-     * @param $type
-     * @return string
      */
-    public function setType($type): string
+    public function setType(string $type): string
     {
         return $data['attributes'] = match ($type) {
-            // TODO: change these to Tailwind classes
             'info' => 'info',
             'success' => 'success',
             'warning' => 'warning',
+            'error' => 'error',
+            default => null,
         };
     }
 }

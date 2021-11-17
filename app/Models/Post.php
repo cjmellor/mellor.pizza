@@ -37,8 +37,6 @@ class Post extends Model
 
     /**
      * A 'Post' belongs to a 'User' but refer to them as an 'Author'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function author(): BelongsTo
     {
@@ -47,8 +45,6 @@ class Post extends Model
 
     /**
      * A 'Post' belongs to a 'Category'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category(): BelongsTo
     {
@@ -57,8 +53,6 @@ class Post extends Model
 
     /**
      * A 'Post' belongs to many 'Tags'.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function tags(): BelongsToMany
     {
@@ -68,9 +62,6 @@ class Post extends Model
 
     /**
      * Check if a post is published.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePublished(Builder $query): Builder
     {
@@ -79,9 +70,6 @@ class Post extends Model
 
     /**
      * Check if a post is in draft mode.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeDraft(Builder $query): Builder
     {
@@ -93,36 +81,35 @@ class Post extends Model
      *
      * Usage: $this->content
      *
-     * @return string
      * @throws \Exception
      */
-    public function getContentAttribute(): string
+    public function getContentAttribute(): bool|string
     {
+        if ($this->post_content == null) {
+            return false;
+        }
+
         // If in 'edit' mode, display content as-is from the DB
         if ($this->isInEditMode()) {
             return $this->post_content;
         }
 
         // If the content is Markdown and *not* in edit mode, convert to HTMl
-        return $this->is_markdown ? Str::of($this->post_content)->markdown([
-            'html_input' => 'strip',
-        ]) : $this->post_content;
+        return $this->is_markdown
+            ? Str::of($this->post_content)->markdown(['html_input' => 'strip'])
+            : $this->post_content;
     }
 
     /**
      * Check if the post is on the edit route.
-     *
-     * @return bool
      */
     public function isInEditMode(): bool
     {
-        return request()->routeIs('posts.edit');
+        return request()->routeIs('fos.posts.edit');
     }
 
     /**
      * Determine the type of content the post is.
-     *
-     * @return string
      */
     public function getContentTypeAttribute(): string
     {
@@ -131,8 +118,6 @@ class Post extends Model
 
     /**
      * Is the post published, or still in draft mode?
-     *
-     * @return bool
      */
     public function getPublishedAttribute(): bool
     {
@@ -141,8 +126,6 @@ class Post extends Model
 
     /**
      * Supply a 'published_at' attribute for better API readability.
-     *
-     * @return mixed
      */
     public function getPublishedAtAttribute(): mixed
     {
@@ -151,10 +134,8 @@ class Post extends Model
 
     /**
      * A slug should always be parsed in a slug format.
-     *
-     * @param $value
      */
-    public function setSlugAttribute($value)
+    public function setSlugAttribute(string $value)
     {
         $this->attributes['slug'] = Str::slug($value);
     }

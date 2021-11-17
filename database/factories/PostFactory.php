@@ -12,17 +12,13 @@ class PostFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-     *
-     * @var string
      */
     protected $model = Post::class;
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         $title = $this->faker->sentence;
 
@@ -33,8 +29,29 @@ class PostFactory extends Factory
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->sentence,
             'post_content' => $this->faker->text,
-            'is_published' => $this->faker->boolean,
+            'is_published' => false,
             'is_markdown' => false,
         ];
+    }
+
+    public function published(): PostFactory
+    {
+        return $this->state(fn () => [
+            'is_published' => true,
+        ]);
+    }
+
+    public function unpublished(): PostFactory
+    {
+        return $this->state(fn () => [
+            'is_published' => false,
+        ]);
+    }
+
+    public function usesMarkdown(): PostFactory
+    {
+        return $this->state(fn () => [
+            'is_markdown' => true,
+        ]);
     }
 }

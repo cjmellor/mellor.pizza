@@ -11,11 +11,8 @@ class AttachmentController extends Controller
 {
     /**
      * Retrieves the file name from the attachment and stores it.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool|string|\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    public function store(Request $request): bool | string | FileNotFoundException
+    public function store(Request $request): bool|string|FileNotFoundException
     {
         $file = $request->file('file')->getClientOriginalName();
 
@@ -28,8 +25,6 @@ class AttachmentController extends Controller
 
     /**
      * Retrieves the attachment filename and deletes it.
-     *
-     * @param  \Illuminate\Http\Request  $request
      */
     public function destroy(Request $request)
     {

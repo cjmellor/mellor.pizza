@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Fos\Post;
 
-use App\Actions\Post\PublishPost;
+use App\Actions\Post\PublishPostAction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Fos\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
@@ -16,28 +17,12 @@ class PostController extends Controller
         public Category $category,
         public Tag $tag,
     ) {
-        //
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function index()
-    {
-        $posts = Cache::remember('posts.index', now()->addDay(), fn () => Post::with('author')->latest()->get());
-
-        return view('fos.posts.index')
-            ->with('posts', $posts);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create()
+    public function create(): View
     {
         return view('fos.posts.create');
     }
@@ -45,42 +30,20 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Fos\PostRequest  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\RedirectResponse
      * @throws \Throwable
      */
-    public function store(PostRequest $request, Post $post)
+    public function store(Post $post): RedirectResponse
     {
-        (new PublishPost($request, $post))->create();
+        app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('fos.posts.index')
             ->with('alert_status', 'New post created');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * Removed implicit model binding in favour of caching
-     *
-     * @param $post
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function show($post)
-    {
-        $post = Cache::rememberForever('post.'.$post, fn () => Post::find($post));
-
-        return view('fos.posts.show')
-            ->with('post', $post);
-    }
-
-    /**
      * Show the form for editing the specified resource.
-     *
-     * @param  Post  $post
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Post $post)
+    public function edit(Post $post): View
     {
         return view('fos.posts.edit')
             ->with('post', $post);
@@ -89,34 +52,29 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Fos\PostRequest  $request
-     * @param  Post  $post
-     * @return \Illuminate\Http\RedirectResponse
      * @throws \Throwable
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(Post $post): RedirectResponse
     {
-        (new PublishPost($request, $post))->edit();
+        app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('posts.show', $post)
+        return redirect()->route('fos.fos.index', $post)
             ->with('alert_status', 'Blog post has been updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Post  $post
-     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post): RedirectResponse
     {
         Cache::forget('posts.index');
 
         $post->delete();
 
         return redirect()
-            ->route('posts.index')
+            ->route('fos.posts.index')
             ->with(['alert_status' => 'Blog post has been archived']);
     }
 }

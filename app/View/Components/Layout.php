@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Layout extends Component
@@ -11,18 +12,17 @@ class Layout extends Component
      *
      * @return void
      */
-    public function __construct(public ?string $title = null)
-    {
-        //
+    public function __construct(
+        public bool $container = true,
+        public ?string $title = null
+    ) {
     }
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
-        return view('components.layout');
+        return view('components.layout.main');
     }
 }
