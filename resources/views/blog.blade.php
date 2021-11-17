@@ -1,7 +1,7 @@
 <x-layout.main title="Blog Posts">
     <x-header></x-header>
 
-    <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-cool-gray-700">
+    <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-gray-700">
         @foreach($posts as $post)
             <div class="w-11/12 sm:w-full mx-auto sm:mx-0">
                 <div class="flex flex-col space-y-10 pt-16 sm:pt-12 dark:text-dark-gray tracking-wider">

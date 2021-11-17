@@ -5,7 +5,7 @@
                 {{--Links on left--}}
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                     <a class="inline-flex items-center" href="/">
-                        <svg class="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-blue-gray-400 hover:dark:text-blue-gray-200" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-slate-400 hover:dark:text-slate-200" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                         </svg>
                     </a>
@@ -104,7 +104,7 @@
                 Add New Post
             </a>
         </div>
-        <div class="pt-4 pb-3 border-t dark:border-cool-gray-700">
+        <div class="pt-4 pb-3 border-t dark:border-gray-700">
             <div class="flex items-center px-4">
                 <div class="flex-shrink-0">
                     <img alt="{{ auth()->user()->name }}" class="h-10 w-10 rounded-full" src="{{ auth()->user()->avatar_path }}">

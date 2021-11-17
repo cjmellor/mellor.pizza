@@ -1,11 +1,11 @@
 <div class="space-y-6">
     <div class="flow-root">
-        <ul class="-my-5 divide-y dark:divide-cool-gray-700" role="list">
+        <ul class="-my-5 divide-y dark:divide-gray-700" role="list">
             @foreach($posts as $post)
                 <li class="py-5">
                     <div class="flex justify-between space-x-4">
                         <div class="relative">
-                            <h3 class="text-xl mb-4 font-merriweather font-semibold text-gray-800 dark:text-cool-gray-400">
+                            <h3 class="text-xl mb-4 font-merriweather font-semibold text-gray-800 dark:text-gray-400">
                                 <x-link class="focus:outline-none" title="{{ $post->title }}" :to="route('fos.preview', $post->id)">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     {{ $post->title }}

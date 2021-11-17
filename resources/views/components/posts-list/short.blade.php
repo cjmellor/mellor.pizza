@@ -10,7 +10,7 @@
                             @endforeach
                         </div>
                         <x-link to="{{ route('post.show', $post->slug) }}" class="block mt-4">
-                            <p class="text-2xl sm:text-xl font-semibold text-gray-900 dark:text-cool-gray-400">
+                            <p class="text-2xl sm:text-xl font-semibold text-gray-900 dark:text-gray-400">
                                 {{ $post->title }}
                             </p>
                         </x-link>
@@ -22,9 +22,9 @@
                         <div class="mt-6">
                             <div>
                                 <p class="text-sm font-medium text-gray-900">
-                                    <span class="dark:text-cool-gray-400">{{ $post->author->name }}</span>
+                                    <span class="dark:text-gray-400">{{ $post->author->name }}</span>
                                 </p>
-                                <div class="flex space-x-1 text-sm text-gray-500 dark:text-cool-gray-500">
+                                <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-500">
                                     <time datetime="2020-03-16">
                                         {{ \Carbon\Carbon::parse($post->created_at)->format('jS M, Y') }}
                                     </time>
