@@ -2,9 +2,10 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     mode: 'jit',
-    purge: [
+    content: [
         './resources/**/*.{js,vue,blade.php}',
         './app/Providers/AnimationsServiceProvider.php',
+        './app/View/Components/Pill.php',
     ],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
@@ -12,11 +13,11 @@ module.exports = {
             transparent: 'transparent',
             current: 'currentColor',
             white: colors.white,
-            'blue-gray': colors.blueGray,
-            'cool-gray': colors.coolGray,
+            black: colors.black,
+            slate: colors.slate,
             gray: colors.gray,
-            'true-gray': colors.trueGray,
-            'warm-gray': colors.warmGray,
+            neutral: colors.neutral,
+            stone: colors.stone,
             red: colors.red,
             orange: colors.orange,
             amber: colors.amber,
@@ -42,6 +43,8 @@ module.exports = {
             colors: {
                 dark: 'hsl(215,15%,16%)',
                 'dark-gray': 'hsl(210,32%,85%)',
+                'dark-line': 'hsl(214,13%,25%)',
+                'dark-line-lighter': 'hsl(208,13%,30%)',
                 pizza: 'hsl(29,100%,52%)',
                 'pizza-dark': 'hsl(331,94%,52%)',
             },

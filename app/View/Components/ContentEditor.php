@@ -2,28 +2,25 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class ContentEditor extends Component
 {
     /**
      * Create a new component instance.
-     *
-     * @param  string  $type
-     * @param  bool  $editMode
      */
     public function __construct(
-        public string $type,
+        public string $type = 'html',
         public bool $editMode = false,
     ) {
+        //
     }
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render()
+    public function render(): View
     {
         return view('components.content-editor');
     }

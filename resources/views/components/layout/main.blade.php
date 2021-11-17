@@ -9,9 +9,9 @@
     <livewire:styles/>
     @stack('stylesheets')
 </head>
-<body class="dark:bg-dark">
+<body>
 <x-toast/>
-<div class="container pt-8 mx-auto dark:text-dark-gray dark:text-opacity-70">
+<div {{ $attributes->class(['pt-8 pb-4 mx-auto dark:text-dark-gray dark:text-opacity-70', 'container' => $container ?? '']) }}>
     {{ $slot }}
 </div>
 <livewire:scripts/>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Fos\Post;
 
-use App\Actions\Post\PublishPost;
+use App\Actions\Post\PublishPostAction;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
@@ -20,17 +20,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     */
-    public function index(): View
-    {
-        $posts = Cache::remember('posts.index', now()->addDay(), fn () => Post::with('author')->latest()->get());
-
-        return view('fos.posts.index')
-            ->with('posts', $posts);
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create(): View
@@ -45,23 +34,10 @@ class PostController extends Controller
      */
     public function store(Post $post): RedirectResponse
     {
-        app(PublishPost::class)->store($post);
+        app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('fos.posts.index')
             ->with('alert_status', 'New post created');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * Removed implicit model binding in favour of caching
-     */
-    public function show(int $post): View
-    {
-        $post = Cache::rememberForever("post.{$post}", fn (): ?Post => Post::find($post));
-
-        return view('fos.posts.show')
-            ->with('post', $post);
     }
 
     /**
@@ -80,9 +56,9 @@ class PostController extends Controller
      */
     public function update(Post $post): RedirectResponse
     {
-        app(PublishPost::class)->update($post);
+        app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('posts.show', $post)
+        return redirect()->route('fos.fos.index', $post)
             ->with('alert_status', 'Blog post has been updated');
     }
 
@@ -98,7 +74,7 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()
-            ->route('posts.index')
+            ->route('fos.posts.index')
             ->with(['alert_status' => 'Blog post has been archived']);
     }
 }

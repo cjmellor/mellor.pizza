@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Trix extends Component
@@ -22,10 +23,8 @@ class Trix extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('components.trix');
     }

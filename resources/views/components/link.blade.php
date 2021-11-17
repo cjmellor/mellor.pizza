@@ -1,13 +1,22 @@
 @props([
     'darkColor' => 'hsl(331,94%,52%)',
     'lightColor' => 'hsl(29,100%,52%)',
+    'livewire' => false,
     'to' => null,
     'underline' => 'true',
+    'active' => false,
 ])
 
 {{--Template--}}
-<div class="inline-block {{ $underline == 'true' ? 'underline-animate-container' : '' }}">
-    <a {{ $attributes->merge(['class' => 'underline-animate-link']) }} href="{{ $to }}">{{ $slot }}</a>
+<div class="inline-flex underline-animate-container">
+    <a {{ $attributes->class([
+    'underline-animate-link' => $underline,
+    'border-pizza dark:border-pizza-dark text-gray-900 dark:text-gray-200' => $active,
+    'border-transparent text-gray-500 hover:text-gray-700 dark:text-slate-400 hover:dark:text-slate-200' => !$active,
+    ]) }}
+       @unless($livewire) href="{{ $to }} @endunless">
+        {{ $slot }}
+    </a>
 </div>
 
 {{--Styles--}}
@@ -25,8 +34,8 @@
             position: absolute;
             bottom: -10px;
             width: 0;
-            height: 3px;
-            margin: 5px 0;
+            height: 2px;
+            margin: 8px 0;
             transition: all 0.75s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 

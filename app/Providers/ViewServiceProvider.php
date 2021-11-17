@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Http\ViewComposers\Posts\CategoriesTagsViewComposer;
-use App\Http\ViewComposers\Posts\PostsListViewComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +21,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['fos.posts.create', 'fos.posts.edit'], CategoriesTagsViewComposer::class, );
+        View::composer(['components.fos.create-edit'], CategoriesTagsViewComposer::class);
     }
 }

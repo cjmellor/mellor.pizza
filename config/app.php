@@ -179,6 +179,7 @@ return [
         App\Providers\ViewServiceProvider::class,
 
         App\Providers\AnimationsServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
     ],
 
     /*

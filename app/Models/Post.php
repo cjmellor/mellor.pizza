@@ -83,17 +83,21 @@ class Post extends Model
      *
      * @throws \Exception
      */
-    public function getContentAttribute(): string
+    public function getContentAttribute(): bool|string
     {
+        if ($this->post_content == null) {
+            return false;
+        }
+
         // If in 'edit' mode, display content as-is from the DB
         if ($this->isInEditMode()) {
             return $this->post_content;
         }
 
         // If the content is Markdown and *not* in edit mode, convert to HTMl
-        return $this->is_markdown ? Str::of($this->post_content)->markdown([
-            'html_input' => 'strip',
-        ]) : $this->post_content;
+        return $this->is_markdown
+            ? Str::of($this->post_content)->markdown(['html_input' => 'strip'])
+            : $this->post_content;
     }
 
     /**
@@ -101,7 +105,7 @@ class Post extends Model
      */
     public function isInEditMode(): bool
     {
-        return request()->routeIs('posts.edit');
+        return request()->routeIs('fos.posts.edit');
     }
 
     /**

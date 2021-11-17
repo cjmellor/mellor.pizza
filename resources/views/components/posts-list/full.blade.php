@@ -1,5 +1,12 @@
 <div>
     @foreach($posts as $post)
-        <h2>{{ $post->title }}</h2>
+        <ul>
+            <li>
+                <x-link to="{{ route('fos.posts.show', $post) }}">{{ $post->title }}</x-link>
+                <p><em>Status: {{ $post->published ? 'Published' : 'Draft' }}</em> - Published: {{ $post->published_at->diffForHumans() }}
+                    by {{ $post->author->name }}</p>
+                <p>{{ $post->excerpt }}</p>
+            </li>
+        </ul>
     @endforeach
 </div>

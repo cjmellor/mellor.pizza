@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use App\Models\Post;
-use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
 
 class PostsList extends Component
@@ -19,14 +19,18 @@ class PostsList extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|string|Closure
+    public function render(): View
     {
-        $posts = $this->post
-            ->select(['title', 'slug', 'excerpt'])
-            ->latest()
-            ->published()
-            ->take($this->limit)
-            ->get();
+        $posts = Cache::remember(
+            key: 'short_posts',
+            ttl: now()->addDay(),
+            callback: fn () => $this->post
+                ->with('tags:name', 'author:id,name')
+                ->published()
+                ->take($this->limit)
+                ->latest()
+                ->get()
+        );
 
         return view('components.posts-list')
             ->with('posts', $posts);

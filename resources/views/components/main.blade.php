@@ -20,8 +20,8 @@
             </div>
         </div>
     </div>
-    <div class="space-y-10 sm:space-y-24">
-        <div class="text-center font-merriweather mt-4 text-true-gray-600 dark:text-cool-gray-400">
+    <div class="space-y-10 sm:space-y-16">
+        <div class="text-center font-merriweather mt-4 text-neutral-600 dark:text-gray-400">
             <p class="inline-flex text-2xl sm:text-4xl">Check out my latest blog posts
                 <a href="#blog-posts">
                     <svg xmlns="http://www.w3.org/2000/svg" class="hidden sm:block h-10 w-8 ml-6 text-pizza dark:text-pizza-dark animate-bounce" fill="none"
@@ -31,9 +31,12 @@
                 </a>
             </p>
         </div>
-        <hr class="border-gray-300 dark:border-cool-gray-700 w-1/2 mx-auto">
+        <hr class="border-gray-300 dark:border-gray-700 w-1/2 mx-auto">
         <div id="blog-posts">
-            <x-posts-list format="short" limit="2"></x-posts-list>
+            <x-posts-list format="short" limit="3"></x-posts-list>
+            <div class="flex justify-center pb-8 lg:pb-16">
+                <x-link to="#" class="font-merriweather text-xl" href="{{ route('blog') }}">See more posts</x-link>
+            </div>
         </div>
     </div>
 </main>
