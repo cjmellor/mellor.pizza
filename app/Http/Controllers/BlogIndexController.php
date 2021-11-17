@@ -15,7 +15,10 @@ class BlogIndexController extends Controller
         $posts = Cache::remember(
             key: 'blog.posts.paginated',
             ttl: now()->addDay(),
-            callback: fn () => Post::published()->simplePaginate(perPage: self::PER_PAGE),
+            callback: fn () => Post::query()
+                ->with('tags')
+                ->published()
+                ->simplePaginate(perPage: self::PER_PAGE),
         );
 
         return view('blog')
