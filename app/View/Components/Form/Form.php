@@ -8,8 +8,8 @@ use Illuminate\View\Component;
 class Form extends Component
 {
     public function __construct(
-        public string $action,
-        public string $method,
+        public ?string $action = null,
+        public ?string $method = null,
         public bool $csrf = true,
     ) {
         $this->method = [

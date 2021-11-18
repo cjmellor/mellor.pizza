@@ -18,8 +18,7 @@
     </div>
     {{--End--}}
 
-    {{--TODO: Add some form of honeypot for spam protection--}}
-    <x-form.form action="#" method="post" wire:submit.prevent="send">
+    <x-form.form wire:submit.prevent="send">
         <div class="space-y-5">
             <div>
                 <label class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70" for="contact_name">
@@ -32,6 +31,7 @@
                     What's your email address?
                 </label>
                 <x-form.input class="sm:w-1/2" for="contact_email" type="email" wire:model.lazy="contact_email"/>
+                <x-honey/>
             </div>
             <div>
                 <label class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70" for="contact_message">
