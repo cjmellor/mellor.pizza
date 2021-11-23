@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Concerns\Convert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
 
 class Post extends Model
 {
+    use Convert;
     use HasFactory;
     use SoftDeletes;
 
@@ -74,7 +76,7 @@ class Post extends Model
 
         // If the content is Markdown and *not* in edit mode, convert to HTMl
         return $this->is_markdown
-            ? Str::of($this->post_content)->markdown(['html_input' => 'strip'])
+            ? $this->convert($this->post_content)
             : $this->post_content;
     }
 
@@ -102,12 +104,4 @@ class Post extends Model
     {
         $this->attributes['slug'] = Str::slug($value);
     }
-
-    /**
-     * I may use this later...
-     */
-//    public function serializeDate($date): string
-//    {
-//        return $date->format('U');
-//    }
 }

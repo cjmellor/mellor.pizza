@@ -63,6 +63,15 @@ module.exports = {
                     },
                 },
             },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        pre: {
+                            backgroundColor: null,
+                        },
+                    },
+                },
+            },
             zIndex: {
                 '-10': '-10',
             },
