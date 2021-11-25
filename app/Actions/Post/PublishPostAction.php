@@ -11,11 +11,13 @@ use Illuminate\Support\Str;
 
 class PublishPostAction
 {
-    public function __construct(public PostRequest $postRequest)
-    {
+    public function __construct(
+        public PostRequest $postRequest,
+        public Post $post
+    ) {
     }
 
-    public function handle(Post $post)
+    public function handle($post)
     {
         // If the post is Markdown, update model
         if ($this->postRequest->is_markdown) {
@@ -28,7 +30,11 @@ class PublishPostAction
         $post->fill($this->postRequest->validated());
 
         $post->slug = $this->postRequest->title;
-        $post->is_published = (bool) $this->postRequest->is_published;
+        $post->is_published = (bool)$this->postRequest->is_published;
+
+        if (! $this->postRequest->has('post_image') && (! $this->postRequest->has('post_header_delete'))) {
+            $post->post_image = $this->deleteUnusedImage();
+        }
 
         if ($this->postRequest->has('post_image')) {
             $post->post_image = $this->uploadPostHeader();
@@ -40,27 +46,25 @@ class PublishPostAction
         $post->tags()->sync($this->addOrUpdateTags());
     }
 
-    protected function uploadPostHeader(): bool|string|null
+    private function deleteUnusedImage()
+    {
+        Storage::disk('post-headers')
+            ->deleteDirectory(Str::slug($this->postRequest->title));
+
+        if (! $this->postRequest->has('post_image_delete')) {
+            return null;
+        }
+    }
+
+    protected function uploadPostHeader(): bool|string
     {
         // First, if the image is being replaced, then remove the old one.
         if ($this->postRequest->has('post_header_delete')) {
             $this->deleteUnusedImage();
         }
 
-        // TODO: Look into creating images for all browser sizes on store
-
-        if ($this->postRequest->has('post_image')) {
-            return $this->postRequest->file('post_image')
-                ->storeAs(Str::slug($this->postRequest->title), $this->getFilename(), 'post-headers');
-        }
-
-        return null;
-    }
-
-    private function deleteUnusedImage(): void
-    {
-        Storage::disk('post-headers')
-            ->delete($this->postRequest->post_header_delete);
+        return $this->postRequest->file('post_image')
+            ->storeAs(Str::slug($this->postRequest->title), $this->getFilename(), 'post-headers');
     }
 
     private function getFilename(): string
@@ -86,7 +90,7 @@ class PublishPostAction
                     ]);
                 }
 
-                return (string) $tag->id;
+                return (string)$tag->id;
             })->toArray();
     }
 }

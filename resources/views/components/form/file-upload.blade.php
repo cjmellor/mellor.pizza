@@ -14,8 +14,8 @@
                     class="relative cursor-pointer bg-transparent rounded-md font-medium text-pizza dark:text-pizza-dark"
                     for="post_image">
                     <p class="text-gray-500 dark:text-white space-y-1">
-                        <span class="text-pizza dark:text-pizza-dark">Upload a file</span> or drag and drop
-                        <span class="block text-xs text-gray-500">PNG, JPG up to *MB</span>
+                        <span class="text-pizza dark:text-pizza-dark">Upload a file</span>
+                        <span class="block text-xs text-gray-500">PNG, JPG, AVIF, WEBP up to 3 MB</span>
                     </p>
                     {{--File input moved outside of template so to not be overwritten by the x-if--}}
                 </label>
@@ -31,7 +31,7 @@
         <div class="object-contain group relative">
             <div
                 class="hidden group-hover:flex absolute justify-center items-center m-auto text-white tracking-wider uppercase bg-transparent h-full w-full hover:bg-black/75 hover:cursor-pointer"
-                x-on:click="imageUrl = ''">
+                x-on:click="removeImage">
                 Remove
             </div>
             <img :src="imageUrl" alt="" x-bind:class="{ 'hidden': !imageUrl }">
@@ -39,7 +39,10 @@
     </template>
 
     <input class="sr-only" id="post_image" name="post_image" type="file" x-on:change="selectFile">
-    <x-form.input :value="$post->post_image" for="post_header_delete" type="hidden"/>
+
+    <template x-if="imageUrl">
+        <input id="post_header_delete" name="post_header_delete" type="hidden" value="delete" x-ref="post_header_delete"/>
+    </template>
 </div>
 
 @error('post_image')
@@ -50,6 +53,10 @@
     document.addEventListener('alpine:init', () => {
         Alpine.data('fileUpload', () => ({
             imageUrl: '{{ $post->post_image ? asset('post_headers/'.$post->post_image) : '' }}',
+
+            removeImage () {
+                this.imageUrl = ''
+            },
 
             selectFile (event) {
                 const file = event.target.files[0]
@@ -62,6 +69,7 @@
                 reader.readAsDataURL(file)
 
                 reader.onload = () => (this.imageUrl = reader.result)
+                this.$refs.post_header_delete.setAttribute('value', file.name)
             },
         }))
     })
