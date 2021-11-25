@@ -28,7 +28,7 @@ class PostController extends Controller
     {
         app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('fos.posts.index')
+        return redirect()->route('fos.fos.index')
             ->with('alert_status', 'New post created');
     }
 

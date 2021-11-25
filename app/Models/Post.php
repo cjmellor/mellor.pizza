@@ -102,12 +102,4 @@ class Post extends Model
     {
         $this->attributes['slug'] = Str::slug($value);
     }
-
-    /**
-     * I may use this later...
-     */
-//    public function serializeDate($date): string
-//    {
-//        return $date->format('U');
-//    }
 }

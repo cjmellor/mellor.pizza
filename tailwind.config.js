@@ -42,6 +42,8 @@ module.exports = {
             },
             colors: {
                 dark: 'hsl(215,15%,16%)',
+                'dark-input': 'hsl(220,16%,15%)',
+                'dark-focus': 'hsl(215,15%,16%)',
                 'dark-gray': 'hsl(210,32%,85%)',
                 'dark-line': 'hsl(214,13%,25%)',
                 'dark-line-lighter': 'hsl(208,13%,30%)',
