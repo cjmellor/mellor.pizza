@@ -29,7 +29,9 @@ class MarkdownEditor extends Component
         $defaults = [
             'forceSync' => true,
             'hideIcons' => ['side-by-side', 'fullscreen', 'guide'],
-            'previewClass' => 'prose prose-2xl',
+            'imageAccept' => 'image/png, image/jpeg, image/jpg, image/webp, image/avif',
+            'imageMaxSize' => 3 * 1024 * 1024,
+            'previewClass' => 'prose dark:prose-invert prose-2xl',
             'promptURLs' => true,
             'showIcons' => ['code', 'table'],
             'status' => false,

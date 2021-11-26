@@ -71,7 +71,7 @@
                                 <h3 class="text-xl font-medium leading-6 text-gray-800 dark:text-gray-400">Content</h3>
                             </div>
                             <div class="space-y-8 mt-5 md:mt-0 md:col-span-2">
-                                <x-content-editor :edit-mode="$mode === 'edit'" :type="$post->content_type">{{ $post->content }}</x-content-editor>
+                                <x-markdown-editor name="post_content">{{ $post->content }}</x-markdown-editor>
                             </div>
                         </div>
                     </x-auth.container>

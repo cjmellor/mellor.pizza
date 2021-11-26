@@ -19,11 +19,6 @@ class PublishPostAction
 
     public function handle($post)
     {
-        // If the post is Markdown, update model
-        if ($this->postRequest->is_markdown) {
-            $post->is_markdown = true;
-        }
-
         $post->author()->associate(auth()->user()->id);
         $post->category()->associate($this->postRequest->category_id);
 

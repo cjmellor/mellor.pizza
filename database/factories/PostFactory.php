@@ -24,7 +24,6 @@ class PostFactory extends Factory
             'excerpt' => $this->faker->sentence,
             'post_content' => $this->faker->text,
             'is_published' => false,
-            'is_markdown' => false,
         ];
     }
 
@@ -39,13 +38,6 @@ class PostFactory extends Factory
     {
         return $this->state(fn () => [
             'is_published' => false,
-        ]);
-    }
-
-    public function usesMarkdown(): self
-    {
-        return $this->state(fn () => [
-            'is_markdown' => true,
         ]);
     }
 }

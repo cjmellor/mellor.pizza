@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
             $table->string('excerpt');
             $table->text('post_content')->index();
             $table->boolean('is_published')->default(false)->index();
-            $table->boolean('is_markdown')->default(false)->index();
             $table->string('post_image')->nullable();
             $table->timestamps();
             $table->softDeletes();

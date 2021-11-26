@@ -32,7 +32,7 @@ class PostRequest extends FormRequest
             ],
             'post_image' => [
                 'file',
-                'max:3000',
+                'max:3072',
                 'mimes:jpg,jpeg,webp,png,avif',
             ], // 3 MB
         ];

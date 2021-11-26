@@ -10,7 +10,7 @@ class PostObserver
 {
     public function updated(Post $post)
     {
-        if (($post->isClean(attributes: 'slug')) && (! Storage::disk(name: 'post-headers')->exists($post->getOriginal(key: 'slug')))) {
+        if (($post->isClean(attributes: 'slug')) && (Storage::disk(name: 'post-headers')->exists($post->getOriginal(key: 'slug')))) {
             return;
         }
 

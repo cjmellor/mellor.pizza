@@ -21,7 +21,6 @@ class Post extends Model
         'excerpt',
         'post_content',
         'is_published',
-        'is_markdown',
         'post_image',
         'post_image_caption',
     ];
@@ -31,7 +30,6 @@ class Post extends Model
     ];
 
     protected $casts = [
-        'is_markdown' => 'boolean',
         'is_published' => 'boolean',
     ];
 
@@ -72,20 +70,12 @@ class Post extends Model
             return $this->post_content;
         }
 
-        // If the content is Markdown and *not* in edit mode, convert to HTMl
-        return $this->is_markdown
-            ? Str::of($this->post_content)->markdown(['html_input' => 'strip'])
-            : $this->post_content;
+        return Str::markdown($this->post_content, ['html_input' => 'strip']);
     }
 
     public function isInEditMode(): bool
     {
         return request()->routeIs('fos.posts.edit');
-    }
-
-    public function getContentTypeAttribute(): string
-    {
-        return $this->is_markdown ? 'markdown' : 'html';
     }
 
     public function getPublishedAttribute(): bool
