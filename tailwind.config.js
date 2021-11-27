@@ -65,16 +65,15 @@ module.exports = {
                     },
                 },
             },
-            // typography: {
-            //     DEFAULT: {
-            //         css: {
-            //             a: {
-            //                 color: '#ff0000',
-            //                 textDecoration: null,
-            //             },
-            //         },
-            //     },
-            // },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        pre: {
+                            backgroundColor: null,
+                        },
+                    },
+                },
+            },
             zIndex: {
                 '-10': '-10',
             },

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Concerns\Convert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
 
 class Post extends Model
 {
+    use Convert;
     use HasFactory;
     use SoftDeletes;
 
@@ -70,7 +72,10 @@ class Post extends Model
             return $this->post_content;
         }
 
-        return Str::markdown($this->post_content, ['html_input' => 'strip']);
+        // If the content is Markdown and *not* in edit mode, convert to HTMl
+        return $this->is_markdown
+            ? $this->convert($this->post_content)
+            : $this->post_content;
     }
 
     public function isInEditMode(): bool

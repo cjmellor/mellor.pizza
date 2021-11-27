@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "lukeraymonddowning/honey": "^0.3.2",
-        "spatie/laravel-disable-floc": "^1.0.0"
+        "spatie/laravel-disable-floc": "^1.0.0",
+        "torchlight/torchlight-commonmark": "^0.5.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
