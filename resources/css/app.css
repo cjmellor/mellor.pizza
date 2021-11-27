@@ -45,3 +45,21 @@ html {
 body {
     @apply dark:bg-dark;
 }
+
+/*Torchlight*/
+pre {
+    @apply my-4 rounded overflow-x-auto;
+}
+
+pre code.torchlight {
+    @apply block py-4 min-w-max;
+}
+
+pre code.torchlight .line {
+    @apply px-4;
+}
+
+pre code.torchlight .line-number,
+pre code.torchlight .summary-caret {
+    @apply mr-4;
+}
