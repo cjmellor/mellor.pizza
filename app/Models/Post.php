@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use League\CommonMark\Output\RenderedContentInterface;
 
 class Post extends Model
 {
@@ -61,26 +62,13 @@ class Post extends Model
         return $query->where('is_published', false);
     }
 
-    public function getContentAttribute(): bool|string
+    public function getContentAttribute(): bool|RenderedContentInterface
     {
         if ($this->post_content == null) {
             return false;
         }
 
-        // If in 'edit' mode, display content as-is from the DB
-        if ($this->isInEditMode()) {
-            return $this->post_content;
-        }
-
-        // If the content is Markdown and *not* in edit mode, convert to HTMl
-        return $this->is_markdown
-            ? $this->convert($this->post_content)
-            : $this->post_content;
-    }
-
-    public function isInEditMode(): bool
-    {
-        return request()->routeIs('fos.posts.edit');
+        return $this->convert($this->post_content);
     }
 
     public function getPublishedAttribute(): bool
