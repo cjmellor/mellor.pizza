@@ -23,7 +23,6 @@ class Post extends Model
         'excerpt',
         'post_content',
         'is_published',
-        'is_markdown',
         'post_image',
         'post_image_caption',
     ];
@@ -33,7 +32,6 @@ class Post extends Model
     ];
 
     protected $casts = [
-        'is_markdown' => 'boolean',
         'is_published' => 'boolean',
     ];
 
@@ -83,11 +81,6 @@ class Post extends Model
     public function isInEditMode(): bool
     {
         return request()->routeIs('fos.posts.edit');
-    }
-
-    public function getContentTypeAttribute(): string
-    {
-        return $this->is_markdown ? 'markdown' : 'html';
     }
 
     public function getPublishedAttribute(): bool

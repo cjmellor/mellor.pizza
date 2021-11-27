@@ -22,7 +22,7 @@
                                 <div>
                                     <button aria-expanded="true"
                                             aria-haspopup="true"
-                                            class="bg-gray-100 dark:bg-transparent rounded-full flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pizza dark:focus:ring-pizza-dark"
+                                            class="bg-transparent rounded-full flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pizza dark:focus:ring-pizza-dark"
                                             id="menu-button" type="button"
                                             x-on:click="showSubMenu = ! showSubMenu"
                                             x-on:click.outside="showSubMenu = false"

@@ -11,9 +11,6 @@
                         <div class="md:grid md:grid-cols-3 md:gap-6">
                             <div class="md:col-span-1 space-y-4">
                                 <h3 class="text-xl font-medium leading-6 text-gray-800 dark:text-gray-400">Post Information</h3>
-                                {{--<p class="mt-1 text-sm text-gray-500">
-                                    Something here maybe
-                                </p>--}}
                             </div>
 
                             {{--Title--}}
@@ -74,7 +71,7 @@
                                 <h3 class="text-xl font-medium leading-6 text-gray-800 dark:text-gray-400">Content</h3>
                             </div>
                             <div class="space-y-8 mt-5 md:mt-0 md:col-span-2">
-                                <x-content-editor :edit-mode="$mode === 'edit'" :type="$post->content_type">{{ $post->content }}</x-content-editor>
+                                <x-markdown-editor name="post_content">{{ $post->content }}</x-markdown-editor>
                             </div>
                         </div>
                     </x-auth.container>

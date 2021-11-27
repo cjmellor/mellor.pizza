@@ -21,20 +21,18 @@ class MarkdownEditor extends Component
 
     public function optionsToJson(): string
     {
-        if (empty($this->defaultOptions())) {
-            return '';
-        }
-
-        return ', ...'.json_encode($this->defaultOptions());
+        return empty($this->defaultOptions()) ? '' : ', ...'.json_encode($this->defaultOptions());
     }
 
     public function defaultOptions(): array
     {
         $defaults = [
             'forceSync' => true,
-            'renderingConfig' => [
-                'codeSyntaxHighlighting' => true,
-            ],
+            'hideIcons' => ['side-by-side', 'fullscreen', 'guide'],
+            'imageAccept' => 'image/png, image/jpeg, image/jpg, image/webp, image/avif',
+            'imageMaxSize' => 3 * 1024 * 1024,
+            'previewClass' => 'prose dark:prose-invert prose-2xl',
+            'promptURLs' => true,
             'showIcons' => ['code', 'table'],
             'status' => false,
             'uploadImage' => true,

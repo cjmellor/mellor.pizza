@@ -87,7 +87,6 @@
 
 .plugin-dropdown_input .dropdown-input {
     border: 1px solid #d0d0d0;
-    border-width: 0 0 1px 0;
     display: block;
     padding: 8px 8px;
     box-shadow: none;
@@ -392,7 +391,6 @@
     margin: 3px;
     border-radius: 50%;
     border: 5px solid #d0d0d0;
-    border-color: #d0d0d0 transparent #d0d0d0 transparent;
     animation: lds-dual-ring 1.2s linear infinite;
 }
 

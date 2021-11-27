@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\BlogIndexController;
 use App\Http\Controllers\Posts\ShowPostController;
-use App\Http\Controllers\Trix\AttachmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index')
@@ -17,9 +17,8 @@ Route::get('{slug}', ShowPostController::class)
     ->name('post.show');
 
 /*
- | For adding and removing attachments to a Trix Editor
+ | For adding and removing attachments to an Editor
  */
-Route::prefix('trix')->group(function () {
-    Route::post('add-attachment', [AttachmentController::class, 'store']);
-    Route::post('remove-attachment', [AttachmentController::class, 'destroy']);
+Route::prefix('attachments')->group(function () {
+    Route::post('add-attachment', AttachmentController::class);
 });
