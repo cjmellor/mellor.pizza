@@ -362,6 +362,13 @@ span.CodeMirror-selectedtext { background: none; }
     background: transparent !important;
 }
 
+@media (prefers-color-scheme: dark) {
+    .CodeMirror-cursor {
+        border-left: 1px solid #fff;
+        z-index: 1;
+    }
+}
+
 .CodeMirror-rtl pre {
     direction: rtl;
 }
