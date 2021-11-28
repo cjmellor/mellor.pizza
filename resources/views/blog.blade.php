@@ -1,4 +1,4 @@
-<x-layout.main container title="Blog Posts">
+<x-layout.main container subTitle="Blog Posts">
     <x-header></x-header>
 
     <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-gray-700">
@@ -21,8 +21,8 @@
                             <div class="dark:text-dark-gray/70 text-lg">{{ $post->excerpt }}</div>
                         </div>
                         @if($post->post_image)
-                            <div>
-                                <img alt="{{ $post->title }}" class="w-full sm:w-64 rounded-md shadow-xl"
+                            <div class="max-h-4">
+                                <img alt="{{ $post->title }}" class="w-full sm:w-64 sm:h-32 object-cover rounded-md shadow-xl"
                                      src="{{ asset('post_headers/'.$post->post_image) }}">
                             </div>
                         @endif
@@ -30,9 +30,9 @@
                 </div>
             </div>
         @endforeach
-        <div>
-            {{ $posts->links() }}
-        </div>
+    </div>
+    <div class="mb-12">
+        {{ $posts->links() }}
     </div>
     <livewire:contact-popup/>
 </x-layout.main>

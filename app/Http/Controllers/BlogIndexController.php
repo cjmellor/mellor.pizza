@@ -18,6 +18,7 @@ class BlogIndexController extends Controller
             callback: fn () => Post::query()
                 ->with('tags')
                 ->published()
+                ->orderByDesc('id')
                 ->simplePaginate(perPage: self::PER_PAGE),
         );
 

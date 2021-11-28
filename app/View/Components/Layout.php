@@ -9,7 +9,7 @@ class Layout extends Component
 {
     public function __construct(
         public bool $container = true,
-        public ?string $title = null
+        public ?string $subTitle = null
     ) {
     }
 
