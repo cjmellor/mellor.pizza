@@ -13,12 +13,12 @@ class BlogIndexController extends Controller
     public function __invoke(): View
     {
         $posts = Cache::remember(
-            key: 'blog.posts.paginated',
+            key: 'blog.posts.paginated.'.request()->query(key: 'page', default: '1'),
             ttl: now()->addDay(),
             callback: fn () => Post::query()
-                ->with('tags')
+                ->with(relations: 'tags')
                 ->published()
-                ->orderByDesc('id')
+                ->orderByDesc(column: 'id')
                 ->simplePaginate(perPage: self::PER_PAGE),
         );
 
