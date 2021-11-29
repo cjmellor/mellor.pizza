@@ -16,8 +16,8 @@
                 </div>
                 <div class="absolute inset-0 h-screen bg-gradient-to-tr from-pizza to-pizza-dark opacity-60">&nbsp;</div>
                 <div class="absolute inset-0">
-                    <div class="container mx-auto h-screen flex flex-col justify-center text-center sm:text-left space-y-8 sm:space-y-12">
-                        <div class="flex space-x-2 ml-4 sm:ml-0">
+                    <div class="container mx-auto h-screen flex flex-col justify-center text-left space-y-8 sm:space-y-12 ml-4 sm:ml-20">
+                        <div class="flex space-x-2">
                             <a class="mr-2 sm:mr-4" href="{{ route('homepage') }}">
                                 <svg class="h-6 w-6 text-slate-100 hover:dark:text-slate-200" fill="currentColor" viewBox="0 0 20 20">
                                     <path

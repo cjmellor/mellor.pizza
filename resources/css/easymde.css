@@ -436,7 +436,13 @@ span.CodeMirror-selectedtext { background: none; }
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    @apply flex border border-solid border-gray-300 mb-2.5 rounded-md w-max;
+    @apply flex border border-solid border-gray-300 mb-2.5 rounded-md w-full;
+}
+
+@media (min-width: 640px) {
+    .editor-toolbar {
+        @apply w-max;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
