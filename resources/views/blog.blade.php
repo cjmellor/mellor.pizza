@@ -2,7 +2,7 @@
     <x-header></x-header>
 
     <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-gray-700">
-        @foreach($posts as $post)
+        @forelse($posts as $post)
             <div class="w-11/12 sm:w-full mx-auto sm:mx-0">
                 <div class="flex flex-col space-y-10 pt-16 sm:pt-12 dark:text-dark-gray tracking-wider">
                     <div class="flex flex-col-reverse sm:flex-row justify-between">
@@ -29,7 +29,11 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="flex justify-center pb-8 lg:pb-16">
+                <p class="font-merriweather text-gray-500 text-5xl">Nothing yet... 😬</p>
+            </div>
+        @endforelse
     </div>
     <div class="mb-12">
         {{ $posts->links() }}

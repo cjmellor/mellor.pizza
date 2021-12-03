@@ -17,7 +17,7 @@ class PostSeeder extends Seeder
             ->count(count: 20)
             ->for(User::factory(), relationship: 'author')
             ->for(Category::factory())
-            ->has(Tag::factory(parameters: 3))
+            ->has(Tag::factory())
             ->state(new Sequence(fn () => ['is_published' => rand(0, 1)]))
             ->create(['user_id' => 1]);
     }

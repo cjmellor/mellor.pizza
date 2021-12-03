@@ -2,7 +2,7 @@
     <div class="pb-10 sm:pb-20 px-4 sm:px-6 lg:pb-12 lg:px-8">
         <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
             <div class="sm:mt-8 grid gap-16 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-                @foreach($posts as $post)
+                @forelse($posts as $post)
                     <div class="sm:space-y-6">
                         <div>
                             @foreach($post->tags as $tag)
@@ -32,7 +32,11 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="flex justify-center pb-8 lg:pb-16">
+                        <p class="font-merriweather text-gray-500 text-2xl">Nothing yet... 😬</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
