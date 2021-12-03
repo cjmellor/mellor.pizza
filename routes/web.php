@@ -1,18 +1,24 @@
 <?php
 
+use App\Http\Controllers\AttachmentController;
+use App\Http\Controllers\BlogIndexController;
+use App\Http\Controllers\Posts\ShowPostController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::view('/', 'index')
+    ->name('homepage');
 
-Route::get('/', function () {
-    return 'to-do';
+Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
+
+Route::get('/blog', BlogIndexController::class)
+    ->name('blog');
+
+Route::get('{slug}', ShowPostController::class)
+    ->name('post.show');
+
+/*
+ | For adding and removing attachments to an Editor
+ */
+Route::prefix('attachments')->group(function () {
+    Route::post('add-attachment', AttachmentController::class);
 });

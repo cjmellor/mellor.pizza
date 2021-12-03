@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import "tom-select.css";
+@import "easymde.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .contact-close {
+        @apply absolute w-10 h-10 rounded-full bg-white -top-4 -right-4 dark:bg-pizza-dark cursor-pointer ring-2 ring-pizza dark:ring-pizza-dark ring-offset-2 dark:ring-offset-dark
+    }
+
+    .text-pop {
+        @apply dark:bg-clip-text dark:text-transparent bg-gradient-to-r from-pizza to-amber-400 dark:from-pizza-dark dark:to-indigo-500 text-gray-700 px-1 dark:p-0
+    }
+}
+
+@layer utilities {
+    .button-pizza {
+        @apply bg-pizza dark:bg-pizza-dark px-4 py-3 rounded-md text-white shadow-md hover:ring-4 hover:ring-offset-2 hover:ring-pizza/80 dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark cursor-pointer
+    }
+
+    .form-pizza {
+        @apply bg-white dark:bg-[#1f232b] dark:bg-opacity-50 focus:bg-white dark:focus:bg-[#22272e] p-2 border border-gray-200 dark:border-dark-line text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-pizza focus:ring-[#ff810a] dark:focus:border-pizza-dark dark:focus:ring-[#f81281] dark:focus:ring-opacity-50
+    }
+
+    .form-pizza-error {
+        @apply bg-white dark:bg-[#1f232b] dark:bg-opacity-50 dark:focus:bg-[#22272e] p-2 border border-red-400 dark:border-[#fd6f6e] text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-red-500 focus:ring-red-400 dark:focus:border-[#ff7070] dark:focus:ring-[#ff7070] dark:focus:ring-opacity-20
+    }
+
+    .text-shadow {
+        text-shadow: 0 1px 3px #1f232b, 0 2px 30px #1f232b;
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    @apply scroll-smooth;
+}
+
+body {
+    @apply dark:bg-dark;
+}
+
+/*Torchlight*/
+pre {
+    @apply my-4 rounded overflow-x-auto;
+}
+
+pre code.torchlight {
+    @apply block py-4 min-w-max;
+}
+
+pre code.torchlight .line {
+    @apply px-4;
+}
+
+pre code.torchlight .line-number,
+pre code.torchlight .summary-caret {
+    @apply mr-4;
+}

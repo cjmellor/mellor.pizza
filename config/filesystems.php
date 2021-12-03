@@ -50,6 +50,28 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
+
+            // caching
+            'cache' => [
+                'store' => env('CACHE_DRIVER'),
+                'expire' => 600,
+                'prefix' => 'pizza',
+            ],
+        ],
+
+        // Custom disks
+        'attachments' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/attachments'),
+            'url' => env('APP_URL').'/storage/attachments',
+            'visibility' => 'public',
+        ],
+
+        'post-headers' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/post_headers'),
+            'url' => config('app.url').'/storage/post_headers',
+            'visibility' => 'public',
         ],
 
     ],

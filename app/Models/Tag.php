@@ -10,11 +10,8 @@ class Tag extends Model
 {
     use HasFactory;
 
-    /**
-     * A 'Tag' belongs to many 'Posts'
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
+    protected $fillable = ['name'];
+
     public function posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class);

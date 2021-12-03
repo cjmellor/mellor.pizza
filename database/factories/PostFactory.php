@@ -10,19 +10,9 @@ use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
     protected $model = Post::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+    public function definition(): array
     {
         $title = $this->faker->sentence;
 
@@ -32,9 +22,22 @@ class PostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->sentence,
-            'body' => $this->faker->text,
-            'is_published' => $this->faker->boolean,
-            'is_markdown' => false,
+            'post_content' => $this->faker->text,
+            'is_published' => false,
         ];
+    }
+
+    public function published(): self
+    {
+        return $this->state(fn () => [
+            'is_published' => true,
+        ]);
+    }
+
+    public function unpublished(): self
+    {
+        return $this->state(fn () => [
+            'is_published' => false,
+        ]);
     }
 }

@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "wesbos"
+    ],
+    "rules": {
+        "global-require": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-new": "off",
+        "no-restricted-globals": "off",
+        "no-shadow": "off",
+        "no-undef": "off",
+        "no-unused-vars": "off"
+    }
+}

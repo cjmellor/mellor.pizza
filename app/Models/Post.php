@@ -2,22 +2,28 @@
 
 namespace App\Models;
 
+use App\Concerns\Convert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
+use League\CommonMark\Output\RenderedContentInterface;
 
 class Post extends Model
 {
+    use Convert;
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'title',
         'slug',
         'excerpt',
-        'body',
+        'post_content',
+        'is_published',
         'post_image',
         'post_image_caption',
     ];
@@ -27,95 +33,56 @@ class Post extends Model
     ];
 
     protected $casts = [
-        'is_markdown' => 'boolean',
         'is_published' => 'boolean',
     ];
 
-    /**
-     * A 'Post' belongs to a 'User'
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    /**
-     * A 'Post' belongs to a 'Category'
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * A 'Post' belongs to many 'Tags'
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)
+            ->orderBy('name');
     }
 
-    /**
-     * Check if a post is published
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
     public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true);
     }
 
-    /**
-     * Check if a post is in draft mode
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
     public function scopeDraft(Builder $query): Builder
     {
         return $query->where('is_published', false);
     }
 
-    /**
-     * Check if a post is in Markdown format, otherwise, return HTML
-     *
-     * Usage: $this->content()
-     *
-     * @return string
-     */
-    public function getContentAttribute(): string
+    public function getContentAttribute(): bool|RenderedContentInterface
     {
-        if ($this->is_markdown) {
-            return Str::of($this->body)->markdown([
-                'html_input' => 'strip',
-            ]);
+        if ($this->post_content == null) {
+            return false;
         }
 
-        return $this->body;
+        return $this->convert($this->post_content);
     }
 
-    /**
-     * Supply a 'published_at' attribute for better API readability
-     *
-     * @return mixed
-     */
+    public function getPublishedAttribute(): bool
+    {
+        return $this->is_published;
+    }
+
     public function getPublishedAtAttribute(): mixed
     {
         return $this->created_at;
     }
 
-    /**
-     * I may use this later...
-     */
-//    public function serializeDate($date): string
-//    {
-//        return $date->format('U');
-//    }
+    public function setSlugAttribute(string $value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
+    }
 }

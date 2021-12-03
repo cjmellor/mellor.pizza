@@ -114,4 +114,15 @@ return [
 
     'password_timeout' => 10800,
 
+    /*
+    |--------------------------------------------------------------------------
+    | God Mode
+    |--------------------------------------------------------------------------
+    |
+    | The user who has this ID will become the almighty -- use these powers
+    | responsibly.
+    */
+
+    'god_mode_id' => env('GOD_MODE_ID', 4),
+
 ];
