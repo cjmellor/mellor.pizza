@@ -107,6 +107,8 @@ return [
         ],
     ],
 
-    'current_contact_email' => env('CURRENT_CONTACT_EMAIL'),
+    'current_contact_email' => env('MAIL_TO_ADDRESS'),
+
+    'subject' => env('MAIL_SUBJECT', 'Enquiry'),
 
 ];
