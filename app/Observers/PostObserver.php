@@ -10,11 +10,11 @@ class PostObserver
 {
     public function updated(Post $post)
     {
-        if (($post->isClean(attributes: 'slug')) && (Storage::disk(name: 'post-headers')->exists($post->getOriginal(key: 'slug')))) {
+        if (($post->isClean(attributes: 'slug')) && (Storage::disk(name: 's3')->exists($post->getOriginal(key: 'slug')))) {
             return;
         }
 
-        Storage::disk(name: 'post-headers')->rename($post->getOriginal(key: 'slug'), $post->slug);
+        Storage::disk(name: 's3')->rename($post->getOriginal(key: 'slug'), $post->slug);
     }
 
     public function saved(Post $post)

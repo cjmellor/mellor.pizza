@@ -23,7 +23,7 @@
         </div>
 
         @if($post->post_image)
-            <img alt="" src="{{ asset('post_headers/'.$post->post_image)  }}" x-bind:class="{ 'hidden': !imageUrl }">
+            <img alt="" src="{{ Storage::disk('s3')->url($post->post_image) }}" x-bind:class="{ 'hidden': !imageUrl }">
         @endif
     </template>
 
@@ -52,7 +52,7 @@
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('fileUpload', () => ({
-            imageUrl: '{{ $post->post_image ? asset('post_headers/'.$post->post_image) : '' }}',
+            imageUrl: '{{ $post->post_image ? Storage::disk('s3')->url($post->post_image) : '' }}',
 
             removeImage () {
                 this.imageUrl = ''

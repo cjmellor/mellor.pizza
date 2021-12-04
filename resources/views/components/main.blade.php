@@ -14,7 +14,7 @@
                     <p class="text-xl font-roboto-mono">I ❤️ <span class="text-2xl font-merriweather text-pop">Docker</span></p>
                     <p class="text-xl font-roboto-mono"><span class="text-2xl font-merriweather text-pop">Linux</span> certified</p>
                     <p class="text-xl font-roboto-mono inline-block">Check out my
-                        <x-link class="text-2xl font-merriweather text-pop ml-3" to="{{ asset('cv.pdf') }}" underline="false">CV</x-link>
+                        <x-link class="text-2xl font-merriweather text-pop ml-3" to="{{ asset('storage/cv.pdf') }}" underline="false">CV</x-link>
                     </p>
                 </div>
             </div>

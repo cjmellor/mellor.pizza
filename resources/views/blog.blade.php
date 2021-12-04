@@ -23,7 +23,7 @@
                         @if($post->post_image)
                             <div class="max-h-4">
                                 <img alt="{{ $post->title }}" class="w-full sm:w-64 sm:h-32 object-cover rounded-md shadow-xl"
-                                     src="{{ asset('post_headers/'.$post->post_image) }}">
+                                     src="{{ Storage::disk('s3')->url($post->post_image) }}">
                             </div>
                         @endif
                     </div>
