@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AttachmentController extends Controller
@@ -25,6 +26,8 @@ class AttachmentController extends Controller
             return new FileNotFoundException('File not found');
         }
 
-        return $request->file('file')->storeAs('', $file, 'attachments');
+        $uploadedFile = $request->file('file')->storeAs('attachments', $file, 's3');
+
+        return Storage::disk('s3')->url($uploadedFile);
     }
 }

@@ -25,7 +25,7 @@ class PublishPostAction
         $post->fill($this->postRequest->validated());
 
         $post->slug = $this->postRequest->title;
-        $post->is_published = (bool) $this->postRequest->is_published;
+        $post->is_published = (bool)$this->postRequest->is_published;
 
         if (! $this->postRequest->has('post_image') && (! $this->postRequest->has('post_header_delete'))) {
             $post->post_image = $this->deleteUnusedImage();
@@ -43,8 +43,8 @@ class PublishPostAction
 
     private function deleteUnusedImage()
     {
-        Storage::disk('post-headers')
-            ->deleteDirectory(Str::slug($this->postRequest->title));
+        Storage::disk('s3')
+            ->deleteDirectory('post_headers/'.Str::slug($this->postRequest->title));
 
         if (! $this->postRequest->has('post_image_delete')) {
             return null;
@@ -59,7 +59,7 @@ class PublishPostAction
         }
 
         return $this->postRequest->file('post_image')
-            ->storeAs(Str::slug($this->postRequest->title), $this->getFilename(), 'post-headers');
+            ->storeAs('post_headers/'.Str::slug($this->postRequest->title), $this->getFilename(), 's3');
     }
 
     private function getFilename(): string
@@ -85,7 +85,7 @@ class PublishPostAction
                     ]);
                 }
 
-                return (string) $tag->id;
+                return (string)$tag->id;
             })->toArray();
     }
 }
