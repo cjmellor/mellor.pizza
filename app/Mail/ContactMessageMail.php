@@ -17,7 +17,7 @@ class ContactMessageMail extends Mailable
                 'name' => $this->data['contact_name'],
                 'message' => $this->data['contact_message'],
             ])
-            ->subject('Mellor.Pizza Enquiry')
+            ->subject(config('mail.subject'))
             ->replyTo($this->data['contact_email']);
     }
 }
