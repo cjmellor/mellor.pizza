@@ -21,8 +21,7 @@
                 formData.append('file', file);
 
                 axios.post('/attachments/add-attachment', formData).then((request) => {
-                    const imageUrl = `${'{{ $endpointBaseUrl() }}/storage/attachments/'}${request.data}`;
-                    return onSuccess(imageUrl);
+                    return onSuccess(request.data);
                 }).catch((error) => {
                     return onError(error);
                 });

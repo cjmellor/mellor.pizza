@@ -12,7 +12,7 @@
         <header class="h-screen snap-start">
             <div class="relative">
                 <div class="h-screen bg-auto sm:bg-cover bg-no-repeat bg-center blur-sm"
-                     style="background-image: url({{ asset('post_headers/'.$post->post_image) }})">
+                     style="background-image: url({{ Storage::disk('s3')->url($post->post_image) }})">
                 </div>
                 <div class="absolute inset-0 h-screen bg-gradient-to-tr from-pizza to-pizza-dark opacity-60">&nbsp;</div>
                 <div class="absolute inset-0">
