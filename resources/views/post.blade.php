@@ -1,4 +1,8 @@
 <x-layout.main :container="false" :subTitle="$post->title" class="!pt-0 bg-white dark:bg-dark">
+    @section('openGraph')
+        <x-open-graph :post="$post"/>
+    @endsection
+
     @if(request()->routeIs('fos.preview'))
         <div class="flex justify-center fixed w-full mx-auto mt-2 z-10">
             <div class="w-1/2 sm:w-1/6 bg-blue-500 text-gray-50 rounded-full px-3 py-1 text-center">
