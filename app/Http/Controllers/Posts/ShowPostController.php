@@ -13,7 +13,7 @@ class ShowPostController extends Controller
     {
         $post = Cache::rememberForever(
             key: "post.{$slug}",
-            callback: fn () => Post::whereSlug($slug)->firstOrFail()
+            callback: fn () => Post::with(['category', 'tags'])->whereSlug($slug)->firstOrFail()
         );
 
         return view('post')
