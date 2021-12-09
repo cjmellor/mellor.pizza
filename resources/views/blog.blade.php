@@ -1,6 +1,10 @@
 <x-layout.main container subTitle="Blog Posts">
     <x-header></x-header>
 
+    @section('meta-description')
+        <meta name="description" content="All blog posts written on Chris Mellors' blog">
+    @endsection
+
     <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-gray-700">
         @forelse($posts as $post)
             <div class="w-11/12 sm:w-full mx-auto sm:mx-0">

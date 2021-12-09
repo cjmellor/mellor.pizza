@@ -10,7 +10,7 @@
     ></span>
 </button>
 
-<script>
+<script async defer>
     document.addEventListener('alpine:init', () => {
         Alpine.data('toggle', () => ({
             toggle: {{ $enabled }},

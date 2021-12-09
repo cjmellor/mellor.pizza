@@ -13,9 +13,9 @@
 
 {{--Scripts--}}
 @once
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@1.7/dist/js/tom-select.complete.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tom-select@1.7/dist/js/tom-select.complete.min.js"></script>
 
-    <script>
+    <script async defer>
         const multiSelect = (ref) => {
             const options = {
                 create: true,
