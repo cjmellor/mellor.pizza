@@ -25,7 +25,7 @@
     <div class="space-y-10 sm:space-y-16">
         <div class="text-center font-merriweather mt-4 text-neutral-600 dark:text-gray-400">
             <p class="inline-flex text-2xl sm:text-4xl">Check out my latest blog posts
-                <a href="#blog-posts">
+                <a aria-label="check out latest blog posts" href="#blog-posts">
                     <svg xmlns="http://www.w3.org/2000/svg" class="hidden sm:block h-10 w-8 ml-6 text-pizza dark:text-pizza-dark animate-bounce" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
