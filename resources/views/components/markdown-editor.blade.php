@@ -13,7 +13,7 @@
 @endpush
 
 @push('scripts')
-    <script>
+    <script async defer>
         const easyMDE = new EasyMDE({
             element: document.getElementById('{{ $id }}'),
             imageUploadFunction: (file, onSuccess, onError) => {

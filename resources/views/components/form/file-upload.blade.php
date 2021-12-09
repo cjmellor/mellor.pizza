@@ -49,7 +49,7 @@
 <p class="text-red-500 dark:text-red-400 text-sm mt-2.5">{{ $message }}</p>
 @enderror
 
-<script>
+<script async defer>
     document.addEventListener('alpine:init', () => {
         Alpine.data('fileUpload', () => ({
             imageUrl: '{{ $post->post_image ? Storage::disk('s3')->url($post->post_image) : '' }}',

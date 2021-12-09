@@ -1,4 +1,8 @@
 <x-layout.main :container="false" :subTitle="$post->title" class="!pt-0 bg-white dark:bg-dark">
+    @section('meta-description')
+        <meta name="description" content="{{ $post->excerpt }}">
+	@endsection
+
     @section('openGraph')
         <x-open-graph :post="$post"/>
     @endsection

@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<script>
+<script async defer>
     document.addEventListener('alpine:init', () => {
         Alpine.data('toast', () => ({
             show: false,
