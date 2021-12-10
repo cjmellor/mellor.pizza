@@ -43,7 +43,7 @@ class PublishPostAction
 
     private function deleteUnusedImage()
     {
-        Storage::disk('s3')
+        Storage::disk(config('filesystems.default'))
             ->deleteDirectory('post_headers/'.Str::slug($this->postRequest->title));
 
         if (! $this->postRequest->has('post_image_delete')) {
@@ -58,8 +58,10 @@ class PublishPostAction
             $this->deleteUnusedImage();
         }
 
-        return $this->postRequest->file('post_image')
-            ->storeAs('post_headers/'.Str::slug($this->postRequest->title), $this->getFilename(), 's3');
+        $this->postRequest->file('post_image')
+            ->storeAs('post_headers/'.Str::slug($this->postRequest->title), $filename = $this->getFilename(), config('filesystems.default'));
+
+        return $filename;
     }
 
     private function getFilename(): string
