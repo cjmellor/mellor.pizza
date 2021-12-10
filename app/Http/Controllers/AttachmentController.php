@@ -26,8 +26,8 @@ class AttachmentController extends Controller
             return new FileNotFoundException('File not found');
         }
 
-        $uploadedFile = $request->file('file')->storeAs('attachments', $file, 's3');
+        $uploadedFile = $request->file('file')->storeAs('attachments', $file, config('filesystems.default'));
 
-        return Storage::disk('s3')->url($uploadedFile);
+        return Storage::disk(config('filesystems.default'))->url($uploadedFile);
     }
 }
