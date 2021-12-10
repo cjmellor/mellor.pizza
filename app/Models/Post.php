@@ -81,6 +81,11 @@ class Post extends Model
         return $this->created_at;
     }
 
+    public function getPostImageAttribute(string $value): string
+    {
+        return sprintf("post_headers/%s/%s", Str::slug($this->title), $value);
+    }
+
     public function setSlugAttribute(string $value)
     {
         $this->attributes['slug'] = Str::slug($value);
