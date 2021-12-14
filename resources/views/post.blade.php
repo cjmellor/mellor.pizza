@@ -43,7 +43,7 @@
                             Posted by <img alt="{{ $post->author->name }}" class="w-8 h-8 mx-1 rounded-full inline-flex"
                                            src="{{ $post->author->avatar_path }}">
                             <strong>{{ $post->author->name }}</strong>
-                            on {{ $post->published_at->format('F jS, Y') }} <span class="text-sm hidden sm:inline-flex">&bullet; {{ Str::readingTime() }} read time</span>
+                            on {{ $post->published_at->format('F jS, Y') }} <span class="text-sm hidden sm:inline-flex">&bullet; {{ Str::readingTime($post->post_content) }} read time</span>
                         </div>
                     </div>
                 </div>

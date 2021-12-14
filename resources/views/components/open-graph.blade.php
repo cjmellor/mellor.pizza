@@ -1,7 +1,7 @@
 {{--Required--}}
 <meta property="og:title" content="{{ $post->title }}"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content="{{ url($post->post_image) }}"/>
+<meta property="og:image" content="{{ Storage::disk(config('filesystems.default'))->url($post->post_image) }}"/>
 <meta property="og:url" content="{{ route('post.show', $post->slug) }}"/>
 
 {{--Optional--}}

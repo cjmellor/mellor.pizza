@@ -11,7 +11,6 @@
     </noscript>
     <livewire:styles/>
     @stack('stylesheets')
-    <x-fathom-analytics/>
 </head>
 <body>
 {{ $slot }}
