@@ -1,5 +1,5 @@
 @php
-    $isTwoFaEnabled = auth()->user()->two_factor_enabled;
+    $isTwoFaEnabled = auth()->user()->two_factor_enabled
 @endphp
 
 <x-layout.main container subTitle="Two Factor Authentication">
