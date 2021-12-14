@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Closure;
 use Illuminate\View\Component;
 
 class Alert extends Component
@@ -12,7 +13,7 @@ class Alert extends Component
     ) {
     }
 
-    public function render(): \Closure
+    public function render(): Closure
     {
         return function (array $data) {
             $this->type = $this->setType($this->type);
