@@ -8,9 +8,12 @@
     <title>Mellor.🍕 - {{ $subTitle ?? 'Home' }}</title>
     @yield('openGraph')
     <link as="style" href="{{ mix('css/app.css') }}" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
-    <noscript><link rel="stylesheet" href="{{ mix('css/app.css') }}"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    </noscript>
     <livewire:styles/>
     @stack('stylesheets')
+    <x-fathom-analytics/>
 </head>
 <body>
 <x-toast/>
