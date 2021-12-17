@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mellor.🍕 - Fortress of Solitude :: {{ $title ?? 'Home' }}</title>
-    <link as="style" href="{{ mix('css/app.css') }}" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
-    <noscript>
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    </noscript>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <livewire:styles/>
     @stack('stylesheets')
 </head>
