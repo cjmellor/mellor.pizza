@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'index')
     ->name('homepage');
 
+Route::view('/about', 'about')
+    ->name('about');
+
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index');
 
 Route::get('/blog', BlogIndexController::class)

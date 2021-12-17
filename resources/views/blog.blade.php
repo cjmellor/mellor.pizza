@@ -42,5 +42,4 @@
     <div class="mb-12">
         {{ $posts->links() }}
     </div>
-    <livewire:contact-popup/>
 </x-layout.main>

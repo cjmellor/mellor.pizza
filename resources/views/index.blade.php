@@ -4,5 +4,4 @@
     @endsection
     <x-header></x-header>
     <x-main></x-main>
-    <livewire:contact-popup />
 </x-layout.main>

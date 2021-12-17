@@ -10,7 +10,7 @@
         </div>
         <div class="flex md:items-center justify-evenly md:justify-between w-full lg:w-5/12 xl:w-1/3 font-roboto-mono text-xl">
             <div class="uppercase tracking-wider">
-                <x-link to="#">About.Me</x-link>
+                <x-link :to="route('about')">About.Me</x-link>
             </div>
             <div class="uppercase tracking-wider">
                 <x-link to="{{ route('blog') }}">Blog</x-link>

@@ -1,6 +1,6 @@
 @props([
-    'for',
-    'name' => $for
+'for',
+'name' => $for
 ])
 
 <select
