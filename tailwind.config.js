@@ -1,41 +1,12 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-    mode: 'jit',
     content: [
         './resources/**/*.{js,vue,blade.php}',
         './app/Providers/AnimationsServiceProvider.php',
-        './app/View/Components/Pill.php',
+        './app/View/**/*.php',
     ],
-    darkMode: 'media', // or 'media' or 'class'
     theme: {
-        colors: {
-            transparent: 'transparent',
-            current: 'currentColor',
-            white: colors.white,
-            black: colors.black,
-            slate: colors.slate,
-            gray: colors.gray,
-            neutral: colors.neutral,
-            stone: colors.stone,
-            red: colors.red,
-            orange: colors.orange,
-            amber: colors.amber,
-            yellow: colors.yellow,
-            lime: colors.lime,
-            green: colors.green,
-            emerald: colors.emerald,
-            teal: colors.teal,
-            cyan: colors.cyan,
-            sky: colors.sky,
-            blue: colors.blue,
-            indigo: colors.indigo,
-            violet: colors.violet,
-            purple: colors.purple,
-            fuchsia: colors.fuchsia,
-            pink: colors.pink,
-            rose: colors.rose,
-        },
         extend: {
             animation: {
                 'slide-in-down': 'slideInDown 0.5s',
@@ -65,22 +36,7 @@ module.exports = {
                     },
                 },
             },
-            typography: {
-                DEFAULT: {
-                    css: {
-                        pre: {
-                            backgroundColor: null,
-                        },
-                    },
-                },
-            },
-            zIndex: {
-                '-10': '-10',
-            },
         },
-    },
-    variants: {
-        extend: {},
     },
     plugins: [
         require('@tailwindcss/aspect-ratio'),

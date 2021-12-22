@@ -8,7 +8,7 @@
     'bg-green-50 dark:bg-[#435250] text-green-700 dark:text-[#86d039] border-green-400 dark:border-none' => $type == 'success',
 ]) }}>
     <div class="flex">
-        <div class="flex-shrink-0">
+        <div class="shrink-0">
 
             {{--error--}}
             @if($type == 'error')
