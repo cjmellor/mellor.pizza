@@ -106,7 +106,7 @@
         </div>
         <div class="pt-4 pb-3 border-t dark:border-gray-700">
             <div class="flex items-center px-4">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <img alt="{{ auth()->user()->name }}" class="h-10 w-10 rounded-full" src="{{ auth()->user()->avatar_path }}">
                 </div>
                 <div class="ml-3">
@@ -114,7 +114,7 @@
                     <div class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ auth()->user()->email }}</div>
                 </div>
                 <button
-                    class="ml-auto flex-shrink-0 bg-white dark:bg-dark p-1 rounded-full text-gray-400 hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pizza dark:focus:ring-pizza-dark"
+                    class="ml-auto shrink-0 bg-white dark:bg-dark p-1 rounded-full text-gray-400 hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pizza dark:focus:ring-pizza-dark"
                     type="button">
                     <span class="sr-only">View notifications</span>
                     <!-- Heroicon name: outline/bell -->

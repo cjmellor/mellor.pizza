@@ -8,7 +8,7 @@
     @endsection
 
     @if(request()->routeIs('fos.preview'))
-        <div class="flex justify-center fixed w-full mx-auto mt-2 z-10">
+        <div class="flex justify-center fixed w-full mx-auto mt-2 z-[10]">
             <div class="w-1/2 sm:w-1/6 bg-blue-500 text-gray-50 rounded-full px-3 py-1 text-center">
                 Preview Mode &bullet; <a class="hover:underline" href="{{ route('fos.posts.edit', $post) }}">Edit</a>
             </div>
@@ -38,7 +38,7 @@
                             @endforeach
                         </div>
                         <div>
-                            <h1 class="text-gray-50 text-[7vw] sm:text-[4vw] md:text-[5vw] lg:text-[4vw] font-merriweather tracking-wide leading-snug text-shadow">{{ $post->title }}</h1>
+                            <h1 class="text-gray-50 text-[7vw] sm:text-[4vw] md:text-[5vw] lg:text-[4vw] xl:text-[3vw] font-merriweather tracking-wide leading-snug text-shadow">{{ $post->title }}</h1>
                         </div>
                         <div class="text-gray-50 text-sm sm:text-lg tracking-wide">
                             Posted by <img alt="{{ $post->author->name }}" class="w-8 h-8 mx-1 rounded-full inline-flex"
@@ -53,7 +53,7 @@
 
         {{--Post Content--}}
         <article class="h-screen snap-center overflow-y-scroll">
-            <div class="prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mt-6 sm:mt-12 mt-12 w-11/12 sm:mb-24 mx-auto">
+            <div class="prose dark:prose-invert max-w-prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto mt-6 sm:mt-12 sm:mb-24 prose-pre:px-0 sm:prose-pre:px-0 lg:prose-pre:px-0 xl:prose-pre:px-0 2xl:prose-pre:px-0 prose-a:text-pop prose-a:no-underline hover:prose-a:underline dark:hover:prose-a:decoration-pizza-dark prose-code:text-pizza prose-code:bg-pizza/30 dark:prose-code:text-pink-600 dark:prose-code:bg-pink-900/30 prose-code:px-1.5 prose-code:font-roboto-mono prose-code:before:content-none prose-code:after:content-none">
                 {!! $post->content !!}
             </div>
         </article>

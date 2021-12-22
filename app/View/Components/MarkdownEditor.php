@@ -31,7 +31,7 @@ class MarkdownEditor extends Component
             'hideIcons' => ['side-by-side', 'fullscreen', 'guide'],
             'imageAccept' => 'image/png, image/jpeg, image/jpg, image/webp, image/avif',
             'imageMaxSize' => 3 * 1024 * 1024,
-            'previewClass' => 'prose dark:prose-invert prose-2xl',
+            'previewClass' => 'prose dark:prose-invert prose-a:text-pop prose-a:no-underline hover:prose-a:underline dark:hover:prose-a:decoration-pizza-dark prose-code:text-pizza prose-code:bg-pizza/30 dark:prose-code:text-pink-600 dark:prose-code:bg-pink-900/30 prose-code:px-1.5 prose-code:font-roboto-mono prose-code:before:content-none prose-code:after:content-none',
             'promptURLs' => true,
             'showIcons' => ['code', 'table'],
             'status' => false,
