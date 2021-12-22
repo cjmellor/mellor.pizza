@@ -5,7 +5,6 @@ namespace App\Observers;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class PostObserver
 {
@@ -18,12 +17,11 @@ class PostObserver
 
     public function saved(Post $post)
     {
-        if (Cache::has('post.'.$post->id)) {
-            Cache::forget('post.'.$post->id);
-        }
-
-        if (Cache::has('posts.index')) {
-            Cache::forget('posts.index');
-        }
+        collect([
+            'short_posts',
+            sprintf('post.%s', $post->id),
+            sprintf('post.%s', $post->slug),
+            'posts.index',
+        ])->each(fn ($key) => Cache::forget($key));
     }
 }

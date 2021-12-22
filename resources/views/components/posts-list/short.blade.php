@@ -21,10 +21,10 @@
                         </div>
                         <div class="mt-6">
                             <div>
-                                <p class="text-sm font-medium text-gray-900">
-                                    <span class="dark:text-gray-400">{{ $post->author->name }}</span>
+                                <p class="text-sm font-medium text-gray-900 dark:text-gray-400">
+                                    <span>{{ $post->author->name }}</span>
                                 </p>
-                                <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-500">
+                                <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
                                     <time datetime="2020-03-16">
                                         {{ \Carbon\Carbon::parse($post->created_at)->format('jS M, Y') }}
                                     </time>
