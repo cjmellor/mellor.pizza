@@ -1,11 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-    content: [
-        './resources/**/*.{js,vue,blade.php}',
-        './app/Providers/AnimationsServiceProvider.php',
-        './app/View/**/*.php',
-    ],
+    content: ['./resources/**/*.{js,vue,blade.php}', './app/Providers/AnimationsServiceProvider.php', './app/View/**/*.php'],
     theme: {
         extend: {
             animation: {
@@ -38,10 +34,5 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/line-clamp'),
-        require('@tailwindcss/typography'),
-    ],
+    plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/forms'), require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
 };

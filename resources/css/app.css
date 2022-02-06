@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import "tom-select.css";
-@import "easymde.css";
+@import 'tom-select.css';
+@import 'easymde.css';
 
 @tailwind base;
 @tailwind components;
@@ -8,25 +8,25 @@
 
 @layer components {
     .contact-close {
-        @apply absolute w-10 h-10 rounded-full bg-white -top-4 -right-4 dark:bg-pizza-dark cursor-pointer ring-2 ring-pizza dark:ring-pizza-dark ring-offset-2 dark:ring-offset-dark
+        @apply absolute -top-4 -right-4 h-10 w-10 cursor-pointer rounded-full bg-white ring-2 ring-pizza ring-offset-2 dark:bg-pizza-dark dark:ring-pizza-dark dark:ring-offset-dark;
     }
 
     .text-pop {
-        @apply dark:bg-clip-text dark:text-transparent bg-gradient-to-r from-pizza to-amber-400 dark:from-pizza-dark dark:to-indigo-500 text-gray-700 px-1 dark:p-0
+        @apply bg-gradient-to-r from-pizza to-amber-400 px-1 text-gray-700 dark:from-pizza-dark dark:to-indigo-500 dark:bg-clip-text dark:p-0 dark:text-transparent;
     }
 }
 
 @layer utilities {
     .button-pizza {
-        @apply bg-pizza dark:bg-pizza-dark px-4 py-3 rounded-md text-white shadow-md hover:ring-4 hover:ring-offset-2 hover:ring-pizza/80 dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark cursor-pointer
+        @apply cursor-pointer rounded-md bg-pizza px-4 py-3 text-white shadow-md hover:ring-4 hover:ring-pizza/80 hover:ring-offset-2 dark:bg-pizza-dark dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark;
     }
 
     .form-pizza {
-        @apply bg-white dark:bg-[#1f232b] dark:bg-opacity-50 focus:bg-white dark:focus:bg-[#22272e] p-2 border border-gray-200 dark:border-dark-line text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-pizza focus:ring-[#ff810a] dark:focus:border-pizza-dark dark:focus:ring-[#f81281] dark:focus:ring-opacity-50
+        @apply rounded-md border border-gray-200 bg-white p-2 text-lg leading-6 text-gray-500 focus:border-pizza focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#ff810a] focus:ring-opacity-25 dark:border-dark-line dark:bg-[#1f232b] dark:bg-opacity-50 dark:text-gray-50 dark:focus:border-pizza-dark dark:focus:bg-[#22272e] dark:focus:ring-[#f81281] dark:focus:ring-opacity-50 sm:text-sm;
     }
 
     .form-pizza-error {
-        @apply bg-white dark:bg-[#1f232b] dark:bg-opacity-50 dark:focus:bg-[#22272e] p-2 border border-red-400 dark:border-[#fd6f6e] text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-red-500 focus:ring-red-400 dark:focus:border-[#ff7070] dark:focus:ring-[#ff7070] dark:focus:ring-opacity-20
+        @apply rounded-md border border-red-400 bg-white p-2 text-lg leading-6 text-gray-500 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-400 focus:ring-opacity-25 dark:border-[#fd6f6e] dark:bg-[#1f232b] dark:bg-opacity-50 dark:text-gray-50 dark:focus:border-[#ff7070] dark:focus:bg-[#22272e] dark:focus:ring-[#ff7070] dark:focus:ring-opacity-20 sm:text-sm;
     }
 
     .text-shadow {
@@ -48,11 +48,11 @@ body {
 
 /*Torchlight*/
 pre {
-    @apply my-4 rounded overflow-x-auto;
+    @apply my-4 overflow-x-auto rounded;
 }
 
 pre code.torchlight {
-    @apply block py-4 min-w-max;
+    @apply block min-w-max py-4;
 }
 
 pre code.torchlight .line {
@@ -66,8 +66,8 @@ pre code.torchlight .summary-caret {
 
 .torchlight.has-focus-lines .line:not(.line-focus) {
     transition: filter 0.35s, opacity 0.35s;
-    filter: blur(.095rem);
-    opacity: .65;
+    filter: blur(0.095rem);
+    opacity: 0.65;
 }
 
 .torchlight.has-focus-lines:hover .line:not(.line-focus) {
@@ -93,17 +93,17 @@ pre code.torchlight .summary-caret {
 .torchlight .summary-caret-empty::after,
 .torchlight details .summary-caret-middle::after,
 .torchlight details .summary-caret-end::after {
-    content: " ";
+    content: ' ';
 }
 
 /* Show a minus sign when the block is open. */
 .torchlight details[open] .summary-caret-start::after {
-    content: "-";
+    content: '-';
 }
 
 /* And a plus sign when the block is closed. */
 .torchlight details:not([open]) .summary-caret-start::after {
-    content: "+";
+    content: '+';
 }
 
 /* Hide the [...] indicator when open. */
