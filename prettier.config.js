@@ -1,5 +1,5 @@
 module.exports = {
-    printWidth: 80,
+    printWidth: 200,
     tabWidth: 4,
     singleQuote: true,
     trailingComma: 'es5',
@@ -8,5 +8,4 @@ module.exports = {
     braceStyle: 'psr-2',
     requirePragma: false,
     insertPragma: false,
-    tailwindConfig: './tailwind.config.js',
 };
