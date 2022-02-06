@@ -3,7 +3,7 @@
 'lightColor' => 'hsl(29,100%,52%)',
 'livewire' => false,
 'to' => null,
-'underline' => 'true',
+'underline' => true,
 'active' => false,
 ])
 
