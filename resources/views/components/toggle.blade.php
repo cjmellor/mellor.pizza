@@ -13,7 +13,7 @@
 <script async defer>
     document.addEventListener('alpine:init', () => {
         Alpine.data('toggle', () => ({
-            toggle: {{ $enabled }},
-        }))
-    })
+            toggle: {{ $enabled }}
+        }));
+    });
 </script>

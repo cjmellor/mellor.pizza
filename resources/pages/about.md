@@ -1,4 +1,5 @@
 ## Hi there 👋
+
 My name is Chris. I'm a Full Stack Developer and currently living in Leeds in the U.K. 🇬🇧
 
 I have been developing websites for a while now. I remember using WYSIWYG editors like Microsoft FrontPage and Macromedia Dreamweaver (now Adobe). 'Member Geocities? But then I started to be able to read the code, and drag-and-drop tools became a thing of the past.
@@ -12,12 +13,11 @@ It took a while, but I eventually got into the commercial side of this and was a
 You can learn more about my career in IT and development by checking out my [CV](https://mellor.pizza/storage/cv.pdf).
 
 You can find me lurking around some other platforms, such as:
-- [GitHub](https://github.com/cjmellor)
-- [Twitter](https://twitter.com/cmellor)
-- [LinkedIn](https://www.linkedin.com/in/chrismellor1985)
 
-Thanks for stopping by to learn more about me. 
+-   [GitHub](https://github.com/cjmellor)
+-   [Twitter](https://twitter.com/cmellor)
+-   [LinkedIn](https://www.linkedin.com/in/chrismellor1985)
+
+Thanks for stopping by to learn more about me.
 
 Feel free to contact me by clicking "Contact Me" above, or just emailing me at chris@mellor.pizza
-
-

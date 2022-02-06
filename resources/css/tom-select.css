@@ -149,7 +149,7 @@
     color: inherit;
     border-radius: 0 2px 2px 0;
     box-sizing: border-box;
-    @apply align-middle no-underline inline-block px-1.5 ml-1.5 border-l border-pizza dark:border-pizza-dark;
+    @apply ml-1.5 inline-block border-l border-pizza px-1.5 align-middle no-underline dark:border-pizza-dark;
 }
 
 .ts-control.plugin-remove_button .item .remove:hover {
@@ -198,18 +198,18 @@
 }
 
 .ts-input {
-    @apply bg-white dark:bg-[#1f232b] dark:bg-opacity-50 focus:bg-white dark:focus:bg-[#22272e] p-2 border border-gray-200 dark:border-dark-line text-gray-500 dark:text-gray-50 text-lg sm:text-sm leading-6 rounded-md focus:outline-none focus:ring-4 focus:ring-opacity-25 focus:border-pizza focus:ring-[#ff810a] dark:focus:border-pizza-dark dark:focus:ring-[#f81281] dark:focus:ring-opacity-50
-    /*border: 1px solid #d0d0d0;*/
-    /*padding: 8px 8px;*/
-    /*width: 100%;*/
-    /*overflow: hidden;*/
-    /*position: relative;*/
-    /*z-index: 1;*/
-    /*box-sizing: border-box;*/
-    /*box-shadow: none;*/
-    /*border-radius: 3px;*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
+    @apply /*border: 1px solid #d0d0d0;*/ /*padding: 8px 8px;*/ /*width: 100%;*/ /*overflow: hidden;*/ /*position: relative;*/ /*z-index: 1;*/ /*box-sizing: border-box;*/ /*box-shadow: none;*/ /*border-radius: 3px;*/ /*display: flex;*/
+    /*flex-wrap: wrap;*/ rounded-md border
+    border-gray-200 bg-white p-2
+    text-lg leading-6
+    text-gray-500 focus:border-pizza
+    focus:bg-white focus:outline-none
+    focus:ring-4 focus:ring-[#ff810a]
+    focus:ring-opacity-25 dark:border-dark-line
+    dark:bg-[#1f232b] dark:bg-opacity-50
+    dark:text-gray-50 dark:focus:border-pizza-dark
+    dark:focus:bg-[#22272e] dark:focus:ring-[#f81281]
+    dark:focus:ring-opacity-50 sm:text-sm;
 }
 
 .ts-control.multi .ts-input.has-items {
@@ -235,7 +235,7 @@
 }
 
 .ts-control.multi .ts-input > div {
-    @apply mr-1.5 border-0 border-solid cursor-pointer p-1.5 bg-pizza/25 dark:bg-pizza-dark/50;
+    @apply mr-1.5 cursor-pointer border-0 border-solid bg-pizza/25 p-1.5 dark:bg-pizza-dark/50;
 }
 
 .ts-control.multi .ts-input > div.active {
@@ -244,7 +244,8 @@
     border: 0 solid #cacaca;
 }
 
-.ts-control.multi .ts-input.disabled > div, .ts-control.multi .ts-input.disabled > div.active {
+.ts-control.multi .ts-input.disabled > div,
+.ts-control.multi .ts-input.disabled > div.active {
     color: #7d7c7c;
     background: white;
     border: 0 solid white;
@@ -320,7 +321,7 @@
 .ts-dropdown {
     margin: 0.25rem 0 0 0;
     box-sizing: border-box;
-    @apply absolute top-full left-0 border dark:text-dark-gray border-gray-200 dark:border-dark-line rounded-md shadow-xl bg-white dark:bg-dark z-10 w-full;
+    @apply absolute top-full left-0 z-10 w-full rounded-md border border-gray-200 bg-white shadow-xl dark:border-dark-line dark:bg-dark dark:text-dark-gray;
 }
 
 .ts-dropdown [data-selectable] {
@@ -340,7 +341,9 @@
     padding: 10px;
 }
 
-.ts-dropdown .option, .ts-dropdown [data-disabled], .ts-dropdown [data-disabled] [data-selectable].option {
+.ts-dropdown .option,
+.ts-dropdown [data-disabled],
+.ts-dropdown [data-disabled] [data-selectable].option {
     cursor: inherit;
     opacity: 0.5;
 }
@@ -363,7 +366,7 @@
 .ts-dropdown .create:hover,
 .ts-dropdown .option:hover,
 .ts-dropdown .active {
-    @apply bg-pizza/25 dark:bg-pizza-dark/75 text-gray-900 dark:text-gray-300 first:rounded-t-md last:rounded-b-md;
+    @apply bg-pizza/25 text-gray-900 first:rounded-t-md last:rounded-b-md dark:bg-pizza-dark/75 dark:text-gray-300;
 }
 
 .ts-dropdown .create:hover.create,
@@ -384,7 +387,7 @@
 }
 
 .ts-dropdown .spinner:after {
-    content: " ";
+    content: ' ';
     display: block;
     width: 24px;
     height: 24px;
