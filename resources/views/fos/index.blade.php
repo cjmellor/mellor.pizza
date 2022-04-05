@@ -40,9 +40,6 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="py-4">
-                            Something else
-                        </li>
                     </ul>
                 </div>
                 <div class="sm:w-1/2 px-4 sm:px-12">
