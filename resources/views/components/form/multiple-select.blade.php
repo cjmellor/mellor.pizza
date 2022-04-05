@@ -13,7 +13,7 @@
 
 {{--Scripts--}}
 @once
-    <script defer src="https://cdn.jsdelivr.net/npm/tom-select@1.7/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@1.7/dist/js/tom-select.complete.min.js"></script>
 
     <script async defer>
         const multiSelect = (ref) => {
