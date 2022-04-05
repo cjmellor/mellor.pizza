@@ -6,13 +6,13 @@
         <div class="lg:w-2/3 lg:ml-24">
             <div class="flex flex-col h-full justify-center space-y-8 tracking-wider mx-8 lg:mx-0 text-center lg:text-left">
                 <h2 class="text-2xl lg:text-3xl font-merriweather">Hi 👋 I'm <span class="font-extrabold">Chris</span>. I'm a Full Stack Developer.</h2>
-                <div class="space-y-8">
+                <div class="space-y-8 ml-6">
                     <p class="text-xl font-roboto-mono">I build <span class="text-2xl font-merriweather text-pop">Laravel</span> apps</p>
                     <p class="text-xl font-roboto-mono">Using <span class="text-2xl font-merriweather text-pop">Tailwind CSS</span></p>
                     <p class="text-xl font-roboto-mono">
-                        <span class="text-2xl font-merriweather text-pop">Vue.js</span> is best <sup title="In my opinion">*</sup>
+                        <span class="text-2xl font-merriweather text-pop">Alpine.js</span> is best <sup title="In my opinion">*</sup>
                     </p>
-                    <p class="text-xl font-roboto-mono">I ❤️ <span class="text-2xl font-merriweather text-pop">Docker</span></p>
+                    <p class="text-xl font-roboto-mono">I ❤️ <span class="text-2xl font-merriweather text-pop">TALL Stack</span></p>
                     <p class="text-xl font-roboto-mono"><span class="text-2xl font-merriweather text-pop">Linux</span> certified</p>
                     <p class="text-xl font-roboto-mono inline-block">Check out my
                         <x-link to="{{ asset('storage/cv.pdf') }}" underline="false">
