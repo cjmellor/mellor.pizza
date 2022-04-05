@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
-{
+return new class extends Migration {
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
@@ -16,7 +15,10 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->string('excerpt');
             $table->text('post_content')->index();
-            $table->boolean('is_published')->default(false)->index();
+            $table
+                ->boolean('is_published')
+                ->default(false)
+                ->index();
             $table->string('post_image')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -27,4 +29,4 @@ class CreatePostsTable extends Migration
     {
         Schema::dropIfExists('posts');
     }
-}
+};
