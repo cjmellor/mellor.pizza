@@ -44,7 +44,6 @@
                                     @showHide
                                 >
                                     <div class="py-1" role="none">
-                                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                         <a class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
                                            href="{{ route('fos.posts.edit', $post) }}" id="menu-item-0" role="menuitem" tabindex="-1">Edit</a>
                                     </div>
