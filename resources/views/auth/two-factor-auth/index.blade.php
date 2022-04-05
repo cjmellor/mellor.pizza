@@ -16,7 +16,7 @@
         @if (session('status') == 'two-factor-authentication-enabled')
             <x-alert type="success">Two-Factor Authentication is now enabled!</x-alert>
         @endif
-        <x-auth.header>Status</x-auth.header>
+
         <ul class="divide-y-2 divide-gray-100 dark:divide-gray-700" role="list">
             <li class="py-4">
                 <div class="flex justify-between items-center mx-4">
@@ -43,6 +43,23 @@
                         </div>
                         <div>
                             {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                        </div>
+                    </div>
+                </li>
+                <li class="py-4">
+                    <div class="flex justify-between items-center mx-4">
+                        <div class="flex flex-col w-1/2 space-y-2">
+                            <p class="font-medium text-sm text-gray-900 dark:text-gray-300">
+                                Security Code
+                            </p>
+                            <p class="text-sm text-gray-500">
+                                Use this code if you cannot scan a QR code.
+                            </p>
+                        </div>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-dark-line rounded-md">
+                            <ul class="text-sm text-gray-900 dark:text-gray-300 divide-y divide-gray-200 dark:divide-gray-700">
+                                <li class="p-2">{{ decrypt(auth()->user()->two_factor_secret) }}</li>
+                            </ul>
                         </div>
                     </div>
                 </li>
