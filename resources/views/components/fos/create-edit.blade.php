@@ -46,7 +46,7 @@
                                 {{--Excerpt--}}
                                 <div>
                                     <x-form.label for="excerpt">
-                                        <x-form.input for="excerpt" type="text" value="{{ old('excerpt', $post->excerpt) }}"/>
+                                        <x-form.input for="excerpt" type="text" value="{{ old('excerpt', $post->excerpt) }}" />
                                     </x-form.label>
                                 </div>
 
@@ -57,7 +57,7 @@
                                     </x-form.label>
 
                                     {{--File Upload--}}
-                                    <x-form.file-upload :post="$post"/>
+                                    <x-form.file-upload :post="$post" />
                                 </div>
 
                             </div>

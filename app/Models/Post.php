@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\Concerns\Convert;
+use App\Enums\PostStatus;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
-use League\CommonMark\Output\RenderedContentInterface;
 
 class Post extends Model
 {
@@ -49,7 +49,7 @@ class Post extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class)
-            ->orderBy('name');
+            ->oldest('name');
     }
 
     public function scopePublished(Builder $query): Builder
@@ -62,32 +62,38 @@ class Post extends Model
         return $query->where('is_published', PostStatus::Draft);
     }
 
-    public function getContentAttribute(): bool|RenderedContentInterface
+    public function content(): Attribute
     {
-        if ($this->post_content == null) {
-            return false;
-        }
-
-        return $this->convert($this->post_content);
+        return Attribute::make(
+            get: fn () => $this->convert($this->post_content),
+        );
     }
 
-    public function getPublishedAttribute(): bool
+    public function published(): Attribute
     {
-        return $this->is_published;
+        return Attribute::make(
+            get: fn () => $this->is_published,
+        );
     }
 
-    public function getPublishedAtAttribute(): mixed
+    public function publishedAt(): Attribute
     {
-        return $this->created_at;
+        return Attribute::make(
+            get: fn () => $this->created_at,
+        );
     }
 
-    public function getPostImageAttribute(string|null $value): string
+    public function postImage(): Attribute
     {
-        return ! $value == null ? sprintf('post_headers/%s/%s', Str::slug($this->title), $value) : '';
+        return Attribute::make(
+            get: fn ($value) => ! $value == null ? sprintf('post_headers/%s/%s', str()->slug($this->title), $value) : '',
+        );
     }
 
-    public function setSlugAttribute(string $value)
+    public function slug(): Attribute
     {
-        $this->attributes['slug'] = Str::slug($value);
+        return Attribute::make(
+            set: fn ($value) => str()->slug($value),
+        );
     }
 }

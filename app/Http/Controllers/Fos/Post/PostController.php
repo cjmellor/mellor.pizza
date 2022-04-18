@@ -28,7 +28,7 @@ class PostController extends Controller
     {
         app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('fos.fos.index')
+        return to_route('fos.fos.index')
             ->with('alert_status', 'New post created');
     }
 
@@ -42,7 +42,7 @@ class PostController extends Controller
     {
         app(PublishPostAction::class)->handle($post);
 
-        return redirect()->route('fos.fos.index', $post)
+        return to_route('fos.fos.index', $post)
             ->with('alert_status', 'Blog post has been updated');
     }
 
@@ -52,8 +52,7 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()
-            ->route('fos.posts.index')
+        return to_route('fos.posts.index')
             ->with(['alert_status' => 'Blog post has been archived']);
     }
 }
