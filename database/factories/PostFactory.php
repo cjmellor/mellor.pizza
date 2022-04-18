@@ -23,21 +23,21 @@ class PostFactory extends Factory
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->sentence,
             'post_content' => $this->faker->text,
-            'is_published' => false,
+            'is_published' => PostStatus::Draft,
         ];
     }
 
     public function published(): self
     {
         return $this->state(fn () => [
-            'is_published' => true,
+            'is_published' => PostStatus::Published,
         ]);
     }
 
     public function unpublished(): self
     {
         return $this->state(fn () => [
-            'is_published' => false,
+            'is_published' => PostStatus::Draft,
         ]);
     }
 }

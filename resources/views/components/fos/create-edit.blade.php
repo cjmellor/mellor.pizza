@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
-                                            <x-form.checkbox :checked="$post->is_published" name="is_published"/>
+                                            <x-form.checkbox :checked="$post->is_published === \App\Enums\PostStatus::Published" name="is_published" />
                                         </div>
                                         <div class="ml-3 text-sm">
                                             <p class="text-gray-500 dark:text-gray-400">Choose if the post will be published, or a draft</p>

@@ -33,7 +33,7 @@ class Post extends Model
     ];
 
     protected $casts = [
-        'is_published' => 'boolean',
+        'is_published' => PostStatus::class,
     ];
 
     public function author(): BelongsTo
@@ -54,12 +54,12 @@ class Post extends Model
 
     public function scopePublished(Builder $query): Builder
     {
-        return $query->where('is_published', true);
+        return $query->where('is_published', PostStatus::Published);
     }
 
     public function scopeDraft(Builder $query): Builder
     {
-        return $query->where('is_published', false);
+        return $query->where('is_published', PostStatus::Draft);
     }
 
     public function getContentAttribute(): bool|RenderedContentInterface
