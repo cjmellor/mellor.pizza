@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\PostStatus;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -18,7 +19,7 @@ class PostSeeder extends Seeder
             ->for(User::factory(), relationship: 'author')
             ->for(Category::factory())
             ->has(Tag::factory())
-            ->state(new Sequence(fn () => ['is_published' => rand(0, 1)]))
+            ->state(new Sequence(fn () => ['is_published' => rand((int) PostStatus::Draft, (int) PostStatus::Published)]))
             ->create(['user_id' => 1]);
     }
 }

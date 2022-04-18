@@ -13,9 +13,13 @@ class ContactPopup extends Component
     use WithHoney;
 
     public string $contact_name = '';
+
     public string $contact_email = '';
+
     public string $contact_message = '';
+
     public bool $sent = false;
+
     public bool $showContactMePopUp = false;
 
     protected $listeners = ['messageSent'];
