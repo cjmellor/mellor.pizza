@@ -17,11 +17,6 @@ class EventServiceProvider extends ServiceProvider
         Post::observe(PostObserver::class);
     }
 
-    /**
-     * Determine if events and listeners should be automatically discovered.
-     *
-     * @return bool
-     */
     public function shouldDiscoverEvents()
     {
         return false;

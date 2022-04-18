@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class PostObserver
 {
-    public function updated(Post $post)
+    public function updated(Post $post): void
     {
         if (($post->isDirty(attributes: 'slug')) && (! Storage::disk(name: config('filesystems.default'))->exists($post->getOriginal(key: 'slug')))) {
-            Storage::disk(name: config('filesystems.default'))->rename('post_headers/'.$post->getOriginal(key: 'slug'), 'post_headers/'.$post->slug);
+            Storage::disk(name: config('filesystems.default'))->move('post_headers/'.$post->getOriginal(key: 'slug'), 'post_headers/'.$post->slug);
         }
     }
 
-    public function saved(Post $post)
+    public function saved(Post $post): void
     {
         collect([
             'short_posts',

@@ -12,6 +12,7 @@ class BlogPostsList extends Component
     use WithPagination;
 
     public int $perPage = 3;
+
     public bool $viewingAll = false;
 
     public function viewMoreOrLessPosts()
