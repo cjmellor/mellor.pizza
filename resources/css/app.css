@@ -48,7 +48,7 @@ body {
 
 /*Torchlight*/
 pre {
-    @apply my-4 overflow-x-auto rounded;
+    @apply my-4 overflow-x-auto rounded dark:!bg-[#282c34];
 }
 
 pre code.torchlight {
