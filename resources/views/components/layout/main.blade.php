@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mellor.🍕 - {{ $subTitle ?? 'Home' }}</title>
     @yield('openGraph')
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <livewire:styles/>
     @stack('stylesheets')
     <x-fathom-analytics/>
@@ -19,7 +19,6 @@
     <livewire:contact-popup/>
 </div>
 <livewire:scripts/>
-<script async defer src="{{ mix('js/app.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
