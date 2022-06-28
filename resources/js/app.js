@@ -1,7 +1,7 @@
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
 
-require('./bootstrap');
+import './bootstrap';
 
 window.Alpine = Alpine;
 Alpine.plugin(collapse);
