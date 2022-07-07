@@ -7,7 +7,7 @@
         "@prettier/plugin-php": "^0.17.6",
         "autoprefixer": "^10.4.0",
         "axios": "^0.25",
-        "laravel-vite-plugin": "^0.2.3",
+        "laravel-vite-plugin": "^0.3.0",
         "lodash": "^4.17.19",
         "postcss": "^8.4.5",
         "postcss-import": "^14.1.0",
