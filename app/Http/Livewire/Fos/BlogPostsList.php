@@ -48,7 +48,7 @@ class BlogPostsList extends Component
         return view('livewire.fos.blog-posts-list', [
             'posts' => Post::select(['id', 'title', 'excerpt'])
                 ->orderByDesc(column: 'id')
-                ->paginate($this->perPage),
+                ->fastPaginate($this->perPage),
         ]);
     }
 }

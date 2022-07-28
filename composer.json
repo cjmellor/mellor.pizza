@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
+        "hammerstone/fast-paginate": "^0.1.0",
         "larabug/larabug": "^2.4",
         "laravel/fortify": "^1.7",
         "laravel/framework": "^9.2",
