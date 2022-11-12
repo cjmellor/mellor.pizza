@@ -10,7 +10,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <livewire:styles/>
     @stack('stylesheets')
-    <x-fathom-analytics/>
 </head>
 <body>
 <x-toast/>
