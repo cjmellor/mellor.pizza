@@ -16,6 +16,6 @@ trait Convert
 
         $converter = new MarkdownConverter($environment);
 
-        return $converter->convertToHtml($content);
+        return $converter->convert($content);
     }
 }
