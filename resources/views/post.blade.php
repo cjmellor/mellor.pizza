@@ -16,7 +16,7 @@
     @endif
 
     {{--Post Meta--}}
-    <div class="h-screen overflow-y-scroll snap-y snap-mandatory">
+    <div class="h-screen overflow-y-scroll snap-y snap-mandatory overscroll-contain">
         <header class="h-screen snap-start">
             <div class="relative">
                 <div class="h-screen bg-auto sm:bg-cover bg-no-repeat bg-center blur-sm"
