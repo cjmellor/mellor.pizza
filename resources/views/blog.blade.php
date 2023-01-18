@@ -5,11 +5,11 @@
         <meta name="description" content="All blog posts written on Chris Mellors' blog">
     @endsection
 
-    <div class="space-y-12 sm:mt-12 mb-16 divide-y dark:divide-gray-700">
+    <div class="space-y-8 sm:space-y-12 mt-12 mb-16 divide-y dark:divide-gray-700">
         @forelse($posts as $post)
             <div class="w-11/12 sm:w-full mx-auto sm:mx-0">
-                <div class="flex flex-col space-y-10 pt-16 sm:pt-12 dark:text-dark-gray tracking-wider">
-                    <div class="flex flex-col-reverse sm:flex-row justify-between">
+                <div class="flex flex-col space-y-10 sm:pt-12 dark:text-dark-gray tracking-wider">
+                    <div class="flex flex-col sm:flex-row justify-between">
                         <div class="space-y-6">
                             <div class="flex items-center space-x-4 mt-8 sm:mt-0">
                                 <div>
@@ -25,7 +25,7 @@
                             <div class="dark:text-dark-gray/70 text-lg">{{ $post->excerpt }}</div>
                         </div>
                         @if($post->post_image)
-                            <div class="max-h-4">
+                            <div class="hidden sm:block max-h-4">
                                 <img alt="{{ $post->title }}" class="w-full sm:w-64 sm:h-32 object-cover rounded-md shadow-xl"
                                      src="{{ Storage::disk(config('filesystems.default'))->url($post->post_image) }}">
                             </div>
@@ -39,7 +39,7 @@
             </div>
         @endforelse
     </div>
-    <div class="mb-12">
+    <div class="mb-12 mx-4 sm:mx-0">
         {{ $posts->links() }}
     </div>
 </x-layout.main>

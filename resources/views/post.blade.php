@@ -16,8 +16,8 @@
     @endif
 
     {{--Post Meta--}}
-    <div class="h-screen overflow-y-scroll snap-y snap-mandatory overscroll-contain">
-        <header class="h-screen snap-start">
+    <div class="h-screen overscroll-contain">
+        <header class="h-screen">
             <div class="relative">
                 <div class="h-screen bg-auto sm:bg-cover bg-no-repeat bg-center blur-sm"
                      style="background-image: url({{ Storage::disk(config('filesystems.default'))->url($post->post_image) }})">
@@ -52,8 +52,8 @@
         </header>
 
         {{--Post Content--}}
-        <article class="h-screen snap-center overflow-y-scroll">
-            <div class="prose dark:prose-invert max-w-prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto mt-6 sm:mt-12 sm:mb-24 prose-pre:px-0 sm:prose-pre:px-0 lg:prose-pre:px-0 xl:prose-pre:px-0 2xl:prose-pre:px-0 prose-a:text-pop prose-a:no-underline hover:prose-a:underline dark:hover:prose-a:decoration-pizza-dark prose-code:text-pizza prose-code:bg-pizza/30 dark:prose-code:text-pink-600 dark:prose-code:bg-pink-900/30 prose-code:px-1.5 prose-code:font-roboto-mono prose-code:before:content-none prose-code:after:content-none">
+        <article class="h-screen">
+            <div class="prose dark:prose-invert max-w-prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-4 sm:mx-auto mt-6 sm:mt-12 sm:mb-24 prose-pre:px-0 sm:prose-pre:px-0 lg:prose-pre:px-0 xl:prose-pre:px-0 2xl:prose-pre:px-0 prose-a:text-pop prose-a:no-underline hover:prose-a:underline dark:hover:prose-a:decoration-pizza-dark prose-code:text-pizza prose-code:bg-pizza/30 dark:prose-code:text-pink-600 dark:prose-code:bg-pink-900/30 prose-code:px-1.5 prose-code:font-roboto-mono prose-code:before:content-none prose-code:after:content-none">
                 {!! $post->content !!}
             </div>
         </article>
