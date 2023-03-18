@@ -10,7 +10,7 @@ class PostObserver
 {
     public function updated(Post $post): void
     {
-        if (($post->isDirty(attributes: 'slug')) && (! Storage::disk(name: config('filesystems.default'))->exists($post->getOriginal(key: 'slug')))) {
+        if ($post->isDirty(attributes: 'slug') && (! Storage::disk(name: config('filesystems.default'))->exists($post->getOriginal(key: 'slug')))) {
             Storage::disk(name: config('filesystems.default'))->move('post_headers/'.$post->getOriginal(key: 'slug'), 'post_headers/'.$post->slug);
         }
     }
