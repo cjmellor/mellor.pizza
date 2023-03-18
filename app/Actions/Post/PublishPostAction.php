@@ -69,7 +69,7 @@ class PublishPostAction
         return Str::random().'.'.$this->postRequest->file('post_image')->extension();
     }
 
-    public function addOrUpdateTags(): array
+    protected function addOrUpdateTags(): array
     {
         $tags = Tag::all();
 
