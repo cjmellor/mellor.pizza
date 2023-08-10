@@ -5,6 +5,12 @@ use App\Http\Controllers\BlogIndexController;
 use App\Http\Controllers\Posts\ShowPostController;
 use Illuminate\Support\Facades\Route;
 
+Route::domain('test.mellor.pizza')->group(function () {
+    Route::get('/', function () {
+        return 'Subdomain Route';
+    });
+});
+
 Route::view('/', 'index')->name('homepage');
 
 Route::view('/about', 'about')->name('about');
