@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Cache;
 
 class BlogIndexController extends Controller
 {
+    /**
+     * @var int
+     */
     public const PER_PAGE = 10;
 
     public function __invoke(): View

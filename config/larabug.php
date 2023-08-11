@@ -84,7 +84,7 @@ return [
     */
 
     'except' => [
-        'Symfony\Component\HttpKernel\Exception\NotFoundHttpException',
+        \Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class,
     ],
 
     /*

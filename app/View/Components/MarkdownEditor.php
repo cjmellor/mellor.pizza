@@ -21,7 +21,7 @@ class MarkdownEditor extends Component
 
     public function optionsToJson(): string
     {
-        return empty($this->defaultOptions()) ? '' : ', ...'.json_encode($this->defaultOptions());
+        return empty($this->defaultOptions()) ? '' : ', ...'.json_encode($this->defaultOptions(), JSON_THROW_ON_ERROR);
     }
 
     public function defaultOptions(): array
