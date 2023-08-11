@@ -42,10 +42,10 @@ class PostRequest extends FormRequest
     {
         return [
             'title.required' => 'A Post needs a title',
-            'title.max' => "A Post title can't exceed 255 characters",
+            'title.max' => 'A Post title can\'t exceed 255 characters',
             'excerpt.required' => 'You need to write an excerpt',
-            'excerpt.max' => "The excerpt can't exceed 255 characters",
-            'category_id.required' => "You have't chosen a category",
+            'excerpt.max' => 'The excerpt can\'t exceed 255 characters',
+            'category_id.required' => 'You have\'t chosen a category',
             'tag_id.required' => 'You need to add some tags',
             'post_content.required' => 'A Post needs content',
             'post_image.image' => 'This must be an image file (jpg, jpeg, webp, png, avif)',

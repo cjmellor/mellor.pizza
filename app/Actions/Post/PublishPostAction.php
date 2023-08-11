@@ -81,7 +81,6 @@ class PublishPostAction
                         'name' => Str::slug($postTags),
                     ]);
                 }
-
                 return (string) $tag->id;
             })
             ->toArray();

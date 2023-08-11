@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function getAvatarPathAttribute(): string
     {
-        return $this->avatar ?: sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5((string) $this->email));
+        return $this->avatar ?: sprintf('https://secure.gravatar.com/avatar/%s?s=200', md5($this->email));
     }
 
     public function getTwoFactorEnabledAttribute(): bool
