@@ -11,13 +11,11 @@ use Illuminate\Support\Str;
 
 class PublishPostAction
 {
-    public function __construct(
-        public PostRequest $postRequest,
-        public Post $post
-    ) {
+    public function __construct(public PostRequest $postRequest, public Post $post)
+    {
     }
 
-    public function handle($post)
+    public function handle(Post $post): void
     {
         $post->author()->associate(auth()->user()->id);
         $post->category()->associate($this->postRequest->category_id);
@@ -27,7 +25,7 @@ class PublishPostAction
         $post->slug = $this->postRequest->title;
         $post->is_published = (bool) $this->postRequest->is_published;
 
-        if (! $this->postRequest->has('post_image') && (! $this->postRequest->has('post_header_delete'))) {
+        if (! $this->postRequest->has('post_image') && ! $this->postRequest->has('post_header_delete')) {
             $post->post_image = $this->deleteUnusedImage();
         }
 
@@ -41,14 +39,13 @@ class PublishPostAction
         $post->tags()->sync($this->addOrUpdateTags());
     }
 
-    private function deleteUnusedImage()
+    private function deleteUnusedImage(): ?bool
     {
-        Storage::disk(config('filesystems.default'))
-            ->deleteDirectory('post_headers/'.Str::slug($this->postRequest->title));
-
         if (! $this->postRequest->has('post_image_delete')) {
             return null;
         }
+
+        return Storage::disk(config('filesystems.default'))->deleteDirectory('post_headers/'.Str::slug($this->postRequest->title));
     }
 
     protected function uploadPostHeader(): bool|string
@@ -58,8 +55,7 @@ class PublishPostAction
             $this->deleteUnusedImage();
         }
 
-        $this->postRequest->file('post_image')
-            ->storeAs('post_headers/'.Str::slug($this->postRequest->title), $filename = $this->getFilename(), config('filesystems.default'));
+        $this->postRequest->file('post_image')->storeAs('post_headers/'.Str::slug($this->postRequest->title), $filename = $this->getFilename(), config('filesystems.default'));
 
         return $filename;
     }
@@ -74,9 +70,8 @@ class PublishPostAction
         $tags = Tag::all();
 
         return collect($this->postRequest->tag_id)
-            ->map(function ($postTags) use ($tags): string {
+            ->map(static function ($postTags) use ($tags): string {
                 $tag = $tags->firstWhere('id', $postTags);
-
                 if (is_null($tag)) {
                     if (Cache::has('tags')) {
                         Cache::forget('tags');
@@ -86,8 +81,8 @@ class PublishPostAction
                         'name' => Str::slug($postTags),
                     ]);
                 }
-
                 return (string) $tag->id;
-            })->toArray();
+            })
+            ->toArray();
     }
 }

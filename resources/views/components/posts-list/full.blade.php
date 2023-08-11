@@ -1,5 +1,5 @@
 <div>
-    @foreach($posts as $post)
+    @foreach ($posts as $post)
         <ul>
             <li>
                 <x-link to="{{ route('fos.posts.show', $post) }}">{{ $post->title }}</x-link>

@@ -1,5 +1,9 @@
-<form action="{{ $action }}" {{ $attributes->merge(['method' => 'post']) }} method="{{ $method }}">
-    @if($csrf)
+<form
+    action="{{ $action }}"
+    {{ $attributes->merge(['method' => 'post']) }}
+    method="{{ $method }}"
+>
+    @if ($csrf)
         @csrf
     @endif
 

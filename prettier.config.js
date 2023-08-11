@@ -1,11 +1,22 @@
 module.exports = {
-    printWidth: 200,
-    tabWidth: 4,
-    singleQuote: true,
-    trailingComma: 'es5',
-    phpVersion: '8.0',
-    trailingCommaPHP: true,
     braceStyle: 'psr-2',
-    requirePragma: false,
     insertPragma: false,
+    overrides: [
+        {
+            files: ['*.blade.php'],
+            options: {
+                tabWidth: 4,
+                parser: 'blade'
+            }
+        }
+    ],
+    phpVersion: '8.1',
+    printWidth: 300,
+    requirePragma: false,
+    singleQuote: true,
+    sortHtmlAttributes: 'code-guide',
+    tabWidth: 4,
+    trailingComma: 'es5',
+    trailingCommaPHP: true,
+    wrapAttributes: 'force-expand-multiline'
 };
