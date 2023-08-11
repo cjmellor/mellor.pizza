@@ -17,7 +17,7 @@ class BlogPostsList extends Component
 
     public function viewMoreOrLessPosts()
     {
-        if (!$this->viewingAll) {
+        if (! $this->viewingAll) {
             return $this->getAllBlogPosts();
         }
 

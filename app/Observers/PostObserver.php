@@ -10,7 +10,7 @@ class PostObserver
 {
     public function updated(Post $post): void
     {
-        if (!$post->isDirty(attributes: 'slug')) {
+        if (! $post->isDirty(attributes: 'slug')) {
             return;
         }
         if (Storage::disk(name: config('filesystems.default'))->exists($post->getOriginal(key: 'slug'))) {
