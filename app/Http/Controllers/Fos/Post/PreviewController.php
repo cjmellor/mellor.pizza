@@ -12,7 +12,7 @@ class PreviewController extends Controller
     public function __invoke($post): View
     {
         $post = Cache::rememberForever(
-            key: "post.{$post}",
+            key: "post.$post",
             callback: fn () => Post::where('id', $post)->first()
         );
 
