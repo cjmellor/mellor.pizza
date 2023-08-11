@@ -1,9 +1,12 @@
 @props([
     'for' => null,
-    'text'
+    'text',
 ])
 
-<label {{ $attributes->class(['block text-sm font-medium text-gray-700 dark:text-gray-300']) }} for="{{ $for }}">
+<label
+    for="{{ $for }}"
+    {{ $attributes->class(['block text-sm font-medium text-gray-700 dark:text-gray-300']) }}
+>
     {{ $text ?? Str::ucfirst($for) }}
 
     {{ $slot }}

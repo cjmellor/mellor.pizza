@@ -15,7 +15,7 @@ class Alert extends Component
 
     public function render(): Closure
     {
-        return function (array $data) {
+        return function (array $data): string {
             $this->type = $this->setType($this->type);
 
             return 'components.alert';
@@ -24,6 +24,8 @@ class Alert extends Component
 
     public function setType(string $type): string
     {
+        $data = [];
+
         return $data['attributes'] = match ($type) {
             'info' => 'info',
             'success' => 'success',

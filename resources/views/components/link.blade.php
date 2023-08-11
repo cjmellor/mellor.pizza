@@ -1,25 +1,27 @@
 @props([
-'darkColor' => 'hsl(331,94%,52%)',
-'lightColor' => 'hsl(29,100%,52%)',
-'livewire' => false,
-'to' => null,
-'underline' => true,
-'active' => false,
+    'darkColor' => 'hsl(331,94%,52%)',
+    'lightColor' => 'hsl(29,100%,52%)',
+    'livewire' => false,
+    'to' => null,
+    'underline' => true,
+    'active' => false,
 ])
 
-{{--Template--}}
+{{-- Template --}}
 <div class="inline-flex underline-animate-container">
-    <a {{ $attributes->class([
-    'underline-animate-link' => $underline,
-    'border-pizza dark:border-pizza-dark text-gray-900 dark:text-gray-200' => $active,
-    'border-transparent text-gray-500 hover:text-gray-700 dark:text-slate-400 hover:dark:text-slate-200' => !$active,
-    ]) }}
-       @unless($livewire) href="{{ $to }} @endunless">
+    <a
+        {{ $attributes->class([
+            'underline-animate-link' => $underline,
+            'border-pizza dark:border-pizza-dark text-gray-900 dark:text-gray-200' => $active,
+            'border-transparent text-gray-500 hover:text-gray-700 dark:text-slate-400 hover:dark:text-slate-200' => !$active,
+        ]) }}
+        @unless($livewire) href="{{ $to }} @endunless"
+    >
         {{ $slot }}
     </a>
 </div>
 
-{{--Styles--}}
+{{-- Styles --}}
 @push('stylesheets')
     @once
         <style>
@@ -41,6 +43,7 @@
             }
 
             @media (prefers-color-scheme: dark) {
+
                 .underline-animate-container .underline-animate-link::before,
                 .underline-animate-container .underline-animate-link::after {
                     background-color: {{ $darkColor }};
@@ -53,13 +56,12 @@
             }
 
             /*.underline-animate-link::before {
-                left: 50%;
-            }
+                        left: 50%;
+                    }
 
-            .underline-animate-link::after {
-                right: 50%;
-            }*/
-
+                    .underline-animate-link::after {
+                        right: 50%;
+                    }*/
             .underline-animate-container:hover .underline-animate-link::before,
             .underline-animate-container:hover .underline-animate-link::after {
                 /*width: 50%;*/

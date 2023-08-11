@@ -1,8 +1,11 @@
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 parameters:
+    level: 6
+    excludePaths:
+        analyse:
+            - app/Actions/Fortify
     paths:
         - app
-    level: 5
-    checkModelProperties: true
-    checkOctaneCompatibility: true
+    reportUnmatchedIgnoredErrors: true
+
