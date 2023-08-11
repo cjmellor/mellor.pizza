@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 <div>
     <div class="pb-10 sm:pb-20 px-4 sm:px-6 lg:pb-12 lg:px-8">
         <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
@@ -5,11 +6,14 @@
                 @forelse($posts as $post)
                     <div class="sm:space-y-6">
                         <div>
-                            @foreach($post->tags as $tag)
+                            @foreach ($post->tags as $tag)
                                 <x-pill>{{ $tag->name }}</x-pill>
                             @endforeach
                         </div>
-                        <x-link to="{{ route('post.show', $post->slug) }}" class="block mt-4">
+                        <x-link
+                                class="block mt-4"
+                                to="{{ route('post.show', $post->slug) }}"
+                        >
                             <p class="text-2xl sm:text-xl font-semibold text-gray-900 dark:text-gray-400">
                                 {{ $post->title }}
                             </p>
@@ -26,7 +30,7 @@
                                 </p>
                                 <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
                                     <time datetime="2020-03-16">
-                                        {{ \Carbon\Carbon::parse($post->created_at)->format('jS M, Y') }}
+                                        {{ Carbon::parse($post->created_at)->format('jS M, Y') }}
                                     </time>
                                 </div>
                             </div>

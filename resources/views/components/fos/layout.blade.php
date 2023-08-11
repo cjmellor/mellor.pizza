@@ -1,17 +1,26 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+    <meta
+        name="csrf-token"
+        content="{{ csrf_token() }}"
+    >
     <title>Mellor.🍕 - Fortress of Solitude :: {{ $title ?? 'Home' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <livewire:styles/>
+    <livewire:styles />
     @stack('stylesheets')
 </head>
+
 <body>
-{{ $slot }}
-<livewire:scripts/>
-@stack('scripts')
+    {{ $slot }}
+    <livewire:scripts />
+    @stack('scripts')
 </body>
+
 </html>

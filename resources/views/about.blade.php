@@ -1,8 +1,14 @@
-<x-layout.main container subTitle="About Chris Mellor">
+<x-layout.main
+    container
+    subTitle="About Chris Mellor"
+>
     <x-header></x-header>
 
     @section('meta-description')
-        <meta name="description" content="Some random developer on the Internet">
+        <meta
+            name="description"
+            content="Some random developer on the Internet"
+        >
     @endsection
 
     <main>

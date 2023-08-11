@@ -1,13 +1,19 @@
 @php
-    $isTwoFaEnabled = auth()->user()->two_factor_enabled
+    $isTwoFaEnabled = auth()->user()->two_factor_enabled;
 @endphp
 
-<x-layout.main container subTitle="Two Factor Authentication">
+<x-layout.main
+    container
+    subTitle="Two Factor Authentication"
+>
     <x-auth.container class="mx-auto sm:max-w-2xl">
         <x-slot name="breadcrumbs">
-            <x-breadcrumbs class="mb-6" :lists="[
-                'Home' => route('fos.fos.index'),
-            ]" />
+            <x-breadcrumbs
+                class="mb-6"
+                :lists="[
+                    'Home' => route('fos.fos.index'),
+                ]"
+            />
         </x-slot>
         @if (session('status') == 'two-factor-authentication-disabled')
             <x-alert type="error">You have disabled Two-Factor Authentication. It is advised that you re-enable this.</x-alert>
@@ -17,15 +23,24 @@
             <x-alert type="success">Two-Factor Authentication is now enabled!</x-alert>
         @endif
 
-        <ul class="divide-y-2 divide-gray-100 dark:divide-gray-700" role="list">
+        <ul
+            class="divide-y-2 divide-gray-100 dark:divide-gray-700"
+            role="list"
+        >
             <li class="py-4">
                 <div class="flex justify-between items-center mx-4">
                     <p class="font-medium text-sm text-gray-900 dark:text-gray-300">
                         Enable Two-Factor Authentication
                     </p>
                     <div>
-                        <x-form.form action="/user/two-factor-authentication" :method="$isTwoFaEnabled ? 'delete' : 'post'">
-                            <x-toggle :enabled="$isTwoFaEnabled" type="submit" />
+                        <x-form.form
+                            action="/user/two-factor-authentication"
+                            :method="$isTwoFaEnabled ? 'delete' : 'post'"
+                        >
+                            <x-toggle
+                                type="submit"
+                                :enabled="$isTwoFaEnabled"
+                            />
                         </x-form.form>
                     </div>
                 </div>
@@ -75,7 +90,7 @@
                         </div>
                         <div class="bg-white dark:bg-dark border border-gray-300 dark:border-dark-line rounded-md">
                             <ul class="text-sm text-gray-900 dark:text-gray-300 divide-y divide-gray-200 dark:divide-gray-700">
-                                @foreach(auth()->user()->recoveryCodes() as $recoveryCode)
+                                @foreach (auth()->user()->recoveryCodes() as $recoveryCode)
                                     <li class="p-2">{{ $recoveryCode }}</li>
                                 @endforeach
                             </ul>
