@@ -25,6 +25,7 @@ class Alert extends Component
     public function setType(string $type): string
     {
         $data = [];
+
         return $data['attributes'] = match ($type) {
             'info' => 'info',
             'success' => 'success',
