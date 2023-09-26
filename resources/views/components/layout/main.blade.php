@@ -8,7 +8,7 @@
     <title>Mellor.🍕 - {{ $subTitle ?? 'Home' }}</title>
     @yield('openGraph')
     @production
-        <script async defer data-website-id="1b7cefd4-6779-49e3-9be3-f2ea9ed470e1" src="https://stats.mellor.pizza/umami.js"></script>
+        <script async src="https://stats.mellor.pizza/script.js" data-website-id="1b7cefd4-6779-49e3-9be3-f2ea9ed470e1"></script>
     @endproduction
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <livewire:styles/>
