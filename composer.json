@@ -10,34 +10,38 @@
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.5",
-        "hammerstone/fast-paginate": "^0.1.12",
+        "hammerstone/fast-paginate": "^1.1",
         "larabug/larabug": "^3.0",
         "laravel/fortify": "^1.16",
-        "laravel/framework": "^10.4.1",
-        "laravel/sanctum": "3.2",
+        "laravel/framework": "^11.0",
+        "laravel/sanctum": "4.0",
         "laravel/tinker": "^2.8.1",
         "league/flysystem-aws-s3-v3": "^3.12.2",
-        "livewire/livewire": "^2.12.3",
-        "lukeraymonddowning/honey": "^0.5.0",
-        "torchlight/torchlight-commonmark": "^0.5.5"
+        "livewire/livewire": "^3.4",
+        "lukeraymonddowning/honey": "^1.0",
+        "torchlight/torchlight-commonmark": "dev-main"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8.1",
         "fakerphp/faker": "^1.21",
-        "laravel/pint": "^0.2.4",
-        "laravel/sail": "^1.21.2",
         "mockery/mockery": "^1.5.1",
-        "nunomaduro/collision": "^7.1.2",
-        "nunomaduro/larastan": "^2.5.1",
-        "nunomaduro/patrol": "^1.1",
+        "nunomaduro/collision": "^8.1",
+        "larastan/larastan": "^2.9.0",
+        "laravel/pint": "^1.13",
         "phpunit/phpunit": "^10.0.16",
-        "rector/rector": "^0.15.21",
+        "rector/rector": "^1.0",
         "spatie/laravel-ignition": "^2.0"
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
+    },
+    "repositories": {
+        "local": {
+            "type": "vcs",
+            "url": "https://github.com/cjmellor/torchlight-commonmark-php"
+        }
     },
     "extra": {
         "laravel": {
