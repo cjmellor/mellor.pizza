@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.8.1",
         "league/flysystem-aws-s3-v3": "^3.12.2",
         "livewire/livewire": "^3.4",
-        "lukeraymonddowning/honey": "^1.0"
+        "lukeraymonddowning/honey": "^1.0",
+        "torchlight/torchlight-commonmark": "dev-main"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8.1",
@@ -35,6 +36,12 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
+    },
+    "repositories": {
+        "local": {
+            "type": "vcs",
+            "url": "https://github.com/cjmellor/torchlight-commonmark-php"
+        }
     },
     "extra": {
         "laravel": {
