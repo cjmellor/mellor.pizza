@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-module.exports = {
+export default {
     content: [
         './resources/**/*.{js,vue,blade.php}',
         './app/Providers/AnimationsServiceProvider.php',
@@ -41,7 +41,6 @@ module.exports = {
     plugins: [
         require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/forms'),
-        require('@tailwindcss/line-clamp'),
         require('@tailwindcss/typography')
     ]
 };

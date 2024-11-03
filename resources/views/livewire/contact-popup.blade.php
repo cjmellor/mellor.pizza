@@ -1,8 +1,8 @@
 <div
-    class="relative max-w-full md:max-w-screen-md lg:max-w-screen-xl p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-dark-focus border border-gray-300 dark:border-dark-line-lighter border-b-0"
+    class="max-w-full md:max-w-screen-md lg:max-w-screen-xl p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-dark-focus border border-gray-300 dark:border-dark-line-lighter border-b-0"
     @slideUp()
     x-data="{
-        showContactMePopUp: @entangle('showContactMePopUp').defer
+        showContactMePopUp: @entangle('showContactMePopUp').live
     }"
     x-show="showContactMePopUp"
     x-on:click.away="showContactMePopUp = false"
@@ -25,7 +25,7 @@
     </div>
     {{-- End --}}
 
-    <x-form.form wire:submit.prevent="send">
+    <x-form.form wire:submit="send">
         <div class="space-y-5">
             <div>
                 <label
@@ -38,7 +38,7 @@
                     class="sm:w-1/2"
                     for="contact_name"
                     type="text"
-                    wire:model.lazy="contact_name"
+                    wire:model.live.blur="contact_name"
                 />
             </div>
             <div>
@@ -52,7 +52,7 @@
                     class="sm:w-1/2"
                     for="contact_email"
                     type="email"
-                    wire:model.lazy="contact_email"
+                    wire:model.live.blur="contact_email"
                 />
                 <x-honey />
             </div>
@@ -67,7 +67,7 @@
                     for="contact_message"
                     cols="30"
                     rows="10"
-                    wire:model.lazy="contact_message"
+                    wire:model.live.blur="contact_message"
                 ></x-form.textarea>
             </div>
             <div class="w-full sm:w-1/2 flex justify-end">

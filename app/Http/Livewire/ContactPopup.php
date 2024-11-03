@@ -46,12 +46,10 @@ class ContactPopup extends Component
         $validated = $this->validate();
 
         if ($this->honeyPasses() === false) {
-            $this->dispatchBrowserEvent(
+            $this->dispatch(
                 event: 'send-toast',
-                data: [
-                    'messageContent' => 'Something went wrong!',
-                    'type' => 'error',
-                ]
+                messageContent: 'Something went wrong!',
+                type: 'error',
             );
 
             return;
@@ -62,11 +60,9 @@ class ContactPopup extends Component
 
         sleep(seconds: 1);
 
-        $this->dispatchBrowserEvent(
+        $this->dispatch(
             event: 'send-toast',
-            data: [
-                'messageContent' => 'Message sent!',
-            ]
+            messageContent: 'Message sent!',
         );
 
         $this->showContactMePopUp = false;
