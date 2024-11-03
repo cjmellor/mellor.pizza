@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title')->index();
             $table->string('slug')->unique();
             $table->string('excerpt');
-            $table->text('post_content')->index();
+            $table->text('post_content');
             $table->boolean('is_published')->default(false)->index();
             $table->string('post_image')->nullable();
             $table->timestamps();

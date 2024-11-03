@@ -19,7 +19,7 @@ class PostSeeder extends Seeder
             ->for(User::factory(), relationship: 'author')
             ->for(Category::factory())
             ->has(Tag::factory())
-            ->state(new Sequence(fn () => ['is_published' => rand((int) PostStatus::Draft, (int) PostStatus::Published)]))
+            ->state(new Sequence(fn () => ['is_published' => rand(PostStatus::Draft->value, PostStatus::Published->value)]))
             ->create(['user_id' => 1]);
     }
 }

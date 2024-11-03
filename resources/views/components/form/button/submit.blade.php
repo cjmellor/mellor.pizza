@@ -1,6 +1,8 @@
 @props(['to'])
 
-<button {{ $attributes->class('button-pizza') }}
-    type="submit">
+<button
+    type="submit"
+    {{ $attributes->class('button-pizza') }}
+>
     {{ $slot }}
 </button>
