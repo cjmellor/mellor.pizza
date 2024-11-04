@@ -1,19 +1,19 @@
 <x-layout.main
     container
-    subTitle="About Chris Mellor"
+    subTitle="Chris Mellors' CV"
 >
     <x-header></x-header>
 
     @section('meta-description')
         <meta
             name="description"
-            content="Some random developer on the Internet"
+            content="Read about Chris Mellors' experience and skills"
         >
     @endsection
 
     <main>
         <div class="container my-24 mx-auto sm:my-16 prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2x">
-            {!! Str::markdown(File::get(resource_path('pages/about.md'))) !!}
+            derp
         </div>
     </main>
 </x-layout.main>
