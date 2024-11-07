@@ -45,7 +45,7 @@
                 <div class="ml-6 space-y-8">
                     <p class="md:text-xl">🏗️ I build rock-solid web applications</p>
                     <p class="md:text-xl">
-                        🚀 I specialize in PHP backends that scale, with expertise in
+                        🚀 I specialise in PHP backends that scale, with expertise in
                         <span class="font-semibold">Laravel</span> and the
                         <span class="font-semibold">TALL</span>stack.
                         I turn complex problems into elegant, tested solutions.
