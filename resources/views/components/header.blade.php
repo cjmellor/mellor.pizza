@@ -1,24 +1,27 @@
-<header>
-    <div class="flex flex-col md:flex-row justify-evenly h-16 items-center space-y-8 md:space-y-0">
+<header class="print:hidden">
+    <div
+        class="flex h-16 flex-col items-center justify-around space-y-8 sm:mx-20 md:flex-row md:space-y-0"
+    >
         <div class="w-full lg:w-5/12 xl:w-1/3">
-            <a href="{{ route('homepage') }}">
-                <h2 class="font-anton text-6xl md:text-5xl tracking-wider text-center md:text-left uppercase text-pizza dark:text-pizza-dark drop-shadow-lg">
+            <a href="{{ route("homepage") }}">
+                <h2
+                    class="text-center font-anton text-6xl uppercase tracking-wider text-pizza drop-shadow-lg md:text-left md:text-5xl dark:text-pizza-dark"
+                >
                     Chris.Mellor
                 </h2>
             </a>
         </div>
-        <div class="flex md:items-center justify-evenly md:justify-between w-full lg:w-5/12 xl:w-1/3 font-roboto-mono text-xl">
-            <div class="uppercase tracking-wider">
-                <x-link :to="route('about')">About.Me</x-link>
+        <div
+            class="flex w-full justify-evenly px-6 font-roboto-mono uppercase tracking-wider md:items-center md:px-0 md:text-xl lg:w-7/12 xl:w-2/3"
+        >
+            <div>
+                <x-link to="{{ route('blog') }}">Articles</x-link>
             </div>
-            <div class="uppercase tracking-wider">
-                <x-link to="{{ route('blog') }}">Blog</x-link>
+            <div>
+                <x-link to="{{ route('cv') }}">View CV</x-link>
             </div>
-            <div class="uppercase tracking-wider">
-                <x-link
-                    x-data
-                    x-on:click.prevent="$dispatch('show-contact')"
-                >
+            <div>
+                <x-link x-data x-on:click.prevent="$dispatch('show-contact')">
                     Contact.Me
                 </x-link>
             </div>

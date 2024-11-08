@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index')->name('homepage');
 
-Route::view('/about', 'about')->name('about');
+Route::view('/cv', 'cv')->name('cv');
 
 Route::view('/two-factor-auth', 'auth.two-factor-auth.index')->name('two-factor-auth');
 
