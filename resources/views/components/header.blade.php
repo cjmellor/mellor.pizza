@@ -1,4 +1,4 @@
-<header>
+<header class="print:hidden">
     <div
         class="flex h-16 flex-col items-center justify-around space-y-8 sm:mx-20 md:flex-row md:space-y-0"
     >
