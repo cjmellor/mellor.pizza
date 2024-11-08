@@ -180,7 +180,7 @@
         </section>
 
         <!-- Professional Experience -->
-        <section class="print:space-y-6">
+        <section class="space-y-4 sm:space-y-0 print:space-y-6">
             <h2 class="text-2xl font-bold text-pizza print:text-black dark:text-pizza-dark">
                 Professional Experience
             </h2>
