@@ -188,7 +188,7 @@
         </section>
 
         <!-- Professional Experience -->
-        <section class="space-y-4 sm:space-y-0 print:space-y-6">
+        <section class="space-y-8 sm:space-y-0 print:space-y-6">
             <h2
                 class="text-2xl font-bold text-pizza dark:text-pizza-dark print:text-black"
             >
