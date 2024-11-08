@@ -117,7 +117,7 @@
             <p
                 class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300"
             >
-                Laravel developer with 5 years of commercial experience creating
+                Full-stack developer with 5 years of commercial experience creating
                 SaaS platforms and eCommerce solutions. My expertise lies in the
                 Laravel ecosystem, though I readily adapt to other modern
                 development stacks when needed. I focus on writing clean,
