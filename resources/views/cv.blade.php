@@ -9,9 +9,7 @@
     @endsection
 
     <!-- Main container -->
-    <main
-        class="container relative my-20 space-y-8 px-3.5 md:px-24"
-    >
+    <main class="container relative my-20 space-y-8 px-3.5 md:px-24">
         {{-- Print button --}}
         <div
             class="hidden xl:absolute xl:right-0 xl:top-0 xl:block print:hidden"
@@ -42,7 +40,7 @@
                 {{-- Email --}}
                 <a
                     href="mailto:chris@mellor.pizza"
-                    class="flex items-center gap-2 text-pizza print:text-black print:text-black hover:underline hover:opacity-80 dark:text-pizza-dark"
+                    class="flex items-center gap-2 text-pizza hover:underline hover:opacity-80 dark:text-pizza-dark print:text-black"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +62,7 @@
                 {{-- GitHub --}}
                 <a
                     href="https://github.com/cjmellor"
-                    class="flex items-center gap-2 text-pizza print:text-black print:text-black hover:underline hover:opacity-80 dark:text-pizza-dark"
+                    class="flex items-center gap-2 text-pizza hover:underline hover:opacity-80 dark:text-pizza-dark print:text-black"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +86,7 @@
                 {{-- X --}}
                 <a
                     href="https://x.com/cmellor"
-                    class="flex items-center gap-2 text-pizza print:text-black print:text-black hover:opacity-80 dark:text-pizza-dark"
+                    class="flex items-center gap-2 text-pizza hover:opacity-80 dark:text-pizza-dark print:text-black"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -111,16 +109,18 @@
 
         <!-- Professional Summary -->
         <section>
-            <h2 class="mb-4 text-2xl font-bold text-pizza print:text-black dark:text-pizza-dark">
+            <h2
+                class="mb-4 text-2xl font-bold text-pizza dark:text-pizza-dark print:text-black"
+            >
                 Professional Summary
             </h2>
             <p
                 class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300"
             >
-                Laravel developer with 5 years of commercial experience creating
-                SaaS platforms and eCommerce solutions. My expertise lies in the
-                Laravel ecosystem, though I readily adapt to other modern
-                development stacks when needed. I focus on writing clean,
+                Full-stack developer with 5 years of commercial experience
+                creating SaaS platforms and eCommerce solutions. My expertise
+                lies in the Laravel ecosystem, though I readily adapt to other
+                modern development stacks when needed. I focus on writing clean,
                 maintainable code backed by solid testing practices. My approach
                 combines practical solutions with modern development techniques
                 to deliver robust, well-structured applications.
@@ -129,16 +129,20 @@
 
         <!-- Technical Skills -->
         <section>
-            <h2 class="mb-4 text-2xl font-bold text-pizza print:text-black dark:text-pizza-dark">
+            <h2
+                class="mb-4 text-2xl font-bold text-pizza dark:text-pizza-dark print:text-black"
+            >
                 Technical Skills
             </h2>
 
             <div class="grid gap-6 md:grid-cols-3 print:grid-cols-1">
                 <!-- Primary Stack -->
                 <div
-                    class="rounded-lg bg-pizza/5 p-6 shadow-pizza/50 ring-1 ring-pizza/20 dark:bg-dark dark:ring-dark-line print:bg-transparent print:ring-0 print:p-0 print:px-4"
+                    class="rounded-lg bg-pizza/5 p-6 shadow-pizza/50 ring-1 ring-pizza/20 dark:bg-dark dark:ring-dark-line print:bg-transparent print:p-0 print:px-4 print:ring-0"
                 >
-                    <h3 class="mb-3 font-bold text-pizza print:text-black dark:text-pizza-dark">
+                    <h3
+                        class="mb-3 font-bold text-pizza dark:text-pizza-dark print:text-black"
+                    >
                         Primary Stack
                     </h3>
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
@@ -151,9 +155,11 @@
 
                 <!-- Additional Technologies -->
                 <div
-                    class="rounded-lg bg-pizza/5 p-6 shadow-pizza/50 ring-1 ring-pizza/20 dark:bg-dark dark:ring-dark-line print:bg-transparent print:ring-0 print:p-0 print:px-4"
+                    class="rounded-lg bg-pizza/5 p-6 shadow-pizza/50 ring-1 ring-pizza/20 dark:bg-dark dark:ring-dark-line print:bg-transparent print:p-0 print:px-4 print:ring-0"
                 >
-                    <h3 class="mb-3 font-bold text-pizza print:text-black dark:text-pizza-dark">
+                    <h3
+                        class="mb-3 font-bold text-pizza dark:text-pizza-dark print:text-black"
+                    >
                         Additional Technologies
                     </h3>
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
@@ -167,9 +173,11 @@
 
                 <!-- Development Environment -->
                 <div
-                    class="rounded-lg bg-pizza/5 p-6 shadow-pizza/50 ring-1 ring-pizza/20 dark:bg-dark dark:ring-dark-line print:bg-transparent print:ring-0 print:p-0 print:px-4"
+                    class="rounded-lg bg-pizza/5 p-6 shadow-pizza/50 ring-1 ring-pizza/20 dark:bg-dark dark:ring-dark-line print:bg-transparent print:p-0 print:px-4 print:ring-0"
                 >
-                    <h3 class="mb-3 font-bold text-pizza print:text-black dark:text-pizza-dark">
+                    <h3
+                        class="mb-3 font-bold text-pizza dark:text-pizza-dark print:text-black"
+                    >
                         Development Environment
                     </h3>
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
@@ -180,19 +188,19 @@
         </section>
 
         <!-- Professional Experience -->
-        <section class="print:space-y-6">
-            <h2 class="text-2xl font-bold text-pizza print:text-black dark:text-pizza-dark">
+        <section class="space-y-8 sm:space-y-0 print:space-y-6">
+            <h2
+                class="text-2xl font-bold text-pizza dark:text-pizza-dark print:text-black"
+            >
                 Professional Experience
             </h2>
 
             <!-- 59club Ltd -->
-            <div
-                class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2"
-            >
+            <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
                         <h3
-                            class="text-xl font-bold text-pizza print:text-black dark:text-pizza-dark"
+                            class="text-xl font-bold text-pizza dark:text-pizza-dark print:text-black"
                         >
                             Laravel Developer
                         </h3>
@@ -243,13 +251,11 @@
             </div>
 
             <!-- Jump24 Ltd -->
-            <div
-                class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2"
-            >
+            <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
                         <h3
-                            class="text-xl font-bold text-pizza print:text-black dark:text-pizza-dark"
+                            class="text-xl font-bold text-pizza dark:text-pizza-dark print:text-black"
                         >
                             PHP Developer
                         </h3>
@@ -291,13 +297,11 @@
             </div>
 
             <!-- Interior Goods Direct -->
-            <div
-                class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2"
-            >
+            <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
                         <h3
-                            class="text-xl font-bold text-pizza print:text-black dark:text-pizza-dark"
+                            class="text-xl font-bold text-pizza dark:text-pizza-dark print:text-black"
                         >
                             Full-stack Developer
                         </h3>
@@ -337,13 +341,11 @@
             </div>
 
             <!-- VOODOO -->
-            <div
-                class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2"
-            >
+            <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
                         <h3
-                            class="text-xl font-bold text-pizza print:text-black dark:text-pizza-dark"
+                            class="text-xl font-bold text-pizza dark:text-pizza-dark print:text-black"
                         >
                             Full-stack Developer
                         </h3>
@@ -382,13 +384,11 @@
                 </ul>
             </div>
 
-            <div
-                class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2"
-            >
+            <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
                         <h3
-                            class="text-xl font-bold text-pizza print:text-black dark:text-pizza-dark"
+                            class="text-xl font-bold text-pizza dark:text-pizza-dark print:text-black"
                         >
                             Technical Engineer
                         </h3>
@@ -436,7 +436,9 @@
 
         <!-- Industry Engagement & Open Source -->
         <section>
-            <h2 class="mb-4 text-2xl font-bold text-pizza print:text-black dark:text-pizza-dark">
+            <h2
+                class="mb-4 text-2xl font-bold text-pizza dark:text-pizza-dark print:text-black"
+            >
                 Industry Engagement & Open Source
             </h2>
             <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-3">
@@ -457,7 +459,9 @@
 
         <!-- Interests -->
         <section>
-            <h2 class="mb-4 text-2xl font-bold text-pizza print:text-black dark:text-pizza-dark">
+            <h2
+                class="mb-4 text-2xl font-bold text-pizza dark:text-pizza-dark print:text-black"
+            >
                 Interests
             </h2>
             <div class="rounded-lg bg-white md:p-6 dark:bg-dark print:md:p-3">
